@@ -12,6 +12,7 @@
     --warning-color: #FF9500; 
     --primary-font-family: inter,sans-serif;
     --secondary-font-family: jetbrains mono,monospace;   
+    --general-transition: all 0.2s ease-in-out;
 }
 *{
     box-sizing: border-box;
@@ -30,10 +31,31 @@ body{
 }
 a{
     text-decoration: none;
+    color: var(--primary-color);
 }
 h1,h2,h3,h4,h5,h6,p{
     margin: 0;
 }
+.primary-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: none;
+    border: none;
+    color: var(--primary-text-color);
+    text-transform: capitalize;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    font-weight: 700;
+    transition: var(--general-transition);
+}
+.primary-button:hover{
+    background-color: var(--secondary-color);
+}
+
+
 
 
 

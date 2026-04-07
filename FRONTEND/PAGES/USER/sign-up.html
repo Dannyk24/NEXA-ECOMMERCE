@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXA USER AUTH</title>
+    <link rel="icon" href="../../ASSETS/IMAGES/favicon-white.svg">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/style.css">
+    <link rel="stylesheet" href="../../CSS/CUSTOM/SHARED/auth.css">
+    <link rel="stylesheet" href="../../ASSETS/fontawesome/css/all.min.css">
+</head>
+<body>
+    <div class="wrapper authentication-page-wrapper">
+        <div class="left-section">
+            <div class="top-light"></div>
+            <h1 class="form-header" id="sign-up-form-header">Welcome to Nexa</h1>
+            <p class="form-subheader">Your curated selection awaits you, sign up now</p>
+            <form action="#" id="sign-up-auth-form">
+                <div class="auth-form-input-field-container">
+                    <label for="username">username</label>
+                    <input type="text" required placeholder="johndoek24">
+                </div>
+                <div class="auth-form-input-field-container">
+                    <label for="email">email address</label>
+                    <input type="email" required placeholder="name@example.com">
+                </div>
+                <div class="auth-form-input-field-container">
+                    <label for="password">password</label>
+                    <div>
+                        <input type="password" required placeholder="Password">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                </div>
+                <div class="auth-form-input-field-container">
+                    <label for="confirm-password">confirm password</label>
+                    <div>
+                        <input type="password" required placeholder="Confirm Password">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                </div>
+                <a href="#" class="form-submit-button primary-button">sign up</a>
+                <span>I already have an account. <a href="login.html">Log in</a></span>
+            </form>
+        </div>
+        <div class="right-section">
+            <div class="background-video-container">
+                <video src="../../ASSETS/VIDEOS/LOGIN-PAGE-BACKGROUND-VIDEO-2.mp4" autoplay muted loop playsinline></video>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../BACKEND/AUTH/auth.js" type="module"></script>
+</body>
+</html>
