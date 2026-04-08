@@ -1,0 +1,103 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    border-bottom: 1px solid rgb(85, 83, 83);
+    border-radius: 0 0 8px 8px;
+    padding: 20px 30px;
+    position: fixed;
+}
+.menu-toggle-mobile{
+    display: none;
+}
+.top-light{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    box-shadow: 0px 6px 100px 3px var(--primary-color);
+}
+nav{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.nav-item{
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    transition: var(--general-transition);
+    cursor: pointer;
+}
+.nav-item:hover{
+    color: var(--primary-color);
+    font-size: 15px;
+}
+.header-right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.search-bar-container{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.search-bar-container i{
+    left: 20px;
+    position: absolute;
+    font-size: 11px;
+    opacity: 0.5;
+}
+.search-bar-container input{
+    background: none;
+    border: none;
+    height: 42px;
+    width: 250px;
+    background-color: var(--surface-color);
+    color: var(--primary-text-color);
+    padding-left: 45px;
+    border-radius: 100px;
+    border: 1px solid rgb(101, 101, 101);
+    padding-right: 20px;
+}
+.search-bar-container input:focus{
+    outline: 2px solid var(--primary-color);
+    border: none;
+}
+.login-icon{
+    padding: 10px;
+    border-radius: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--general-transition);
+    cursor: pointer;
+}
+.login-icon:hover{
+    background-color: var(--primary-color);
+}
+
+@media(max-width:1024px){
+    header{
+        padding: 10px 20px;
+    }
+    .logo{
+        display: none;
+    }
+    nav{
+        display: none;
+    }
+    .menu-toggle-mobile{
+        display: flex;
+    }
+    .header-right{
+        gap: 10px;
+    }
+    .search-bar-container input{
+        width: 200px;
+        height: 40px;
+    }
+}

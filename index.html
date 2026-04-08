@@ -4,10 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEXA HOMEPAGE</title>
-    <link rel="stylesheet" href="FRONTEND/CSS/GLOBAL/.css">
+    <link rel="stylesheet" href="FRONTEND/CSS/GLOBAL/style.css">
+    <link rel="stylesheet" href="FRONTEND/CSS/GLOBAL/header.css">
+    <link rel="stylesheet" href="FRONTEND/CSS/index.css">
+    <link rel="stylesheet" href="FRONTEND/ASSETS/fontawesome/css/all.min.css">
+    <link rel="shortcut icon" href="FRONTEND/ASSETS/IMAGES/favicon-white.svg" type="image/x-icon">
 </head>
 <body>
-    
+    <div class="wrapper">
+        <header>
+            <div class="menu-toggle-mobile"><i class="fas fa-bars"></i></div>
+            <div class="top-light"></div>
+            <div class="header-left">
+                <div class="logo"><a href="index.html"><img src="FRONTEND/ASSETS/IMAGES/nexa-logo.svg" alt=""></a></div>
+            </div>
+            <div class="header-middle">
+                <nav>
+                    <div class="nav-item">home</div>
+                    <div class="nav-item">products</div>
+                    <div class="nav-item">contact</div>
+                    <div class="nav-item">about us</div>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="search-bar-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search products....">
+                </div>
+                <div class="login-icon">
+                    <i class="fas fa-user"></i>
+                </div>               
+            </div>
+        </header>
+    </div>
+
     <script src="FRONTEND/SCRIPTS/app.js" type="module"></script>
 </body>
 </html>
