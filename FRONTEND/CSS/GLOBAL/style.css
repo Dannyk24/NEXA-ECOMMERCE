@@ -11,7 +11,7 @@
     --danger-color: #FF3B30;  
     --warning-color: #FF9500; 
     --primary-font-family: inter,sans-serif;
-    --secondary-font-family: jetbrains mono,monospace;   
+    --secondary-font-family: poppins,monospace;   
     --general-transition: all 0.2s ease-in-out;
 }
 *{
