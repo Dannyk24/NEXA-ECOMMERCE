@@ -7,6 +7,9 @@ header{
     border-radius: 0 0 8px 8px;
     padding: 20px 30px;
     position: fixed;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    z-index: 100;
 }
 .menu-toggle-mobile{
     display: none;
@@ -31,7 +34,14 @@ nav{
     transition: var(--general-transition);
     cursor: pointer;
 }
+.nav-item a{
+    color: white;
+}
 .nav-item:hover{
+    color: var(--primary-color);
+    font-size: 15px;
+}
+.active-nav-item a{
     color: var(--primary-color);
     font-size: 15px;
 }
@@ -75,6 +85,7 @@ nav{
     align-items: center;
     transition: var(--general-transition);
     cursor: pointer;
+    color: var(--primary-text-color);
 }
 .login-icon:hover{
     background-color: var(--primary-color);
