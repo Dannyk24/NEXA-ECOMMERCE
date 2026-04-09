@@ -51,11 +51,44 @@
                 </div>
                 <div class="right-section">
                     <img src="FRONTEND/ASSETS/IMAGES/DESIGN-IMAGES/jeffrey-betts-pUjD3S0XcGc-unsplash.jpg" alt="image-carousel-images">
+                    <img src="FRONTEND/ASSETS/IMAGES/DESIGN-IMAGES/ales-nesetril-Im7lZjxeLhg-unsplash.jpg" alt="">
+                    <img src="FRONTEND/ASSETS/IMAGES/DESIGN-IMAGES/rich-tervet-q2GNdFmhxx4-unsplash.jpg" alt="">
+                    <img src="FRONTEND/ASSETS/IMAGES/DESIGN-IMAGES/techietech-tech-6ZXP-5-jJts-unsplash.jpg" alt="">
                 </div>
+            </section>
+
+            <section id="products-section">
+                <section id="product-categories-sub-section">
+                    <h2 class="section-header">curated categories</h2>
+                    <div class="section-subheader">View products from our main categories</div>
+                    <div class="product-categories-container">
+                        <div class="tech-accessories-container category-container">
+                            <img src="FRONTEND/ASSETS/IMAGES/DESIGN-IMAGES/omid-armin-gSZCLsE7ysc-unsplash.jpg" alt="">
+                            <span>tech accessories</span>
+                        </div>
+                        <div class="line"></div>
+                        <div class="stationery-container category-container">
+                            <img src="FRONTEND/ASSETS/IMAGES/DESIGN-IMAGES/aaron-burden-xG8IQMqMITM-unsplash.jpg" alt="">
+                            <span>stationery items</span>
+                        </div>
+                    </div>
+                </section>
             </section>
         </main>
     </div>
 
-    <script src="FRONTEND/SCRIPTS/app.js" type="module"></script>
+    <script>
+        const header = document.querySelector('header')
+        let currentScrollPosition = 0
+        window.addEventListener('scroll',(e)=>{
+            if(window.scrollY > currentScrollPosition && window.scrollY>150){
+                header.classList.add('header-hidden')
+            }
+            else{
+                header.classList.remove('header-hidden')
+            }
+            currentScrollPosition = window.scrollY
+        })
+    </script>
 </body>
 </html>

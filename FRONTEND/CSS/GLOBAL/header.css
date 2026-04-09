@@ -10,6 +10,13 @@ header{
     background: transparent;
     backdrop-filter: blur(15px);
     z-index: 100;
+    opacity: 1;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+}
+.header-hidden{
+    top: -100px;
+    opacity: 0;
 }
 .menu-toggle-mobile{
     display: none;
@@ -36,8 +43,9 @@ nav{
 }
 .nav-item a{
     color: white;
+    transition: var(--general-transition);
 }
-.nav-item:hover{
+.nav-item a:hover{
     color: var(--primary-color);
     font-size: 15px;
 }
@@ -91,6 +99,8 @@ nav{
     background-color: var(--primary-color);
 }
 
+
+/*MEDIA QUERIES*/
 @media(max-width:1024px){
     header{
         padding: 10px 20px;
