@@ -20,10 +20,10 @@
             </div>
             <div class="header-middle">
                 <nav>
-                    <div class="nav-item">home</div>
-                    <div class="nav-item">products</div>
-                    <div class="nav-item">contact</div>
-                    <div class="nav-item">about us</div>
+                    <div class="nav-item active-nav-item"><a href="index.html">home</a></div>
+                    <div class="nav-item"><a href="#">products</a></div>
+                    <div class="nav-item"><a href="#">contact</a></div>
+                    <div class="nav-item"><a href="#">about us</a></div>
                 </nav>
             </div>
             <div class="header-right">
@@ -31,11 +31,29 @@
                     <i class="fas fa-search"></i>
                     <input type="text" placeholder="Search products....">
                 </div>
-                <div class="login-icon">
+                <a class="login-icon" href="FRONTEND/PAGES/USER/login.html">
                     <i class="fas fa-user"></i>
-                </div>               
+                </a>               
             </div>
         </header>
+        <main>
+            <section id="intro-section">
+                <div class="left-section">
+                    <h1 class="main-header">Smarter Tech. <span>Everyday Essentials.</span></h1>
+                    <p class="main-subheader">Discover a curated collection of tech accessories and stationery  <span>
+                        designed to fit seamlessly into your daily life
+                    </span> — combining functionality, style, and reliability in one place.
+                    </p>
+                    <div class="cta-container">
+                        <a class="cta primary-cta" href="FRONTEND/PAGES/USER/login.html">Shop now<i class="fas fa-arrow-right"></i></a>
+                        <a class="cta secondary-cta" href="#">Contact Us</a>
+                    </div>
+                </div>
+                <div class="right-section">
+                    <img src="FRONTEND/ASSETS/IMAGES/DESIGN-IMAGES/jeffrey-betts-pUjD3S0XcGc-unsplash.jpg" alt="image-carousel-images">
+                </div>
+            </section>
+        </main>
     </div>
 
     <script src="FRONTEND/SCRIPTS/app.js" type="module"></script>
