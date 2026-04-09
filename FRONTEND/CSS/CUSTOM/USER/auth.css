@@ -110,7 +110,9 @@ span{
     margin-top: 20px;
 }
 
-
+span a{
+    color: var(--primary-color);
+}
 
 
 
