@@ -20,7 +20,7 @@ This project was built to practice frontend development using HTML, CSS, and Jav
 
 ## 🧑‍💻 Built With
 
-* HTML%
+* HTML5
 * CSS
 * JavaScript
 * Handbrake(for video optimization)
