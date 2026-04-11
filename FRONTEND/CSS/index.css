@@ -319,6 +319,111 @@ body{
 .add-to-cart-btn:hover{
     background-color: var(--secondary-color);
 }
+#about-us-section{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 80px;
+}
+#company-description-sub-section{
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    position: relative;
+    height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    flex-direction: column;
+    padding: 30px;
+    transition: var(--general-transition);
+}
+#company-description-sub-section:hover{
+    img{
+        filter: blur(0px);
+    }
+}
+#company-description-sub-section img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    opacity: 0.4;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(4px);
+    transition: var(--general-transition);
+}
+#company-description-sub-section p{
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 60px;
+    max-width: 600px;
+    margin-top: auto;
+    line-height: 80px;
+}
+#company-description-sub-section span{
+    font-size: 18px;
+    font-family: var(--secondary-font);
+    margin-top: 18px;
+    line-height: 37px;
+    max-width: 800px;
+}
+.alternate-cta{
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    background-color: rgb(239, 236, 236);
+    color: black;
+    border-radius: 200px;
+    font-weight: 600;
+    width: fit-content;
+    font-size: 15px;
+    gap: 6px;
+    transition: var(--general-transition);
+    cursor: pointer;
+}
+.alternate-cta:hover{
+    translate:  5px 0;
+    background-color: white;
+}
+.explore-collection-button{
+    margin-top: 20px;
+    transition: var(--general-transition);
+}
+.explore-collection-button i{
+    margin-top: 3px;
+    font-size: 14px;
+    transition: var(--general-transition);
+}
+.explore-collection-button:hover{
+    i{
+        translate:  5px 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media(max-width:1024px){
@@ -416,5 +521,18 @@ body{
     }
     .product-categories-container{
         margin-top: 40px;
+    }
+    #company-description-sub-section{
+        padding-bottom: 30px;
+        height: 500px;
+    }
+    #company-description-sub-section p{
+        font-size: 30px;
+        max-width: 350px;
+        line-height: 50px;
+    }
+    #company-description-sub-section span{
+        font-size: 14px;
+        margin-top: 10px;
     }
 }
