@@ -9,7 +9,7 @@ body{
     align-items: top;
     gap: 20px;
 }
-.left-section{
+#intro-section .left-section{
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -63,7 +63,7 @@ body{
 .secondary-cta{
     border: 2px solid var(--primary-color);
 }
-.right-section{
+#intro-section .right-section{
     width: 85%;
     height: 85%;
     display: flex;
@@ -73,10 +73,10 @@ body{
     border-radius: 30px;
     max-height: 377.812px;
 }
-.right-section::-webkit-scrollbar{
+#intro-section .right-section::-webkit-scrollbar{
     display: none;
 }
-.right-section img{
+#intro-section .right-section img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -85,7 +85,7 @@ body{
     opacity: 0.5;
     user-select: none;
 }
-.right-section img:hover{
+#intro-section .right-section img:hover{
     scale: 1.2;
     opacity: 0.7;
 }
@@ -427,7 +427,60 @@ body{
     font-size: 17px;
     line-height: 40px;
     font-weight: 500;
-    font-family: jetbrains mono;
+    font-family: var(--secondary-font-family);
+}
+#nexa-standard-sub-section{
+    margin-top: 10px;
+}
+#nexa-standard-sub-section .top{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 20px;
+}
+.nexa-standard-sub-section-card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    padding-top: 30px;
+    background-color: var(--surface-color);
+    border-radius: 15px;
+}
+.nexa-standard-sub-section-card div{
+    font-size: 25px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.nexa-standard-sub-section-card span{
+    line-height: 40px;
+    margin-top: 10px;
+    font-family: var(--secondary-font-family);
+}
+#nexa-standard-sub-section .bottom{
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    gap: 20px;
+}
+#precision-first-card{
+    background-color: rgb(90, 4, 90);
+    background: linear-gradient(to left, rgb(62, 3, 62) 1%,rgb(14, 8, 24) 100%)
+}
+#built-to-last-card{
+    background: linear-gradient(to right, rgb(9, 9, 125) 1%,rgb(14, 8, 24) 100%);
+}
+#minimal-by-design-card{
+    background: linear-gradient(to left, rgb(7, 105, 84) 1%,rgb(14, 8, 24) 100%)
+}
+#everyday-excellence-card{
+    background: linear-gradient(to right, rgb(78, 74, 74) 1%,rgb(14, 8, 24) 100%);
+}
+
+
+#nexa-standard-sub-section .bottom{
+    margin-top: 20px;
 }
 
 
@@ -456,14 +509,14 @@ body{
         align-items: center;
         gap: 30px;
     }
-    .left-section{
+    #intro-section .left-section{
         text-align: center;
     }
     .cta-container{
         justify-content: center;
         margin-top: 20px;
     }
-    .right-section{
+    #intro-section .right-section{
         display: flex;
         align-items: center;
         justify-content: start;
@@ -474,12 +527,12 @@ body{
         padding: 0 20px;
         margin-top: 40px;
     }
-    .right-section img{
+    #intro-section .right-section img{
         width: 300px;
         height: 300px;
         transition: all 0.4s ease-in-out;
     }
-    .right-section img:hover{
+    #intro-section .right-section img:hover{
         width: 120%;
         scale: 1;
     }
@@ -520,6 +573,12 @@ body{
     .product-description{
         min-width: 20px;
     }
+    #nexa-standard-sub-section .top{
+        grid-template-columns: 1fr;
+    }
+    #nexa-standard-sub-section .bottom{
+        grid-template-columns: 1fr;
+    }
 }
 
 @media(max-width:550px){
@@ -532,7 +591,7 @@ body{
     .main-subheader{
         font-size: 15px;
     }
-    .right-section img{
+    #intro-section .right-section img{
         width: 240px;
         height: 240px;
     }
@@ -564,5 +623,8 @@ body{
     }
     #our-mission-sub-section p span{
         font-size: 14px;
+    }
+    .nexa-standard-sub-section-card div{
+        font-size: 20px;
     }
 }
