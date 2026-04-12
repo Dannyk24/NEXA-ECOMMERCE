@@ -41,15 +41,15 @@ nav{
     transition: var(--general-transition);
     cursor: pointer;
 }
-.nav-item a{
+.nav-item{
     color: white;
     transition: var(--general-transition);
 }
-.nav-item a:hover{
+.nav-item:hover{
     color: var(--primary-color);
     font-size: 15px;
 }
-.active-nav-item a{
+.active-nav-item{
     color: var(--primary-color);
     font-size: 15px;
 }
