@@ -6,36 +6,37 @@
     <title>NEXA HOMEPAGE</title>
     <link rel="stylesheet" href="FRONTEND/CSS/GLOBAL/style.css">
     <link rel="stylesheet" href="FRONTEND/CSS/GLOBAL/header.css">
+    <link rel="stylesheet" href="FRONTEND/CSS/GLOBAL/footer.css">
     <link rel="stylesheet" href="FRONTEND/CSS/index.css">
     <link rel="stylesheet" href="FRONTEND/ASSETS/fontawesome/css/all.min.css">
     <link rel="shortcut icon" href="FRONTEND/ASSETS/IMAGES/favicon-white.svg" type="image/x-icon">
 </head>
 <body>
+    <header>
+        <div class="menu-toggle-mobile"><i class="fas fa-bars"></i></div>
+        <div class="top-light"></div>
+        <div class="header-left">
+            <div class="logo"><a href="index.html"><img src="FRONTEND/ASSETS/IMAGES/nexa-logo.svg" alt=""></a></div>
+        </div>
+        <div class="header-middle">
+            <nav>
+                <div class="nav-item active-nav-item"><a href="index.html">home</a></div>
+                <div class="nav-item"><a href="#">products</a></div>
+                <div class="nav-item"><a href="#">about us</a></div>
+                <div class="nav-item"><a href="#">contact us</a></div>
+            </nav>
+        </div>
+        <div class="header-right">
+            <div class="search-bar-container">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search products....">
+            </div>
+            <a class="login-icon" href="FRONTEND/PAGES/USER/login.html">
+                <i class="fas fa-user"></i>
+            </a>               
+        </div>
+    </header>
     <div class="wrapper">
-        <header>
-            <div class="menu-toggle-mobile"><i class="fas fa-bars"></i></div>
-            <div class="top-light"></div>
-            <div class="header-left">
-                <div class="logo"><a href="index.html"><img src="FRONTEND/ASSETS/IMAGES/nexa-logo.svg" alt=""></a></div>
-            </div>
-            <div class="header-middle">
-                <nav>
-                    <div class="nav-item active-nav-item"><a href="index.html">home</a></div>
-                    <div class="nav-item"><a href="#">products</a></div>
-                    <div class="nav-item"><a href="#">about us</a></div>
-                    <div class="nav-item"><a href="#">contact us</a></div>
-                </nav>
-            </div>
-            <div class="header-right">
-                <div class="search-bar-container">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search products....">
-                </div>
-                <a class="login-icon" href="FRONTEND/PAGES/USER/login.html">
-                    <i class="fas fa-user"></i>
-                </a>               
-            </div>
-        </header>
         <main>
             <section id="intro-section">
                 <div class="left-section">
@@ -354,6 +355,43 @@
             </section>
         </main>
     </div>
+    <footer>
+        <div class="footer-top">
+            <div class="site-summary">
+                <div class="logo">
+                    <img src="FRONTEND/ASSETS/IMAGES/nexa-logo.svg" alt="">
+                </div>
+                <div class="title">curating modern living through architectural design and functional beauty</div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-header">shop</div>
+                <a href="#">collections</a>
+                <a href="#">products</a>
+                <a href="#">arrivals</a>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-header">support</div>
+                <a href="#">contact us</a>
+                <a href="#">faq's</a>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-header">socials</div>
+                <a href="#">whatsapp</a>
+                <a href="#">instagram</a>
+                <a href="#">twitter</a>
+                <a href="#">telegram</a>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-header">account</div>
+                <a href="#">log in</a>
+                <a href="#">sign up</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">© <span class="current-year">2026</span> Nexa Editorial. All rights reserved</div>
+        </div>
+    </footer>
+
 
     <script>
         const header = document.querySelector('header')
