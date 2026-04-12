@@ -406,6 +406,30 @@ body{
         translate:  5px 0;
     }
 }
+#our-mission-sub-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+    gap: 20px;
+    background-color: var(--surface-color);
+    border-radius: 20px;
+    padding: 30px 20px;
+}
+#our-mission-sub-section p{
+    font-size: 50px;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+#our-mission-sub-section span{
+    font-size: 17px;
+    line-height: 40px;
+    font-weight: 500;
+    font-family: jetbrains mono;
+}
+
 
 
 
@@ -534,5 +558,11 @@ body{
     #company-description-sub-section span{
         font-size: 14px;
         margin-top: 10px;
+    }
+    #our-mission-sub-section p{
+        font-size: 30px;
+    }
+    #our-mission-sub-section p span{
+        font-size: 14px;
     }
 }
