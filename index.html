@@ -38,7 +38,7 @@
     </header>
     <div class="wrapper">
         <main>
-            <section id="intro-section">
+            <section id="home-section" data-section="home" class="js-main-sections">
                 <div class="left-section">
                     <h1 class="main-header">Smarter Tech. <span>Everyday Essentials.</span></h1>
                     <p class="main-subheader">Discover a curated collection of tech accessories and stationery  <span>
@@ -58,7 +58,7 @@
                 </div>
             </section>
 
-            <section id="products-section">
+            <section id="products-section" data-section="products" class="js-main-sections">
                 <div id="product-categories-sub-section">
                     <h2 class="section-header">curated categories</h2>
                     <div class="section-subheader">View products from our main categories</div>
@@ -207,7 +207,7 @@
                 </div>
             </section>
 
-            <section id="about-us-section">
+            <section id="about-us-section" data-section="about-us" class="js-main-sections">
                 <div id="company-description-sub-section">
                     <img src="FRONTEND/ASSETS/IMAGES/DESIGN-IMAGES/christopher-gower-_aXa21cf7rY-unsplash.jpg" alt="background-image">
                     <p id="company-description-header">craftsmanship in every detail</p>
@@ -245,7 +245,7 @@
                 </div>
             </section>
 
-            <section id="contact-us-section">
+            <section id="contact-us-section" data-section="contact-us" class="js-main-sections">
                 <div class="left-section">
                     <div class="top">
                         <h6 class="contact-us-form-header">
@@ -392,20 +392,6 @@
         </div>
     </footer>
 
-
-    <script>
-        const header = document.querySelector('header')
-        let currentScrollPosition = 0
-        window.addEventListener('scroll',(e)=>{
-            if(window.scrollY > currentScrollPosition && window.scrollY>150){
-                header.classList.add('header-hidden')
-            }
-            else{
-                header.classList.remove('header-hidden')
-            }
-            currentScrollPosition = window.scrollY
-        })
-    </script>
     <script src="FRONTEND/SCRIPTS/app.js"></script>
 </body>
 </html>

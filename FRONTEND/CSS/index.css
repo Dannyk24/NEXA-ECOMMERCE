@@ -1,12 +1,12 @@
 main{
     padding: 150px 20px 30px 20px;
 }
-#intro-section{
+#home-section{
     display: flex;
     align-items: top;
     gap: 20px;
 }
-#intro-section .left-section{
+#home-section .left-section{
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -42,7 +42,7 @@ main{
     border: 2px solid var(--primary-color);
     border-radius: 8px;
 }
-#intro-section .right-section{
+#home-section .right-section{
     width: 85%;
     height: 85%;
     display: flex;
@@ -52,10 +52,10 @@ main{
     border-radius: 30px;
     max-height: 377.812px;
 }
-#intro-section .right-section::-webkit-scrollbar{
+#home-section .right-section::-webkit-scrollbar{
     display: none;
 }
-#intro-section .right-section img{
+#home-section .right-section img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -64,7 +64,7 @@ main{
     opacity: 0.5;
     user-select: none;
 }
-#intro-section .right-section img:hover{
+#home-section .right-section img:hover{
     scale: 1.2;
     opacity: 0.7;
 }
@@ -423,7 +423,6 @@ main{
     gap: 10px;
     padding: 20px;
     padding-top: 30px;
-    background-color: var(--surface-color);
     border-radius: 15px;
 }
 .nexa-standard-sub-section-card div{
@@ -444,17 +443,16 @@ main{
     gap: 20px;
 }
 #precision-first-card{
-    background-color: rgb(90, 4, 90);
     background: linear-gradient(to left, rgb(62, 3, 62) 1%,rgb(14, 8, 24) 100%)
 }
 #built-to-last-card{
-    background: linear-gradient(to right, rgb(9, 9, 125) 1%,rgb(14, 8, 24) 100%);
+    background: linear-gradient(to right, rgb(6, 6, 87) 1%,rgb(14, 8, 24) 100%);
 }
 #minimal-by-design-card{
     background: linear-gradient(to left, rgb(7, 105, 84) 1%,rgb(14, 8, 24) 100%)
 }
 #everyday-excellence-card{
-    background: linear-gradient(to right, rgb(78, 74, 74) 1%,rgb(14, 8, 24) 100%);
+    background: linear-gradient(to right, rgb(100, 40, 15) 1%,rgb(14, 8, 24) 100%);
 }
 #nexa-standard-sub-section .bottom{
     margin-top: 20px;
@@ -621,7 +619,7 @@ main{
     width: 100%;
 }
 .question span{
-    max-width: 50%;
+    max-width: 95%;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -671,19 +669,19 @@ main{
 
 
 @media(max-width:1024px){
-    #intro-section{
+    #home-section{
         flex-direction: column;
         align-items: center;
         gap: 30px;
     }
-    #intro-section .left-section{
+    #home-section .left-section{
         text-align: center;
     }
     .cta-container{
         justify-content: center;
         margin-top: 20px;
     }
-    #intro-section .right-section{
+    #home-section .right-section{
         display: flex;
         align-items: center;
         justify-content: start;
@@ -694,12 +692,12 @@ main{
         padding: 0 20px;
         margin-top: 40px;
     }
-    #intro-section .right-section img{
+    #home-section .right-section img{
         width: 300px;
         height: 300px;
         transition: all 0.4s ease-in-out;
     }
-    #intro-section .right-section img:hover{
+    #home-section .right-section img:hover{
         width: 120%;
         scale: 1;
     }
@@ -776,7 +774,7 @@ main{
     .main-subheader{
         font-size: 15px;
     }
-    #intro-section .right-section img{
+    #home-section .right-section img{
         width: 240px;
         height: 240px;
     }
