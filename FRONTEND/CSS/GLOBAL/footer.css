@@ -2,11 +2,7 @@ footer{
     display: flex;
     flex-direction: column;
     width: 100%;
-<<<<<<< HEAD
     background-color: var(--secondary-background);
-=======
-    background-color: var(--surface-color);
->>>>>>> 3fb679bf4487849b4a0f30cad0b42137b012319b
     padding: 30px;
     border-radius: 20px 20px 0 0;
 }
