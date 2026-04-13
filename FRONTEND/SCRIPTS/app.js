@@ -26,4 +26,11 @@ navItemsContainer.addEventListener('click',(e)=>{
     const section =  sectionsArray.find(section=>section.dataset.section === navItem.dataset.section)
     setActiveNavItem(navItem)
     scrollSectionIntoView(section)
+    console.log(section);
+})
+
+const contactUsCta = document.querySelector('#contact-us-cta')
+contactUsCta.addEventListener('click',(e)=>{
+    e.preventDefault()//Prevent default behaviour cause contact us cta is an anchor tag
+    scrollSectionIntoView(document.querySelector('#contact-us-section'))
 })
