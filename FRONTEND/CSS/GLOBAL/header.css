@@ -63,11 +63,25 @@ nav{
     align-items: center;
     position: relative;
 }
-.search-bar-container i{
-    left: 20px;
+.search-icon-container{
+    right: 15px;
     position: absolute;
     font-size: 11px;
-    opacity: 0.5;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: 7px;
+    border-radius: 200px;
+    z-index: 20;
+    font-size: 12px;
+    cursor: pointer;
+    transition: var(--general-transition);
+    color: white;
+}
+.search-icon-container:hover{
+    background-color: var(--secondary-color);
 }
 .search-bar-container input{
     background: none;
@@ -76,10 +90,14 @@ nav{
     width: 250px;
     background-color: var(--surface-color);
     color: var(--primary-text-color);
-    padding-left: 45px;
+    padding-left: 25px;
     border-radius: 100px;
     border: 1px solid rgb(101, 101, 101);
-    padding-right: 20px;
+    padding-right: 60px;
+    appearance: none;
+}
+.search-bar-container input::-webkit-search-cancel-button{
+    display: none;
 }
 .search-bar-container input:focus{
     outline: 2px solid var(--primary-color);
@@ -120,5 +138,13 @@ nav{
     .search-bar-container input{
         width: 200px;
         height: 40px;
+    }
+}
+@media(max-width:768px){
+    .search-icon-container{
+        display: none;
+    }
+    .search-bar-container input{
+        padding-right: 20px;
     }
 }
