@@ -34,3 +34,20 @@ contactUsCta.addEventListener('click',(e)=>{
     e.preventDefault()//Prevent default behaviour cause contact us cta is an anchor tag
     scrollSectionIntoView(document.querySelector('#contact-us-section'))/*Pass contact us section html element as the arguement*/
 })
+
+
+const observer = new IntersectionObserver((entries,observer)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            const sectionElem = entry.target
+            const navItemsArray = Array.from(sections)/*convert navItems collection from nodelist toarray to access find method*/
+            const matchingNavItem = navItemsArray.find(item=>item.dataset.section === sectionElem.dataset.section)/*Compare data section values to find matching nav item then call setActive function on it*/
+            setActiveNavItem(matchingNavItem)
+        }
+    })
+},{
+    threshold:0.3/*Only activate when 30% of the section is visible*/
+})
+sections.forEach(section=>{
+    observer.observe(section)
+})/*The observe method only takes one dom element and cant take an array so we loop through each section and call an instance of the observer class*/
