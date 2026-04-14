@@ -23,10 +23,9 @@ navItemsContainer.addEventListener('click',(e)=>{
     }
     const navItem = e.target
     const sectionsArray = Array.from(sections)//Convert sections nodelist to array to gain access to the find method
-    const section =  sectionsArray.find(section=>section.dataset.section === navItem.dataset.section)
+    const matchingSection =  sectionsArray.find(section=>section.dataset.section === navItem.dataset.section)
     setActiveNavItem(navItem)
-    scrollSectionIntoView(section)
-    console.log(section);
+    scrollSectionIntoView(matchingSection)
 })
 
 const contactUsCta = document.querySelector('#contact-us-cta')
@@ -36,6 +35,7 @@ contactUsCta.addEventListener('click',(e)=>{
 })
 
 
+//Automatic nvaigation switching logic
 const observer = new IntersectionObserver((entries,observer)=>{
     entries.forEach(entry=>{
         if(entry.isIntersecting){
@@ -51,3 +51,6 @@ const observer = new IntersectionObserver((entries,observer)=>{
 sections.forEach(section=>{
     observer.observe(section)
 })/*The observe method only takes one dom element and cant take an array so we loop through each section and call an instance of the observer class*/
+
+
+//DESKTOP HOME SECTION SLIDESHOW
