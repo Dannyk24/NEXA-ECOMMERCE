@@ -1,56 +1,104 @@
-//HEADER SCROLL INTO VIEW LOGIC
+//GENERAL NAVIGATION
 /*====HELPERS====*/
-function setActiveNavItem(navItem){
-    navItems.forEach(item=>{
-        item.classList.toggle('active-nav-item',
-            item.dataset.section === navItem.dataset.section
-        )/*Toggle takes a force parameter that adds the class if the condition returns true and removes it if the condition returns false*/
-    })
+function setActiveNavItem(navItem) {
+    navItems.forEach((item) => {
+        item.classList.toggle(
+            "active-nav-item",
+            item.dataset.section === navItem.dataset.section,
+        ); /*Toggle takes a force parameter that adds the class if the condition returns true and removes it if the condition returns false*/
+    });
 }
-function scrollSectionIntoView(section){
+function scrollSectionIntoView(section) {
     section.scrollIntoView({
-        behavior:'smooth',
-    })
+        behavior: "smooth",
+    });
 }
 
-
-const navItemsContainer = document.querySelector('nav')
-const navItems = document.querySelectorAll('.nav-item')
-const sections = document.querySelectorAll('.js-main-sections')
-navItemsContainer.addEventListener('click',(e)=>{
-    if(!e.target.classList.contains('nav-item')){
-        return
+const navItemsContainer = document.querySelector("nav");
+const navItems = document.querySelectorAll(".nav-item");
+const sections = document.querySelectorAll(".js-main-sections");
+navItemsContainer.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("nav-item")) {
+        return;
     }
-    const navItem = e.target
-    const sectionsArray = Array.from(sections)//Convert sections nodelist to array to gain access to the find method
-    const matchingSection =  sectionsArray.find(section=>section.dataset.section === navItem.dataset.section)
-    setActiveNavItem(navItem)
-    scrollSectionIntoView(matchingSection)
-})
+    const navItem = e.target;
+    const sectionsArray = Array.from(sections); //Convert sections nodelist to array to gain access to the find method
+    const matchingSection = sectionsArray.find(
+        (section) => section.dataset.section === navItem.dataset.section,
+    );
+    setActiveNavItem(navItem);
+    scrollSectionIntoView(matchingSection);
+});
 
-const contactUsCta = document.querySelector('#contact-us-cta')
-contactUsCta.addEventListener('click',(e)=>{
-    e.preventDefault()//Prevent default behaviour cause contact us cta is an anchor tag
-    scrollSectionIntoView(document.querySelector('#contact-us-section'))/*Pass contact us section html element as the arguement*/
-})
-
+const contactUsCta = document.querySelector("#contact-us-cta");
+contactUsCta.addEventListener("click", (e) => {
+    e.preventDefault(); //Prevent default behaviour cause contact us cta is an anchor tag
+    scrollSectionIntoView(
+        document.querySelector("#contact-us-section"),
+    ); /*Pass contact us section html element as the arguement*/
+});
 
 //Automatic nvaigation switching logic
-const observer = new IntersectionObserver((entries,observer)=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            const sectionElem = entry.target
-            const navItemsArray = Array.from(sections)/*convert navItems collection from nodelist toarray to access find method*/
-            const matchingNavItem = navItemsArray.find(item=>item.dataset.section === sectionElem.dataset.section)/*Compare data section values to find matching nav item then call setActive function on it*/
-            setActiveNavItem(matchingNavItem)
-        }
-    })
-},{
-    threshold:0.3/*Only activate when 30% of the section is visible*/
-})
-sections.forEach(section=>{
-    observer.observe(section)
-})/*The observe method only takes one dom element and cant take an array so we loop through each section and call an instance of the observer class*/
+const observer = new IntersectionObserver(
+    (entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const sectionElem = entry.target;
+                const navItemsArray =
+                    Array.from(
+                        sections,
+                    ); /*convert navItems collection from nodelist toarray to access find method*/
+                const matchingNavItem = navItemsArray.find(
+                    (item) =>
+                        item.dataset.section === sectionElem.dataset.section,
+                ); /*Compare data section values to find matching nav item then call setActive function on it*/
+                setActiveNavItem(matchingNavItem);
+            }
+        });
+    },
+    {
+        threshold: 0.1 /*Only activate when 10% of the section is visible*/,
+    },
+);
+sections.forEach((section) => {
+    observer.observe(section);
+}); /*The observe method only takes one dom element and cant take an array so we loop through each section and call an instance of the observer class*/
 
+//MOBILE NAVIGATION
+/*=====HELPERS=====*/
+function openNav() {
+    nav.classList.add("nav-active");
+}
 
-//DESKTOP HOME SECTION SLIDESHOW
+function openOverlay() {
+    overlay.classList.add("overlay-active");
+}
+
+function blockUserScrolling() {
+    document.body.style.overflow = "hidden";
+}
+
+function closeNav() {
+    nav.classList.remove("nav-active");
+}
+function closeOverlay() {
+    overlay.classList.remove("overlay-active");
+}
+function restoreUserScrolling() {
+    document.body.style.overflow = "auto";
+}
+
+const toggleBtn = document.querySelector(".menu-toggle-mobile");
+const nav = document.querySelector("nav");
+const overlay = document.querySelector(".overlay");
+
+toggleBtn.addEventListener("click", () => {
+    openNav();
+    openOverlay();
+    blockUserScrolling();
+});
+overlay.addEventListener("click", () => {
+    closeNav();
+    closeOverlay();
+    restoreUserScrolling();
+});
