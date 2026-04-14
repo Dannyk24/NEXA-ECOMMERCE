@@ -4,13 +4,13 @@ function setActiveNavItem(navItem) {
     navItems.forEach((item) => {
         item.classList.toggle(
             "active-nav-item",
-            item.dataset.section === navItem.dataset.section,
+            item.dataset.section === navItem.dataset.section
         ); /*Toggle takes a force parameter that adds the class if the condition returns true and removes it if the condition returns false*/
     });
 }
 function scrollSectionIntoView(section) {
     section.scrollIntoView({
-        behavior: "smooth",
+        behavior: "smooth"
     });
 }
 
@@ -24,7 +24,7 @@ navItemsContainer.addEventListener("click", (e) => {
     const navItem = e.target;
     const sectionsArray = Array.from(sections); //Convert sections nodelist to array to gain access to the find method
     const matchingSection = sectionsArray.find(
-        (section) => section.dataset.section === navItem.dataset.section,
+        (section) => section.dataset.section === navItem.dataset.section
     );
     setActiveNavItem(navItem);
     scrollSectionIntoView(matchingSection);
@@ -34,7 +34,7 @@ const contactUsCta = document.querySelector("#contact-us-cta");
 contactUsCta.addEventListener("click", (e) => {
     e.preventDefault(); //Prevent default behaviour cause contact us cta is an anchor tag
     scrollSectionIntoView(
-        document.querySelector("#contact-us-section"),
+        document.querySelector("#contact-us-section")
     ); /*Pass contact us section html element as the arguement*/
 });
 
@@ -46,19 +46,19 @@ const observer = new IntersectionObserver(
                 const sectionElem = entry.target;
                 const navItemsArray =
                     Array.from(
-                        sections,
+                        sections
                     ); /*convert navItems collection from nodelist toarray to access find method*/
                 const matchingNavItem = navItemsArray.find(
                     (item) =>
-                        item.dataset.section === sectionElem.dataset.section,
+                        item.dataset.section === sectionElem.dataset.section
                 ); /*Compare data section values to find matching nav item then call setActive function on it*/
                 setActiveNavItem(matchingNavItem);
             }
         });
     },
     {
-        threshold: 0.1 /*Only activate when 10% of the section is visible*/,
-    },
+        threshold: 0.1 /*Only activate when 10% of the section is visible*/
+    }
 );
 sections.forEach((section) => {
     observer.observe(section);
@@ -102,3 +102,31 @@ overlay.addEventListener("click", () => {
     closeOverlay();
     restoreUserScrolling();
 });
+
+//DESKTOP HOME SECTION SLIDESHOW
+/*=====HELPERS=====*/
+const slideShowImages = document.querySelectorAll(".slideshow-images");
+function generateRandomIndex() {
+    let index = Math.floor(Math.random() * slideShowImages.length);
+    return index;
+}
+function pickNewSlideShowImage() {
+    newImageElem = slideShowImages[generateRandomIndex()];
+    return newImageElem;
+}
+function setNewSlideShowImage() {
+    slideShowImages.forEach((image) => {
+        image.classList.remove("active-slideshow-image");
+    });
+    newImageElem.classList.add("active-slideshow-image");
+}
+
+let lastImageElem; //Stores last slideshow element
+setInterval(() => {
+    let newImageElem = pickNewSlideShowImage(); //Pick a new image first
+    while (newImageElem === lastImageElem) {
+        //Check if its the same as the old one
+        pickNewSlideShowImage(); //If it is, pick again
+    }
+    setNewSlideShowImage(); //If it isnt set it as the new image
+}, 7000);
