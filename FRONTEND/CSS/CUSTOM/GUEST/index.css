@@ -69,7 +69,7 @@ main {
     width: 100%;
     right: 20px;
     top: 20px;
-    translate: 20px 0;
+    translate: 10px 0;
 }
 
 .active-slideshow-image {
@@ -690,6 +690,7 @@ textarea {
     padding: 20px;
     border-radius: 10px;
     width: 600px;
+    transition: all 0.3s ease-in-out;
 }
 
 .question {
@@ -698,6 +699,7 @@ textarea {
     justify-content: space-between;
     font-weight: 600;
     width: 100%;
+    transition: all 0.3s ease-in-out;
 }
 
 .question span {
@@ -723,18 +725,28 @@ textarea {
 }
 
 .answer {
-    display: none;
+    height: 0px;
     width: 100%;
     margin-top: 10px;
     font-family: var(--secondary-font-family);
     line-height: 40px;
+    position: fixed;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    color: var(--secondary-text-color);
 }
 
-.active-faq {
-    border-bottom: 1px solid rgb(82, 79, 79);
+.faq-active {
+    transition: all 0.3s ease-in-out;
+
+    .question {
+        border-bottom: 1px solid rgb(82, 79, 79);
+    }
 
     .answer {
-        display: block;
+        height: 100%;
+        position: static;
+        opacity: 1;
     }
 }
 
@@ -875,6 +887,11 @@ textarea {
     .faq-container .question span {
         font-size: 14px;
         max-width: 70%;
+    }
+
+    .answer {
+        font-size: 14px;
+        line-height: 30px;
     }
 }
 
