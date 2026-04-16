@@ -1,21 +1,9 @@
 //GENERAL NAVIGATION
 /*====HELPERS====*/
-function setActiveNavItem(navItem) {
-    navItems.forEach((item) => {
-        item.classList.toggle(
-            "active-nav-item",
-            item.dataset.section === navItem.dataset.section
-        ); /*Toggle takes a force parameter that adds the class if the condition returns true and removes it if the condition returns false*/
-    });
-}
-function scrollSectionIntoView(section) {
-    section.scrollIntoView({
-        behavior: "smooth"
-    });
-}
+import { setActiveNavItem, scrollSectionIntoView } from "./UTILS/navigation.js";
+import { generateRandomIndex } from "./UTILS/random.js";
 
 const navItemsContainer = document.querySelector("nav");
-const navItems = document.querySelectorAll(".nav-item");
 const sections = document.querySelectorAll(".js-main-sections");
 navItemsContainer.addEventListener("click", (e) => {
     if (!e.target.classList.contains("nav-item")) {
@@ -105,13 +93,8 @@ overlay.addEventListener("click", () => {
 
 //DESKTOP HOME SECTION SLIDESHOW
 /*=====HELPERS=====*/
-const slideShowImages = document.querySelectorAll(".slideshow-images");
-function generateRandomIndex() {
-    let index = Math.floor(Math.random() * slideShowImages.length);
-    return index;
-}
 function pickNewSlideShowImage() {
-    newImageElem = slideShowImages[generateRandomIndex()];
+    newImageElem = slideShowImages[generateRandomIndex(slideShowImages)];
     return newImageElem;
 }
 function setNewSlideShowImage() {
@@ -121,6 +104,7 @@ function setNewSlideShowImage() {
     newImageElem.classList.add("active-slideshow-image");
 }
 
+const slideShowImages = document.querySelectorAll(".slideshow-images");
 let lastImageElem; //Stores last slideshow element
 setInterval(() => {
     let newImageElem = pickNewSlideShowImage(); //Pick a new image first
