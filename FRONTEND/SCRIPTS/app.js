@@ -94,14 +94,14 @@ overlay.addEventListener("click", () => {
 //DESKTOP HOME SECTION SLIDESHOW
 /*=====HELPERS=====*/
 function pickNewSlideShowImage() {
-    newImageElem = slideShowImages[generateRandomIndex(slideShowImages)];
+    const newImageElem = slideShowImages[generateRandomIndex(slideShowImages)];
     return newImageElem;
 }
-function setNewSlideShowImage() {
+function setNewSlideShowImage(image) {
     slideShowImages.forEach((image) => {
         image.classList.remove("active-slideshow-image");
     });
-    newImageElem.classList.add("active-slideshow-image");
+    image.classList.add("active-slideshow-image");
 }
 
 const slideShowImages = document.querySelectorAll(".slideshow-images");
@@ -110,9 +110,10 @@ setInterval(() => {
     let newImageElem = pickNewSlideShowImage(); //Pick a new image first
     while (newImageElem === lastImageElem) {
         //Check if its the same as the old one
-        pickNewSlideShowImage(); //If it is, pick again
+        newImageElem = pickNewSlideShowImage(); //If it is, pick again
     }
-    setNewSlideShowImage(); //If it isnt, set it as the new image
+    lastImageElem = newImageElem;
+    setNewSlideShowImage(newImageElem); //If it isnt, set it as the new image
 }, 3000);
 
 //FAQ's SECTION LOGIC
