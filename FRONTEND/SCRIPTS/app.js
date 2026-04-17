@@ -142,3 +142,40 @@ faqsContainer.addEventListener("click", (e) => {
     }
     //Check if faq toggle icon is plus, if it is,open it. if its minus,collapse the faq
 });
+
+//DESKTOP PRODUCTS DISPLAY
+/*=====HELPERS=====*/
+function getArrowId(arrow) {
+    return arrow.getAttribute("id");
+}
+function scrollProductsGridLeft() {
+    productsGrid.scrollBy({
+        top: 0,
+        left: -310,
+        behavior: "smooth"
+    });
+}
+function scrollProductsGridRight() {
+    productsGrid.scrollBy({
+        top: 0,
+        left: 310,
+        behavior: "smooth"
+    });
+}
+
+const productsGrid = document.querySelector(".products-grid");
+const gridControlsContainer = document.querySelector(
+    ".grid-controls-container"
+);
+
+gridControlsContainer.addEventListener("click", (e) => {
+    if (!e.target.closest(".arrow")) {
+        return;
+    }
+    const arrow = getArrowId(e.target.closest(".arrow"));
+    if (arrow === "arrow-left") {
+        scrollProductsGridLeft();
+    } else if (arrow === "arrow-right") {
+        scrollProductsGridRight();
+    }
+});
