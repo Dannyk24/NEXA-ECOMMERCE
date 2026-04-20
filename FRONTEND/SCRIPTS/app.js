@@ -4,7 +4,7 @@ import {
     setActiveNavItem,
     scrollSectionIntoView
 } from "./MODULES/navigation.js";
-import { generateRandomIndex } from "./UTILS/random.js";
+import { generateRandomIndex } from "./UTILS/generate.js";
 
 const navItemsContainer = document.querySelector("nav");
 const sections = document.querySelectorAll(".js-main-sections");
