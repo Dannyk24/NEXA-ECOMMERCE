@@ -12,3 +12,7 @@ export function scrollSectionIntoView(section) {
         behavior: "smooth"
     });
 }
+
+export function navigateTo(location) {
+    window.location.href = location;
+}
