@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,9 @@
     <link rel="stylesheet" href="../../CSS/GLOBAL/style.css">
     <link rel="stylesheet" href="../../CSS/CUSTOM/USER/auth.css">
     <link rel="stylesheet" href="../../ASSETS/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/toasts.css">
 </head>
+
 <body>
     <div class="wrapper authentication-page-wrapper">
         <div class="left-section">
@@ -19,27 +22,41 @@
             <form action="#" id="login-auth-form">
                 <div class="auth-form-input-field-container">
                     <label for="email">email address</label>
-                    <input type="email" required placeholder="name@example.com">
+                    <input type="email" required placeholder="name@example.com" id="login-email">
                 </div>
                 <div class="auth-form-input-field-container">
                     <label for="password">password</label>
                     <div>
-                        <input type="password" required placeholder="Password">
+                        <input type="password" required placeholder="Password" id="login-password">
                         <i class="fas fa-eye"></i>
                     </div>
                 </div>
-                <a href="#" class="form-submit-button primary-button">login</a>
+                <button type="submit" class="form-submit-button primary-button" id="js-login-btn">login</button>
                 <span>Don't have an account yet? <a href="sign-up.html">Sign Up</a></span>
                 <a href="../../../index.html" class="back-to-homepage-link">Back to home</a>
             </form>
         </div>
         <div class="right-section">
             <div class="background-video-container">
-                <video src="../../ASSETS/VIDEOS/LOGIN-PAGE-BACKGROUND-VIDEO.mp4" autoplay muted loop playsinline></video>
+                <video src="../../ASSETS/VIDEOS/LOGIN-PAGE-BACKGROUND-VIDEO.mp4" autoplay muted loop
+                    playsinline></video>
             </div>
         </div>
     </div>
 
-    <script src="../../../BACKEND/AUTH/auth.js" type="module"></script>
+    <!--TOAST-->
+    <div class="toast-container">
+        <div class="toast-background"></div>
+        <div class="toast-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <div class="toast-data">
+            <div class="toast-header">Success</div>
+            <div class="toast-message">User Authenticated</div>
+        </div>
+    </div>
+
+    <script src="../../../BACKEND/AUTH/login.js" type="module"></script>
 </body>
+
 </html>
