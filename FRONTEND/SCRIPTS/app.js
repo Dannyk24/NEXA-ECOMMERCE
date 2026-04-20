@@ -1,6 +1,9 @@
 //GENERAL NAVIGATION
 /*====HELPERS====*/
-import { setActiveNavItem, scrollSectionIntoView } from "./UTILS/navigation.js";
+import {
+    setActiveNavItem,
+    scrollSectionIntoView
+} from "./MODULES/navigation.js";
 import { generateRandomIndex } from "./UTILS/random.js";
 
 const navItemsContainer = document.querySelector("nav");
@@ -173,6 +176,7 @@ gridControlsContainer.addEventListener("click", (e) => {
         return;
     }
     const arrow = getArrowId(e.target.closest(".arrow"));
+
     if (arrow === "arrow-left") {
         scrollProductsGridLeft();
     } else if (arrow === "arrow-right") {
