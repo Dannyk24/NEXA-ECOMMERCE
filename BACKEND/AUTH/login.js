@@ -8,7 +8,7 @@ import {
     saveActiveUser
 } from "../DATA/user.js";
 import { setErrorDisplay, clearErrorDisplay } from "./MODULES/validate.js";
-import { initializeInputFieldTypeChange } from "./MODULES/security.js";
+import { handlePasswordFieldToggle } from "./MODULES/security.js";
 
 /*=====HELPERS=====*/
 function findMatchingUser(email, password) {
@@ -55,4 +55,6 @@ function authenticateUser(e) {
         );
     }
 }
-initializeInputFieldTypeChange();
+document.body.addEventListener("click", (e) => {
+    handlePasswordFieldToggle(e);
+});

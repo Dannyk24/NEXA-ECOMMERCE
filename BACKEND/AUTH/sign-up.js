@@ -9,7 +9,7 @@ import {
     setErrorDisplay,
     clearErrorDisplay
 } from "./MODULES/validate.js";
-import { initializeInputFieldTypeChange } from "./MODULES/security.js";
+import { handlePasswordFieldToggle } from "./MODULES/security.js";
 import { users, saveUsers } from "../DATA/user.js";
 import { formatString } from "../../FRONTEND/SCRIPTS/UTILS/format.js";
 import { generateUserId } from "./MODULES/generate.js";
@@ -126,4 +126,6 @@ signUpButton.addEventListener("click", (e) => {
     //Add user to usersList
     //Navigate user to Login Page
 });
-initializeInputFieldTypeChange();
+document.body.addEventListener("click", (e) => {
+    handlePasswordFieldToggle(e);
+});
