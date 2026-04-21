@@ -41,3 +41,11 @@ export function checkMatchingUsername(username) {
     });
     return matchingUsername; //If username match is not found it returns undefined which is a falsy value
 }
+
+const errorDisplay = document.querySelector(".error-display");
+export function setErrorDisplay(text) {
+    errorDisplay.textContent = text;
+}
+export function clearErrorDisplay() {
+    errorDisplay.textContent = "";
+}
