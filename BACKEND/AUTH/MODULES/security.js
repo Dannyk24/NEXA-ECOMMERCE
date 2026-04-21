@@ -16,18 +16,18 @@ function closePasswordIcon(icon) {
     icon.classList.remove("fa-eye-slash");
 }
 
-export function initializeInputFieldTypeChange() {
-    document.body.addEventListener("click", (e) => {
-        if (!e.target.classList.contains("fas")) {
-            return;
-        }
-        const container = e.target.closest(".auth-form-input-field-container");
-        const inputField = container.querySelector("input");
-        const icon = e.target;
-        if (toggleInputFieldType(inputField) === "text") {
-            openPasswordIcon(icon);
-        } else {
-            closePasswordIcon(icon);
-        }
-    });
+export function handlePasswordFieldToggle(e) {
+    if (!e.target.classList.contains("fas")) {
+        console.log("y");
+        return;
+    }
+    console.log("hm");
+    const container = e.target.closest(".auth-form-input-field-container");
+    const inputField = container.querySelector("input");
+    const icon = e.target;
+    if (toggleInputFieldType(inputField) === "text") {
+        openPasswordIcon(icon);
+    } else {
+        closePasswordIcon(icon);
+    }
 }
