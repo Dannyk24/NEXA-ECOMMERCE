@@ -1,29 +1,34 @@
-body{
+body {
     overflow: hidden;
 }
-.authentication-page-wrapper{
+
+.authentication-page-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: top;
 }
-.left-section{
+
+.left-section {
     padding: 10px 20px;
     position: relative;
     overflow-y: scroll;
     height: 89vh;
 }
-.left-section::-webkit-scrollbar{
+
+.left-section::-webkit-scrollbar {
     width: 3px;
 }
-.left-section::-webkit-scrollbar-thumb{
+
+.left-section::-webkit-scrollbar-thumb {
     background-color: var(--primary-color);
     border-radius: 20px 0 0 20px;
 }
-.left-section::-webkit-scrollbar-thumb:hover{
+
+.left-section::-webkit-scrollbar-thumb:hover {
     background-color: var(--secondary-color);
 }
 
-.top-light{
+.top-light {
     position: absolute;
     top: 0px;
     height: 2px;
@@ -32,48 +37,57 @@ body{
     box-shadow: 0px 10px 150px 10px var(--primary-color);
     z-index: -1;
 }
-.logo{
+
+.logo {
     margin-top: 30px;
 }
-.logo img{
+
+.logo img {
     width: 7em;
 }
-.form-header{
+
+.form-header {
     text-transform: capitalize;
     font-weight: 600;
     margin-top: 50px;
     font-size: 30px;
 }
-.form-subheader{
+
+.form-subheader {
     font-size: 16px;
     margin-top: 10px;
     font-family: var(--secondary-font-family);
 }
-form{
+
+form {
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin-top: 30px;
     width: fit-content;
 }
-.auth-form-input-field-container{
+
+.auth-form-input-field-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-.auth-form-input-field-container label{
+
+.auth-form-input-field-container label {
     text-transform: uppercase;
     color: var(--primary-color);
     font-weight: 500;
     font-size: 14px;
 }
-.auth-form-input-field-container div{
+
+.auth-form-input-field-container div {
     display: flex;
     align-items: center;
     position: relative;
     width: fit-content;
 }
-.auth-form-input-field-container div i{
+
+.auth-form-input-field-container div i {
     position: absolute;
     right: 10px;
     padding: 5px 15px;
@@ -84,10 +98,12 @@ form{
     transition: var(--general-transition);
     cursor: pointer;
 }
-.auth-form-input-field-container div i:hover{
+
+.auth-form-input-field-container div i:hover {
     background-color: var(--primary-color);
 }
-input{
+
+input {
     height: 40px;
     border-style: none;
     background: none;
@@ -99,41 +115,56 @@ input{
     width: 300px;
     padding-right: 70px;
 }
-input:focus{
+
+input:focus {
     outline: 2px solid var(--primary-color);
 }
-.right-section{
+
+.right-section {
     width: 100%;
     height: 100%;
 }
-.right-section video{
+
+.right-section video {
     width: 100%;
     height: 100vh;
     object-fit: cover;
     opacity: 0.2;
     transition: all 0.3s ease-in-out;
 }
-.right-section video:hover{
+
+.right-section video:hover {
     opacity: 0.4;
 }
-span{
+
+span {
     text-align: center;
 }
-#sign-up-form-header{
+
+#sign-up-form-header {
     margin-top: 40px;
 }
 
-span a{
+span a {
     color: var(--primary-color);
 }
-.back-to-homepage-link{
+
+.back-to-homepage-link {
     text-align: center;
     color: var(--primary-color);
 }
 
+.error-display {
+    color: var(--danger-color);
+    text-align: left;
+    font-size: 14px;
+    max-width: 300px;
+    line-height: 30px;
+    opacity: 0.9;
+}
 
-@media(max-width: 1200px){
-    .authentication-page-wrapper{
+@media(max-width: 1200px) {
+    .authentication-page-wrapper {
         position: relative;
         grid-template-columns: 1fr;
         display: flex;
@@ -141,32 +172,39 @@ span a{
         justify-content: center;
         height: 100vh;
     }
-    .form-header{
+
+    .form-header {
         margin-top: 0;
         font-size: 21px;
     }
-    .form-header,.form-subheader{
+
+    .form-header,
+    .form-subheader {
         text-align: center;
     }
-    .form-subheader{
+
+    .form-subheader {
         margin-top: 20px;
         font-size: 13px;
         line-height: 20px;
     }
-    form{
+
+    form {
         justify-self: center;
         gap: 30px;
         margin-top: 30px;
         width: 100%;
     }
-    .right-section{
+
+    .right-section {
         position: absolute;
         left: 0;
         right: 0;
         top: 0;
         bottom: 0;
     }
-    .left-section{
+
+    .left-section {
         background: transparent;
         z-index: 20;
         backdrop-filter: blur(25px);
@@ -177,13 +215,16 @@ span a{
         max-width: 460px;
         height: fit-content;
     }
-    .logo{
+
+    .logo {
         display: none;
     }
-    input{
+
+    input {
         width: 100%;
     }
-    .auth-form-input-field-container div{
+
+    .auth-form-input-field-container div {
         width: 100%;
     }
 }
