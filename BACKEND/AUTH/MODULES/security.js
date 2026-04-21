@@ -18,10 +18,8 @@ function closePasswordIcon(icon) {
 
 export function handlePasswordFieldToggle(e) {
     if (!e.target.classList.contains("fas")) {
-        console.log("y");
         return;
     }
-    console.log("hm");
     const container = e.target.closest(".auth-form-input-field-container");
     const inputField = container.querySelector("input");
     const icon = e.target;
