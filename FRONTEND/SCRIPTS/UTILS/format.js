@@ -1,4 +1,5 @@
 export function formatString(string) {
+    //All app data is stored in lowercase so trim string to remove white spaces and convert to lowercase before use
     return string.trim().toLowerCase();
 }
 export function capitalize(string) {
