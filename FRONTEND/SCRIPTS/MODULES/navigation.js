@@ -13,6 +13,9 @@ export function scrollSectionIntoView(section) {
     });
 }
 
-export function navigateTo(location) {
-    window.location.href = location;
+export function navigateTo(location, delay = 0) {
+    //Delay is 0 by default so if theres no arguement passed if navigates instantly
+    setTimeout(() => {
+        window.location.href = location;
+    }, delay);
 }
