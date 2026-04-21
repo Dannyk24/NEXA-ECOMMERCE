@@ -120,7 +120,7 @@ signUpButton.addEventListener("click", (e) => {
     };
     addUser(newUser);
     saveUsers();
-    navigateTo("http://127.0.0.1:5500/FRONTEND/PAGES/USER/login.html", 2500);
+    navigateTo("login.html", 2500);
 
     //Notify user
     //Add user to usersList

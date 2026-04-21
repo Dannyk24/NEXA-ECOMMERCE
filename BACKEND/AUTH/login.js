@@ -44,15 +44,9 @@ function authenticateUser(e) {
     setActiveUser(matchingUser.id, matchingUser.username, matchingUser.role);
     saveActiveUser();
     if (activeUser.role === "admin") {
-        navigateTo(
-            "http://127.0.0.1:5500/FRONTEND/PAGES/ADMIN/admin-dashboard.html",
-            2500
-        );
+        navigateTo("../ADMIN/admin-dashboard.html", 2500);
     } else {
-        navigateTo(
-            "http://127.0.0.1:5500/FRONTEND/PAGES/USER/homepage.html",
-            2500
-        );
+        navigateTo("homepage.html", 2500);
     }
 }
 document.body.addEventListener("click", (e) => {
