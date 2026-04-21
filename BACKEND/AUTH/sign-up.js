@@ -5,9 +5,11 @@ import {
     validateUsername,
     checkPasswordsMatch,
     checkMatchingUsername,
-    checkMatchingEmail
+    checkMatchingEmail,
+    setErrorDisplay,
+    clearErrorDisplay
 } from "./MODULES/validate.js";
-import { toggleInputFieldType } from "./MODULES/security.js";
+import { initializeInputFieldTypeChange } from "./MODULES/security.js";
 import { users, saveUsers } from "../DATA/user.js";
 import { formatString } from "../../FRONTEND/SCRIPTS/UTILS/format.js";
 import { generateUserId } from "./MODULES/generate.js";
@@ -15,20 +17,7 @@ import { navigateTo } from "../../FRONTEND/SCRIPTS/MODULES/navigation.js";
 
 //SIMULATED SIGN UP LOGIC
 /*=====HELPERS======*/
-function openPasswordIcon(icon) {
-    icon.classList.remove("fa-eye");
-    icon.classList.add("fa-eye-slash");
-}
-function closePasswordIcon(icon) {
-    icon.classList.add("fa-eye");
-    icon.classList.remove("fa-eye-slash");
-}
-function setErrorDisplay(text) {
-    errorDisplay.textContent = text;
-}
-function clearErrorDisplay() {
-    errorDisplay.textContent = "";
-}
+
 function handleUsernameLength() {
     const username = formatString(usernameElem.value);
     if (!validateUsername(username)) {
@@ -67,7 +56,7 @@ function handlePasswordsMatch() {
 function handleUsernameCheck() {
     const username = formatString(usernameElem.value);
     if (checkMatchingUsername(username)) {
-        notfiy("warning", "Username unavailable");
+        setErrorDisplay("Username unavailable");
         return;
     } else {
         clearErrorDisplay();
@@ -86,10 +75,13 @@ function handleEmailCheck() {
         return true;
     }
 }
+function addUser(newUser) {
+    users.push(newUser);
+}
 
 const signUpForm = document.querySelector("#sign-up-auth-form");
 const signUpButton = document.querySelector("#js-sign-up-btn");
-const errorDisplay = document.querySelector(".error-display");
+
 const usernameElem = signUpForm.querySelector("#js-username-input");
 const emailElem = signUpForm.querySelector("#js-email-input");
 const passwordElem = document.querySelector("#js-password-input");
@@ -126,30 +118,12 @@ signUpButton.addEventListener("click", (e) => {
         password: password,
         role: "user"
     };
-    users.push(newUser);
+    addUser(newUser);
     saveUsers();
-    setTimeout(() => {
-        navigateTo("http://127.0.0.1:5500/FRONTEND/PAGES/USER/login.html");
-    }, 2500);
+    navigateTo("http://127.0.0.1:5500/FRONTEND/PAGES/USER/login.html", 2500);
 
     //Notify user
     //Add user to usersList
     //Navigate user to Login Page
-    //Once user logs in navigate user to homepage
-    //Create User cart
-    //Set user as activeUser
 });
-
-document.body.addEventListener("click", (e) => {
-    if (!e.target.classList.contains("fas")) {
-        return;
-    }
-    const container = e.target.closest(".auth-form-input-field-container");
-    const inputField = container.querySelector("input");
-    const icon = e.target;
-    if (toggleInputFieldType(inputField) === "text") {
-        openPasswordIcon(icon);
-    } else {
-        closePasswordIcon(icon);
-    }
-});
+initializeInputFieldTypeChange();
