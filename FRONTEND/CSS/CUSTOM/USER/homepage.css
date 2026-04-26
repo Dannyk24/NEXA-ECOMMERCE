@@ -1,3 +1,21 @@
 .header-right {
     gap: 15px;
 }
+
+.header-right>a {
+    /*The child combinator styles only the direct children of the parent container and not any nested children or grandchildren*/
+    position: relative;
+}
+
+.number-badge-display {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 7px;
+    border-radius: 200px;
+    right: -9px;
+    top: -9px;
+    font-size: 9px;
+    background-color: var(--secondary-color);
+}
