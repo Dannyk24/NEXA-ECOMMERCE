@@ -75,6 +75,7 @@ p {
     border-radius: 8px;
     font-weight: 700;
     transition: var(--general-transition);
+    cursor: pointer;
 }
 
 .primary-button:hover {
