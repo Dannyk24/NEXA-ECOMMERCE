@@ -16,6 +16,7 @@
 <body>
     <div class="wrapper">
         <header>
+            <div class="overlay"></div>
             <div class="menu-toggle-mobile"><i class="fas fa-bars"></i></div>
             <div class="top-light"></div>
             <div class="header-left">
@@ -29,18 +30,39 @@
                     </a>
                     <input type="search" placeholder="Search products...." id="header-search-bar">
                 </div>
-                <a class="login-icon" href="../../PAGES/USER/profile.html" title="Wishlist">
+                <a class="header-icon" href="../../PAGES/USER/wishlist.html" title="Wishlist">
                     <i class="fas fa-shopping-bag"></i>
-                    <div class="number-badge-display">2</div>
                 </a>
-                <a class="login-icon" href="../../PAGES/USER/profile.html" title="My Cart">
+                <a class="header-icon" href="../../PAGES/USER/cart.html" title="My Cart">
                     <i class="fas fa-shopping-cart"></i>
-                    <div class="number-badge-display">2</div>
+                    <div class="number-badge-display">0</div>
                 </a>
-                <a class="login-icon" href="../../PAGES/USER/profile.html" title="Profile">
+                <a class="header-icon" href="../../PAGES/USER/profile.html" title="Profile">
                     <i class="fas fa-user"></i>
-                    <div class="number-badge-display">2</div>
                 </a>
+            </div>
+            <div class="authenticated-mobile-nav">
+                <div class="top">
+                    <a class="authenticated-nav-item" href="../USER/homepage.html">
+                        <i class="fas fa-house"></i>
+                        <span>Home</span>
+                    </a>
+                    <a class="authenticated-nav-item" href="../USER/wishlist.html">
+                        <i class="fas fa-heart"></i>
+                        <span>Wishlist</span>
+                    </a>
+                    <a class="authenticated-nav-item" href="../USER/cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                    </a>
+                    <a class="authenticated-nav-item" href="../USER/profile.html">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </div>
+                <div class="bottom">
+                    <button class="log-out-button">Log out</button>
+                </div>
             </div>
         </header>
     </div>

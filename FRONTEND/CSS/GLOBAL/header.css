@@ -119,7 +119,7 @@ nav {
     border: none;
 }
 
-.login-icon {
+.header-icon {
     padding: 10px;
     border-radius: 200px;
     display: flex;
@@ -130,7 +130,7 @@ nav {
     color: var(--primary-text-color);
 }
 
-.login-icon:hover {
+.header-icon:hover {
     background-color: var(--primary-color);
 }
 

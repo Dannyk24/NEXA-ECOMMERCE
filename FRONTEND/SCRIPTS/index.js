@@ -5,6 +5,12 @@ import {
     scrollSectionIntoView
 } from "./MODULES/navigation.js";
 import { generateRandomIndex } from "./UTILS/generate.js";
+import {
+    openOverlay,
+    closeOverlay,
+    blockUserScrolling,
+    restoreUserScrolling
+} from "./MODULES/overlay.js";
 
 const navItemsContainer = document.querySelector("nav");
 const sections = document.querySelectorAll(".js-main-sections");
@@ -61,27 +67,12 @@ function openNav() {
     nav.classList.add("nav-active");
 }
 
-function openOverlay() {
-    overlay.classList.add("overlay-active");
-}
-
-function blockUserScrolling() {
-    document.body.style.overflow = "hidden";
-}
-
 function closeNav() {
     nav.classList.remove("nav-active");
-}
-function closeOverlay() {
-    overlay.classList.remove("overlay-active");
-}
-function restoreUserScrolling() {
-    document.body.style.overflow = "auto";
 }
 
 const toggleBtn = document.querySelector(".menu-toggle-mobile");
 const nav = document.querySelector("nav");
-const overlay = document.querySelector(".overlay");
 
 toggleBtn.addEventListener("click", () => {
     openNav();
