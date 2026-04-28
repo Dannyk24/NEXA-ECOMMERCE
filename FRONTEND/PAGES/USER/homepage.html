@@ -14,57 +14,103 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <header>
-            <div class="overlay"></div>
-            <div class="menu-toggle-mobile"><i class="fas fa-bars"></i></div>
-            <div class="top-light"></div>
-            <div class="header-left">
-                <div class="logo"><a href="#"><img src="../../ASSETS/IMAGES/nexa-logo.svg" alt=""></a>
-                </div>
+    <header>
+        <div class="overlay"></div>
+        <div class="menu-toggle-mobile"><i class="fas fa-bars"></i></div>
+        <div class="top-light"></div>
+        <div class="header-left">
+            <div class="logo"><a href="#"><img src="../../ASSETS/IMAGES/nexa-logo.svg" alt=""></a>
             </div>
-            <div class="header-right">
-                <div class="search-bar-container">
-                    <a class="search-icon-container" href="#">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <input type="search" placeholder="Search products...." id="header-search-bar">
-                </div>
-                <a class="header-icon" href="../../PAGES/USER/wishlist.html" title="Wishlist">
-                    <i class="fas fa-shopping-bag"></i>
+        </div>
+        <div class="header-right">
+            <div class="search-bar-container">
+                <a class="search-icon-container" href="#">
+                    <i class="fas fa-search"></i>
                 </a>
-                <a class="header-icon" href="../../PAGES/USER/cart.html" title="My Cart">
+                <input type="search" placeholder="Search products...." id="header-search-bar">
+            </div>
+            <a class="header-icon" href="../../PAGES/USER/wishlist.html" title="Wishlist">
+                <i class="fas fa-shopping-bag"></i>
+            </a>
+            <a class="header-icon" href="../../PAGES/USER/cart.html" title="My Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <div class="number-badge-display">0</div>
+            </a>
+            <a class="header-icon" href="../../PAGES/USER/profile.html" title="Profile">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+        <div class="authenticated-mobile-nav">
+            <div class="top">
+                <a class="authenticated-nav-item" href="../USER/homepage.html">
+                    <i class="fas fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a class="authenticated-nav-item" href="../USER/wishlist.html">
+                    <i class="fas fa-heart"></i>
+                    <span>Wishlist</span>
+                </a>
+                <a class="authenticated-nav-item" href="../USER/cart.html">
                     <i class="fas fa-shopping-cart"></i>
-                    <div class="number-badge-display">0</div>
+                    <span>Cart</span>
                 </a>
-                <a class="header-icon" href="../../PAGES/USER/profile.html" title="Profile">
+                <a class="authenticated-nav-item" href="../USER/profile.html">
                     <i class="fas fa-user"></i>
+                    <span>Profile</span>
                 </a>
             </div>
-            <div class="authenticated-mobile-nav">
-                <div class="top">
-                    <a class="authenticated-nav-item" href="../USER/homepage.html">
-                        <i class="fas fa-house"></i>
-                        <span>Home</span>
-                    </a>
-                    <a class="authenticated-nav-item" href="../USER/wishlist.html">
-                        <i class="fas fa-heart"></i>
-                        <span>Wishlist</span>
-                    </a>
-                    <a class="authenticated-nav-item" href="../USER/cart.html">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span>Cart</span>
-                    </a>
-                    <a class="authenticated-nav-item" href="../USER/profile.html">
-                        <i class="fas fa-user"></i>
-                        <span>Profile</span>
-                    </a>
-                </div>
-                <div class="bottom">
-                    <button class="log-out-button">Log out</button>
-                </div>
+            <div class="bottom">
+                <button class="log-out-button">Log out</button>
             </div>
-        </header>
+        </div>
+    </header>
+    <div class="wrapper">
+        <main>
+            <section id="welcome-back-section">
+                <div class="left-section">
+                    <h1 class="welcome-back-text">Welcome back, <span id="active-username">Alexander</span></h1>
+                    <div class="featured-curators-pick">
+                        <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/smartwatch-1.webp" alt="">
+                        <div class="product-data">
+                            <p>The curator's pick</p>
+                            <span class="product-name">Smartwatch fitness tracker s2</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-section">
+                    <div class="products-recommendation">
+
+                        <div class="bottom">
+                            <p>Recommended for you</p>
+                            <div class="recommended-products-container">
+                                <div class="recommended-product">
+                                    <div class="left">
+                                        <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/gaming-mouse-1.webp" alt="">
+                                    </div>
+                                    <div class="right">
+                                        <div class="product-name">nexa gaming mouse</div>
+                                        <span class="product-price">$12.00</span>
+                                    </div>
+                                </div>
+                                <div class="recommended-product">
+                                    <div class="left">
+                                        <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/bluetooth-speaker-1.webp" alt="">
+                                    </div>
+                                    <div class="right">
+                                        <div class="product-name">bluetooth speaker</div>
+                                        <span class="product-price">$20.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="primary-cta cta" id="explore-your-curation-cta">
+                                <span>explore your curation</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
 

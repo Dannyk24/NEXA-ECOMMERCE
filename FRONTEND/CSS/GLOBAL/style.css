@@ -60,6 +60,10 @@ p {
     margin: 0;
 }
 
+main {
+    padding: 120px 20px 30px 20px;
+}
+
 /*Primary buttons are used in auth forms*/
 .primary-button {
     display: flex;
