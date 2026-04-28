@@ -38,3 +38,11 @@ export function saveActiveUser() {
 function getActiveUser() {
     return JSON.parse(sessionStorage.getItem("active-user")); //If theres no activeUser,return null
 }
+export function checkActiveUser() {
+    if (activeUser.id === null) {
+        //Check if theres an active user to enforce some level of authorization
+        return false;
+    } else {
+        return true;
+    }
+}
