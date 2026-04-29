@@ -94,7 +94,7 @@
 #welcome-back-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    align-items: top;
+    align-items: last baseline;
     gap: 30px;
     justify-content: space-between;
 }
@@ -102,7 +102,7 @@
 .welcome-back-text {
     font-size: 45px;
     max-width: 350px;
-    line-height: 65px;
+    line-height: 68px;
 }
 
 #active-username {
@@ -116,6 +116,15 @@
     display: flex;
     align-items: last baseline;
     justify-content: start;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.featured-curators-pick:hover {
+    img {
+        scale: 1.2;
+        opacity: 0.5;
+    }
 }
 
 .featured-curators-pick img {
@@ -125,6 +134,7 @@
     border-radius: 20px;
     opacity: 0.4;
     position: absolute;
+    transition: all 0.3s ease-in-out;
 }
 
 .featured-curators-pick span {
@@ -185,8 +195,23 @@
     align-items: top;
     gap: 10px;
     padding: 10px;
-    background-color: var(--surface-color);
+    transition: var(--general-transition);
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.recommended-product:hover {
+    background-color: var(--surface-color);
+
+    .left img {
+        scale: 1.2;
+    }
+}
+
+.recommended-product .left {
+    overflow: hidden;
+    border-radius: 10px;
+    min-width: 80px;
 }
 
 .recommended-product .left img {
@@ -194,19 +219,25 @@
     height: 70px;
     object-fit: cover;
     border-radius: 10px;
+    transition: var(--general-transition);
 }
 
 .recommended-product .right {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 80%;
 }
 
 .recommended-product .product-name {
     text-transform: capitalize;
     font-weight: 700;
-    font-size: 14px;
-    margin-top: 2px;
+    font-size: 13px;
+    margin-top: 4px;
+    width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .recommended-product .product-price {
