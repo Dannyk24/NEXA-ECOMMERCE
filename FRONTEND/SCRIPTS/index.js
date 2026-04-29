@@ -73,7 +73,7 @@ function closeNav() {
 
 const toggleBtn = document.querySelector(".menu-toggle-mobile");
 const nav = document.querySelector("nav");
-
+const overlay = document.querySelector(".overlay");
 toggleBtn.addEventListener("click", () => {
     openNav();
     openOverlay();
