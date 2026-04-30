@@ -78,6 +78,15 @@ function saveRecommenedProducts(recommendedProducts) {
 function getRecommendedProducts() {
     return JSON.parse(localStorage.getItem("recommended-products"));
 }
+function checkDuplicateProduct(product, array) {
+    if (array.length === 0) {
+        return false;
+    }
+    const duplicateProduct = array.find(
+        (arrayProduct) => arrayProduct.id === product.id
+    );
+    return duplicateProduct;
+}
 
 renderActiveUsername();
 
@@ -98,7 +107,10 @@ function renderRecommendedProducts() {
     }
     let recommendedProducts = [];
     for (let i = 0; i < 3; i++) {
-        const product = getRandomProduct();
+        let product = getRandomProduct();
+        while (checkDuplicateProduct(product, recommendedProducts)) {
+            product = getRandomProduct();
+        }
         recommendedProducts.push(product);
         const productImage = getProductImage(product); //Get the first image in the images array
         recommendedProductsContainer.innerHTML +=
