@@ -69,9 +69,16 @@ function getProductImage(product) {
 function getRandomProduct() {
     return products[generateRandomIndex(products)];
 }
+function saveRecommenedProducts(recommendedProducts) {
+    localStorage.setItem(
+        "recommended-products",
+        JSON.stringify(recommendedProducts)
+    );
+}
 function getRecommendedProducts() {
     return JSON.parse(localStorage.getItem("recommended-products"));
 }
+
 renderActiveUsername();
 
 const recommendedProductsContainer = document.querySelector(
@@ -97,10 +104,7 @@ function renderRecommendedProducts() {
         recommendedProductsContainer.innerHTML +=
             generateRecommendedProductHtml(product);
     }
-    localStorage.setItem(
-        "recommended-products",
-        JSON.stringify(recommendedProducts)
-    ); //Save recommended products so it can be used to generate html if its still the same day
+    saveRecommenedProducts(recommendedProducts); //Save recommended products so it can be used to generate html if its still the same day
 }
 
 renderRecommendedProducts();
