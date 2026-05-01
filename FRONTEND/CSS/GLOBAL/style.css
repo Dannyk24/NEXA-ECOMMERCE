@@ -168,7 +168,32 @@ main {
     background-color: black;
 }
 
+.section-header {
+    font-size: 30px;
+    text-transform: capitalize;
+    font-weight: 700;
+}
 
+.section-subheader {
+    font-family: var(--secondary-font-family);
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: 300;
+    color: var(--secondary-text-color);
+    max-width: 600px;
+    line-height: 32px;
+}
+
+@media(max-width:550px) {
+    .section-header {
+        font-size: 20px;
+    }
+
+    .section-subheader {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+}
 
 
 
