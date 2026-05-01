@@ -10,6 +10,11 @@ import { checkNewDay } from "../UTILS/date.js";
 import { products } from "../../../BACKEND/DATA/products.js";
 import { productsImages } from "../../../BACKEND/DATA/productsImages.js";
 import { generateRandomIndex } from "../UTILS/generate.js";
+import {
+    getProductImage,
+    getProductStockCondition,
+    getRandomProduct
+} from "../../../BACKEND/DATA/productsMethods.js";
 
 if (!checkActiveUser()) {
     document.body.innerHTML = "YOU MUST BE AUTHENTICATED TO VIEW THIS PAGE"; //Check if user is authenticated
@@ -60,15 +65,7 @@ function generateRecommendedProductHtml(product) {
         `;
     return html;
 }
-function getProductImage(product) {
-    const imageObject = productsImages.find(
-        (imageObject) => imageObject.id === product.id
-    );
-    return imageObject.images[0];
-}
-function getRandomProduct() {
-    return products[generateRandomIndex(products)];
-}
+
 function saveRecommenedProducts(recommendedProducts) {
     localStorage.setItem(
         "recommended-products",
@@ -78,14 +75,35 @@ function saveRecommenedProducts(recommendedProducts) {
 function getRecommendedProducts() {
     return JSON.parse(localStorage.getItem("recommended-products"));
 }
-function checkDuplicateProduct(product, array) {
-    if (array.length === 0) {
-        return false;
-    }
-    const duplicateProduct = array.find(
-        (arrayProduct) => arrayProduct.id === product.id
-    );
-    return duplicateProduct;
+function generateStationeryProductsHtml(product) {
+    const productImage = getProductImage(product);
+    const productStockCondition = getProductStockCondition(product);
+    const productHtml = `
+            <div class="product-container" data-id="${product.id}">
+                <div class="product-image-container">
+                    <img src="../../../${productImage}" alt="">
+                    <div class="bottom-fade"></div>
+                </div>
+                <div class="product-data-container">
+                    <div class="top">
+                        <span class="product-name">${product.name}</span>
+                        <span class="product-price">$${product.price}</span>
+                    </div>
+                    <div class="bottom">
+                        <p class="product-description">
+                            ${product.description}
+                        </p>
+                    </div>
+                </div>
+                <p class="stock-condition">${productStockCondition}</p>
+                <div class="product-cta-container">
+                    <button href="#" class="cta primary-cta add-to-cart-btn">Add to Cart</button>
+                    <button href="#" class="cta secondary-cta add-to-wishlist-btn"><i
+                            class="far fa-heart"></i></button>
+                </div>
+            </div>
+        `;
+    return productHtml;
 }
 
 const recommendedProductsContainer = document.querySelector(
@@ -118,5 +136,21 @@ function renderRecommendedProducts() {
     saveRecommenedProducts(recommendedProducts); //Save recommended products so it can be used to generate html if its still the same day
 }
 
+const stationeryProductsContainer = document.querySelector(
+    "#daily-edit-products-grid"
+);
+
+function renderStationeryProducts() {
+    const stationeryProducts = products.filter(
+        (product) => product.category === "stationery"
+    );
+    stationeryProductsContainer.innerHTML = "";
+    stationeryProducts.forEach((product) => {
+        stationeryProductsContainer.innerHTML +=
+            generateStationeryProductsHtml(product);
+    });
+}
+
 renderActiveUsername();
 renderRecommendedProducts();
+renderStationeryProducts();
