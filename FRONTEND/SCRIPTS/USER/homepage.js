@@ -53,8 +53,8 @@ function generateRecommendedProductHtml(product) {
                     <img src="../../../${productImage}" alt="">
                 </div>
                 <div class="right">
-                    <div class="product-name">${product.name}</div>
-                    <span class="product-price">$${product.price.toFixed(2)}</span>
+                    <div class="recommended-product-name">${product.name}</div>
+                    <span class="recommended-product-price">$${product.price}</span>
                 </div>
             </div>
         `;
@@ -88,8 +88,6 @@ function checkDuplicateProduct(product, array) {
     return duplicateProduct;
 }
 
-renderActiveUsername();
-
 const recommendedProductsContainer = document.querySelector(
     ".recommended-products-container"
 );
@@ -107,6 +105,7 @@ function renderRecommendedProducts() {
     }
     let recommendedProducts = [];
     for (let i = 0; i < 3; i++) {
+        //3 is the number of products that are used
         let product = getRandomProduct();
         while (checkDuplicateProduct(product, recommendedProducts)) {
             product = getRandomProduct();
@@ -119,4 +118,5 @@ function renderRecommendedProducts() {
     saveRecommenedProducts(recommendedProducts); //Save recommended products so it can be used to generate html if its still the same day
 }
 
+renderActiveUsername();
 renderRecommendedProducts();
