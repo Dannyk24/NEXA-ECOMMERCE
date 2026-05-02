@@ -46,7 +46,7 @@ function authenticateUser(e) {
     if (activeUser.role === "admin") {
         navigateTo("../ADMIN/admin-dashboard.html", 2500);
     } else {
-        navigateTo("homepage.html", 2500);
+        navigateTo("homepage.html", 2000);
     }
 }
 document.body.addEventListener("click", (e) => {

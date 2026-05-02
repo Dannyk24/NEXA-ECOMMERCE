@@ -120,7 +120,7 @@ signUpButton.addEventListener("click", (e) => {
     };
     addUser(newUser);
     saveUsers();
-    navigateTo("login.html", 2500);
+    navigateTo("login.html", 2000);
 
     //Notify user
     //Add user to usersList
