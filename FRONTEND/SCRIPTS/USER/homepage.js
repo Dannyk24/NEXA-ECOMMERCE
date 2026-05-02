@@ -13,7 +13,8 @@ import { generateRandomIndex } from "../UTILS/generate.js";
 import {
     getProductImage,
     getProductStockCondition,
-    getRandomProduct
+    getRandomProduct,
+    getStockConditionColourClass
 } from "../../../BACKEND/DATA/productsMethods.js";
 
 if (!checkActiveUser()) {
@@ -78,6 +79,8 @@ function getRecommendedProducts() {
 function generateStationeryProductsHtml(product) {
     const productImage = getProductImage(product);
     const productStockCondition = getProductStockCondition(product);
+    let stockConditionColourClass = getStockConditionColourClass(product);
+
     const productHtml = `
             <div class="product-container" data-id="${product.id}">
                 <div class="product-image-container">
@@ -95,7 +98,7 @@ function generateStationeryProductsHtml(product) {
                         </p>
                     </div>
                 </div>
-                <p class="stock-condition">${productStockCondition}</p>
+                <p class="stock-condition ${stockConditionColourClass}">${productStockCondition}</p>
                 <div class="product-cta-container">
                     <button href="#" class="cta primary-cta add-to-cart-btn">Add to Cart</button>
                     <button href="#" class="cta secondary-cta add-to-wishlist-btn"><i
@@ -103,6 +106,7 @@ function generateStationeryProductsHtml(product) {
                 </div>
             </div>
         `;
+
     return productHtml;
 }
 
@@ -145,6 +149,14 @@ function renderStationeryProducts() {
         (product) => product.category === "stationery"
     );
     stationeryProductsContainer.innerHTML = "";
+    if (stationeryProducts.length > 5) {
+        for (let i = 0; i < 5; i++) {
+            let product = stationeryProducts[i];
+            stationeryProductsContainer.innerHTML +=
+                generateStationeryProductsHtml(product);
+        }
+        return;
+    }
     stationeryProducts.forEach((product) => {
         stationeryProductsContainer.innerHTML +=
             generateStationeryProductsHtml(product);

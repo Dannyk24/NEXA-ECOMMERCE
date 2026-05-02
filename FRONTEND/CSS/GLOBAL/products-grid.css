@@ -135,8 +135,25 @@
 
 .stock-condition {
     font-size: 14px;
-    color: var(--secondary-text-color);
     font-weight: 700;
+    text-transform: capitalize;
+}
+
+.in-stock {
+    color: var(--secondary-text-color);
+}
+
+.few-units-left {
+    color: var(--warning-color);
+}
+
+.number-stock {
+    /*Less than 15 items left*/
+    color: var(--danger-color);
+}
+
+.out-of-stock {
+    color: var(--disabled-text);
 }
 
 .add-to-cart-btn {
