@@ -1,8 +1,9 @@
 import { productsImages } from "./productsImages.js";
 import { products } from "./products.js";
+import { generateRandomIndex } from "../../FRONTEND/SCRIPTS/UTILS/generate.js";
 
 export function getProductStockCondition(product) {
-    const stockAmount = [product.stockAmount];
+    const stockAmount = product.stockAmount;
     let stockCondition;
     if (stockAmount === 0) {
         stockCondition = "out of stock";
@@ -10,9 +11,9 @@ export function getProductStockCondition(product) {
         stockCondition = "in stock";
     } else if (stockAmount < 40 && stockAmount > 15) {
         stockCondition = "few units left";
-    } else if (stockAmount <= 15 && stockAmount >= 1)
+    } else if (stockAmount <= 15 && stockAmount >= 1) {
         stockCondition = `${product.stockAmount} units left`;
-
+    }
     return stockCondition;
 }
 
@@ -34,4 +35,18 @@ export function getProductImage(product) {
 }
 export function getRandomProduct() {
     return products[generateRandomIndex(products)];
+}
+export function getStockConditionColourClass(product) {
+    const productStockCondition = getProductStockCondition(product);
+    let stockConditionColourClass;
+    if (productStockCondition === "in stock") {
+        stockConditionColourClass = "in-stock";
+    } else if (productStockCondition === "few units left") {
+        stockConditionColourClass = "few-units-left";
+    } else if (productStockCondition === `${product.stockAmount} units left`) {
+        stockConditionColourClass = "number-stock";
+    } else {
+        stockConditionColourClass = "out-of-stock";
+    }
+    return stockConditionColourClass;
 }
