@@ -9,7 +9,7 @@ export function getProductStockCondition(product) {
         stockCondition = "out of stock";
     } else if (stockAmount > 40) {
         stockCondition = "in stock";
-    } else if (stockAmount < 40 && stockAmount > 15) {
+    } else if (stockAmount <= 40 && stockAmount > 15) {
         stockCondition = "few units left";
     } else if (stockAmount <= 15 && stockAmount >= 1) {
         stockCondition = `${product.stockAmount} units left`;
