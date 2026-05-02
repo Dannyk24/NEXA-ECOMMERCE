@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="../../CSS/GLOBAL/style.css">
     <link rel="stylesheet" href="../../CSS/GLOBAL/header.css">
     <link rel="stylesheet" href="../../CSS/GLOBAL/footer.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/toasts.css">
     <link rel="stylesheet" href="../../CSS/GLOBAL/products-grid.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/product-categories.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/contact-us.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/faqs.css">
     <link rel="stylesheet" href="../../ASSETS/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../CSS/CUSTOM/USER/homepage.css">
 </head>
@@ -94,6 +98,21 @@
                     </div>
                 </div>
             </section>
+            <section id="product-categories">
+                <div class="product-categories-container">
+                    <div class="tech-accessories-container category-container" id="stationery">
+                        <img src="../../ASSETS/IMAGES/DESIGN-IMAGES/omid-armin-gSZCLsE7ysc-unsplash.jpg" alt=""
+                            loading="lazy">
+                        <span>tech accessories</span>
+                    </div>
+                    <div class="line"></div>
+                    <div class="stationery-container category-container" id="tech">
+                        <img src="../..//ASSETS/IMAGES/DESIGN-IMAGES/aaron-burden-xG8IQMqMITM-unsplash.jpg" alt=""
+                            loading="lazy">
+                        <span>stationery items</span>
+                    </div>
+                </div>
+            </section>
             <section id="daily-edit-section">
                 <div class="section-header">the daily edit</div>
                 <div class="section-subheader">Refined essentials for the modern digital nomad.Objects that stand the
@@ -103,12 +122,189 @@
                     <!--renderStationeryProducts()-->
                 </div>
             </section>
+            <section id="my-tech-section">
+                <div class="section-header">my tech</div>
+                <div class="section-subheader">Tech products made just for you by the nexa standard. built for both
+                    affordability and luxury
+                </div>
+                <div class="products-grid" id="my-tech-products-grid">
+                    <!--RenderTechProducts()-->
+                </div>
+            </section>
+            <section id="contact-us-section" data-section="contact-us" class="js-main-sections">
+                <div class="left-section">
+                    <div class="top">
+                        <h6 class="contact-us-form-header">
+                            Let's start <br> a conversation
+                        </h6>
+                        <p class="contact-us-form-sub-header">Whether you have a question about or collections,need
+                            asistance with an order, or simply want to share your thoughts, our team is here to listen.
+                        </p>
+                        <div class="contact-brand-icons">
+                            <i class="fab fa-whatsapp"></i>
+                            <i class="fab fa-telegram"></i>
+                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <div class="contact-field-container">
+                            <div class="contact icon"><i class="fas fa-location-dot"></i></div>
+                            <div class="contact-field-information">
+                                <div class="contact-field-information-header">Studio Headquarters</div>
+                                <span>124 curator's row,design district new york,ny 10013</span>
+                                <span>new york,ny 10013</span>
+                            </div>
+                        </div>
+                        <div class="contact-field-container">
+                            <div class="contact icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-field-information">
+                                <div class="contact-field-information-header">digital correspondence</div>
+                                <span>support@nexaeditorial.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-field-container">
+                            <div class="contact icon"><i class="fas fa-clock"></i></div>
+                            <div class="contact-field-information">
+                                <div class="contact-field-information-header">hours of operation</div>
+                                <span>monday-friday; 09:00 - 18:00EST</span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-section">
+                    <form action="#">
+                        <div class="form-top">
+                            <div class="contact-form-input-field-container">
+                                <label for="name">name</label>
+                                <input type="text" placeholder="John Doe" required>
+                            </div>
+                            <div class="contact-form-input-field-container">
+                                <label for="email">email</label>
+                                <input type="email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        <div class="contact-form-input-field-container">
+                            <label for="subject">subject</label>
+                            <select name="subjet" id="">
+                                <option value="general-inquiry" selected>General inquiry</option>
+                                <option value="order-related-issues">Order related issues</option>
+                                <option value="issues-logging-in">Issues logging in</option>
+                                <option value="site issues">Site issues</option>
+                                <option value="payment problems">Payment problems</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="contact-form-input-field-container">
+                            <label for="message">message</label>
+                            <textarea name="message" id="" placeholder="What can we do for you today?"></textarea>
+                        </div>
+                        <button type="submit" class="primary-cta cta send-message-btn">send message <i
+                                class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </section>
+            <section id="faqs-section">
+                <div class="section-header">FAQ'S</div>
+                <div class="faqs-container">
+                    <div class="faq-container">
+                        <div class="question"><span>What is Nexa?</span><i class="fas fa-plus"></i></div>
+                        <div class="answer">Nexa is a simple e-commerce website where users can browse and view tech
+                            accessories and stationery products. It was built as a frontend project to practice web
+                            development skills.</div>
+                    </div>
+                    <div class="faq-container">
+                        <div class="question"><span>Can I buy products directly from the website?</span><i
+                                class="fas fa-plus"></i></div>
+                        <div class="answer">Not yet. Nexa is currently a frontend-only project, so payments and real
+                            orders are not supported at the moment.</div>
+                    </div>
+                    <div class="faq-container">
+                        <div class="question"><span>Does Nexa have a shopping cart?</span><i class="fas fa-plus"></i>
+                        </div>
+                        <div class="answer">Yes. Users can add items to a cart, but the functionality is basic and
+                            limited as the site is not connected to a real backend or database.</div>
+                    </div>
+                    <div class="faq-container">
+                        <div class="question"><span>Is the website mobile-friendly?</span><i class="fas fa-plus"></i>
+                        </div>
+                        <div class="answer">Yes. Nexa is designed to be responsive, so it works on mobile, tablet, and
+                            desktop screens.</div>
+                    </div>
+                    <div class="faq-container">
+                        <div class="question"><span>What technologies were used to build Nexa?</span><i
+                                class="fas fa-plus"></i></div>
+                        <div class="answer">Nexa was built using HTML, CSS, and JavaScript without any frameworks.</div>
+                    </div>
+                    <div class="faq-container">
+                        <div class="question"><span>Will more features be added in the future?</span><i
+                                class="fas fa-plus"></i></div>
+                        <div class="answer">Yes. Planned improvements include adding a backend, user authentication, a
+                            database and a complete checkout system including real products.</div>
+                    </div>
+                    <div class="faq-container">
+                        <div class="question"><span>Can I use or modify this project?</span><i class="fas fa-plus"></i>
+                        </div>
+                        <div class="answer">Yes. This project is open for learning and practice. You can fork it, modify
+                            it, and build on top of it.</div>
+                    </div>
+                    <div class="faq-container">
+                        <div class="question"><span>Do I need an account to use Nexa?</span><i class="fas fa-plus"></i>
+                        </div>
+                        <div class="answer">You can browse products without an account, but Nexa includes a simulated
+                            authentication system for login and signup features.</div>
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
+    <footer>
+        <div class="footer-top">
+            <div class="site-summary">
+                <div class="logo">
+                    <img src="../../ASSETS/IMAGES/nexa-logo.svg" alt="">
+                </div>
+                <div class="title">curating modern living through architectural design and functional beauty</div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-header">shop</div>
+                <a href="#">collections</a>
+                <a href="#">products</a>
+                <a href="#">arrivals</a>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-header">support</div>
+                <a href="#">contact us</a>
+                <a href="#">faq's</a>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-header">socials</div>
+                <a href="#">whatsapp</a>
+                <a href="#">instagram</a>
+                <a href="#">twitter</a>
+                <a href="#">telegram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">© <span class="current-year">2026</span> Nexa Editorial. All rights reserved</div>
+        </div>
+    </footer>
 
-
+    <!--TOAST-->
+    <div class="toast-container">
+        <div class="toast-background"></div>
+        <div class="toast-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <div class="toast-data">
+            <div class="toast-header"></div>
+            <div class="toast-message"></div>
+        </div>
+    </div>
 
     <script src="../../SCRIPTS/USER/homepage.js" type="module"></script>
+    <script src="../../SCRIPTS/MODULES/faqs.js"></script>
 </body>
 
 </html>

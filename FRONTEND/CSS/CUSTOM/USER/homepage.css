@@ -250,6 +250,10 @@
     margin-top: 10px;
 }
 
+.product-categories-container .category-container {
+    cursor: pointer;
+}
+
 
 #daily-edit-section {
     margin-top: 70px;
@@ -262,6 +266,10 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
+.product-container {
+    cursor: pointer;
+}
+
 .product-cta-container {
     display: flex;
     gap: 20px;
@@ -270,6 +278,10 @@
 
 .add-to-wishlist-btn {
     height: 40px;
+}
+
+#my-tech-section {
+    margin-top: 60px;
 }
 
 

@@ -16,6 +16,7 @@ import {
     getRandomProduct,
     getStockConditionColourClass
 } from "../../../BACKEND/DATA/productsMethods.js";
+import { scrollSectionIntoView } from "../MODULES/navigation.js";
 
 if (!checkActiveUser()) {
     document.body.innerHTML = "YOU MUST BE AUTHENTICATED TO VIEW THIS PAGE"; //Check if user is authenticated
@@ -76,7 +77,7 @@ function saveRecommenedProducts(recommendedProducts) {
 function getRecommendedProducts() {
     return JSON.parse(localStorage.getItem("recommended-products"));
 }
-function generateStationeryProductsHtml(product) {
+function generateGridProductsHtml(product) {
     const productImage = getProductImage(product);
     const productStockCondition = getProductStockCondition(product);
     let stockConditionColourClass = getStockConditionColourClass(product);
@@ -153,16 +154,51 @@ function renderStationeryProducts() {
         for (let i = 0; i < 5; i++) {
             let product = stationeryProducts[i];
             stationeryProductsContainer.innerHTML +=
-                generateStationeryProductsHtml(product);
+                generateGridProductsHtml(product);
         }
         return;
     }
     stationeryProducts.forEach((product) => {
         stationeryProductsContainer.innerHTML +=
-            generateStationeryProductsHtml(product);
+            generateGridProductsHtml(product);
     });
 }
 
+const techProductsContainer = document.querySelector("#my-tech-products-grid");
+function renderTechProducts() {
+    const techProducts = products.filter(
+        (product) => product.category === "tech"
+    );
+    techProductsContainer.innerHTML = "";
+    if (techProducts.length > 6) {
+        for (let i = 0; i < 6; i++) {
+            let product = techProducts[i];
+            techProductsContainer.innerHTML +=
+                generateGridProductsHtml(product);
+        }
+        return;
+    }
+    techProducts.forEach((product) => {
+        techProductsContainer.innerHTML += generateGridProductsHtml(product);
+    });
+}
+
+const productCategoriesContainer = document.querySelector(
+    ".product-categories-container"
+);
+
+productCategoriesContainer.addEventListener("click", (e) => {
+    if (!e.target.closest(".category-container")) {
+        return;
+    }
+    const category = e.target.closest(".category-container");
+    if (category.getAttribute("id") === "tech") {
+        scrollSectionIntoView(stationeryProductsContainer);
+    } else {
+        scrollSectionIntoView(techProductsContainer);
+    }
+});
 renderActiveUsername();
 renderRecommendedProducts();
 renderStationeryProducts();
+renderTechProducts();
