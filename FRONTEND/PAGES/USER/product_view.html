@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXA | PRODUCT VIEW</title>
+    <link rel="shortcut icon" href="../../ASSETS/IMAGES/favicon-white.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/style.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/header.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/authenticated_header.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/footer.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/toasts.css">
+    <link rel="stylesheet" href="../../ASSETS/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../CSS/CUSTOM/USER/product_view.css">
+</head>
+
+<body>
+    <header>
+        <div class="overlay"></div>
+        <div class="menu-toggle-mobile"><i class="fas fa-bars"></i></div>
+        <div class="top-light"></div>
+        <div class="header-left">
+            <div class="logo"><a href="#"><img src="../../ASSETS/IMAGES/nexa-logo.svg" alt=""></a>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="search-bar-container">
+                <a class="search-icon-container" href="#">
+                    <i class="fas fa-search"></i>
+                </a>
+                <input type="search" placeholder="Search products...." id="header-search-bar">
+            </div>
+            <a class="header-icon" href="../../PAGES/USER/wishlist.html" title="Wishlist">
+                <i class="fas fa-shopping-bag"></i>
+            </a>
+            <a class="header-icon" href="../../PAGES/USER/cart.html" title="My Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <div class="number-badge-display">0</div>
+            </a>
+            <a class="header-icon" href="../../PAGES/USER/profile.html" title="Profile">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+        <div class="authenticated-mobile-nav">
+            <div class="top">
+                <a class="authenticated-nav-item active-authenticated-mobile-nav-item" href="../USER/homepage.html">
+                    <i class="fas fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a class="authenticated-nav-item" href="../USER/wishlist.html">
+                    <i class="fas fa-heart"></i>
+                    <span>Wishlist</span>
+                </a>
+                <a class="authenticated-nav-item" href="../USER/cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                </a>
+                <a class="authenticated-nav-item" href="../USER/profile.html">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </div>
+            <div class="bottom">
+                <button class="log-out-button">Log out</button>
+            </div>
+        </div>
+    </header>
+    <div class="wrapper">
+        <main>
+            <div class="product-details-container">
+                <div class="left">
+                    <div class="top active-image-container">
+                        <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/headphones-1.webp" alt="">
+                    </div>
+                    <div class="bottom products-images-container">
+                        <div class="product-image-container">
+                            <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/headphones-1.webp" alt=""
+                                id="active-product-image">
+                        </div>
+                        <div class="product-image-container">
+                            <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/headphones-2.webp" alt="">
+                        </div>
+                        <div class="product-image-container">
+                            <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/headphones-3.webp" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="product-edition">standard-edition</div>
+                    <div class="product-name">nexaPulse x9 adaptive noise-cancelling headphones</div>
+                    <div class="product-price">$249.00</div>
+                    <div class="product-description">Experience sound like never before with the NexaPulse X9 Adaptive
+                        Noise-Cancelling Headphones, engineered for those who demand precision, depth, and clarity in
+                        every note. Featuring advanced hybrid active noise cancellation, the X9 intelligently adapts to
+                        your environment, filtering out unwanted background noise whether you're commuting, working, or
+                        relaxing at home.
+                    </div>
+                    <div class="no-of-product-reviews"><span>6</span> reviews</div>
+                    <div class="product-stock-condition">In Stock</div>
+                    <div class="product-quantity-selector-container">
+                        <i class="fas fa-minus"></i>
+                        <span class="product-quantity">1</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="cta-container">
+                        <div class="cta primary-cta add-to-cart-button">
+                            add to cart <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="cta secondary-cta add-to-wishlist-button">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="product-assurances-container">
+                        <div class="product-assurance">
+                            <div class="left"><i class="fas fa-truck"></i></div>
+                            <div class="right">
+                                <p class="assurance-header">fast shipping</p>
+                                <span class="assurance-description">2-3 business days delivery</span>
+                            </div>
+                        </div>
+                        <div class="product-assurance">
+                            <div class="left"><i class="fas fa-shield-alt"></i></div>
+                            <div class="right">
+                                <p class="assurance-header">2-Year warranty</p>
+                                <span class="assurance-description">full hardware coverage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../SCRIPTS/MODULES/authenticated_header.js" type="module"></script>
+</body>
+
+</html>
