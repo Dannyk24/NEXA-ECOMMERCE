@@ -72,7 +72,7 @@ function generateGridProductsHtml(product) {
                 </div>
                 <p class="stock-condition ${stockConditionColourClass}">${productStockCondition}</p>
                 <div class="product-cta-container">
-                    <button href="#" class="cta primary-cta add-to-cart-btn">Add to Cart</button>
+                    <button href="#" class="cta primary-cta add-to-cart-button">Add to Cart</button>
                     <button href="#" class="cta secondary-cta add-to-wishlist-btn"><i
                             class="far fa-heart"></i></button>
                 </div>
