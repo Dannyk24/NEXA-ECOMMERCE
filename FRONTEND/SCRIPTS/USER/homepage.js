@@ -9,9 +9,10 @@ import {
     getProductStockCondition,
     getRandomProduct,
     getStockConditionColourClass,
-    checkDuplicateProduct
+    checkDuplicateProduct,
+    setActiveViewingProduct
 } from "../../../BACKEND/DATA/productsMethods.js";
-import { scrollSectionIntoView } from "../MODULES/navigation.js";
+import { navigateTo, scrollSectionIntoView } from "../MODULES/navigation.js";
 
 if (!checkActiveUser()) {
     document.body.innerHTML = "YOU MUST BE AUTHENTICATED TO VIEW THIS PAGE"; //Check if user is authenticated
@@ -173,3 +174,16 @@ renderActiveUsername();
 renderRecommendedProducts();
 renderStationeryProducts();
 renderTechProducts();
+
+recommendedProductsContainer.addEventListener("click", (e) => {
+    if (!e.target.closest(".recommended-product")) {
+        return;
+    }
+    const productElem = e.target.closest(".recommended-product");
+    const productId = Number(productElem.dataset.id);
+    const product = products.find(
+        (product) => product.id === Number(productId)
+    );
+    setActiveViewingProduct(product);
+    navigateTo("../../PAGES/USER/product_view.html", 0);
+});

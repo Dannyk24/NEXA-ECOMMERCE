@@ -50,3 +50,9 @@ export function getStockConditionColourClass(product) {
     }
     return stockConditionColourClass;
 }
+export function setActiveViewingProduct(product) {
+    localStorage.setItem("active-viewing-product", JSON.stringify(product));
+}
+export function getActiveViewingProduct(product) {
+    return JSON.parse(localStorage.getItem("active-viewing-product"));
+}
