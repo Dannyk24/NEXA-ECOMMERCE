@@ -1,6 +1,7 @@
 import { productsImages } from "./productsImages.js";
 import { products } from "./products.js";
 import { generateRandomIndex } from "../../FRONTEND/SCRIPTS/UTILS/generate.js";
+import { navigateTo } from "../../FRONTEND/SCRIPTS/MODULES/navigation.js";
 
 export function getProductStockCondition(product) {
     const stockAmount = product.stockAmount;
@@ -55,4 +56,8 @@ export function setActiveViewingProduct(product) {
 }
 export function getActiveViewingProduct(product) {
     return JSON.parse(localStorage.getItem("active-viewing-product"));
+}
+export function viewProduct(product) {
+    setActiveViewingProduct(product);
+    navigateTo("../../PAGES/USER/product_view.html", 0);
 }

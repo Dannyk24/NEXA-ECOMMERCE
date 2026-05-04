@@ -10,7 +10,8 @@ import {
     getRandomProduct,
     getStockConditionColourClass,
     checkDuplicateProduct,
-    setActiveViewingProduct
+    setActiveViewingProduct,
+    viewProduct
 } from "../../../BACKEND/DATA/productsMethods.js";
 import { navigateTo, scrollSectionIntoView } from "../MODULES/navigation.js";
 
@@ -184,6 +185,5 @@ recommendedProductsContainer.addEventListener("click", (e) => {
     const product = products.find(
         (product) => product.id === Number(productId)
     );
-    setActiveViewingProduct(product);
-    navigateTo("../../PAGES/USER/product_view.html", 0);
+    viewProduct(product);
 });
