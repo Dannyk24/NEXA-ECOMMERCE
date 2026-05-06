@@ -20,3 +20,7 @@ export function capitalize(string) {
     });
     return fullArray.toLocaleString().replaceAll(",", " "); //toLocaleString() converts an array to a string and serperates each element by a comma, user replace to replace all commas wtih spaces
 }
+
+export function calculatePercentage(number, totalLength) {
+    return (number / totalLength) * 100;
+}
