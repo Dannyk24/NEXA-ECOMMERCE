@@ -184,6 +184,25 @@ main {
     line-height: 32px;
 }
 
+.in-stock {
+    color: var(--secondary-text-color);
+}
+
+.few-units-left {
+    color: var(--warning-color);
+}
+
+.number-stock {
+    /*Less than 15 items left*/
+    color: var(--danger-color);
+}
+
+.out-of-stock {
+    color: var(--disabled-text);
+}
+
+
+
 @media(max-width:550px) {
     .section-header {
         font-size: 20px;

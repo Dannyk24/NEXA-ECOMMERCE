@@ -112,9 +112,16 @@ main {
     color: var(--primary-color);
 }
 
+.product-seller-name {
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 17px;
+}
+
 .product-description {
     font-size: 14px;
     line-height: 28px;
+    color: var(--secondary-text-color);
 }
 
 .no-of-product-reviews {
@@ -123,9 +130,9 @@ main {
 }
 
 .product-stock-condition {
-    color: var(--secondary-text-color);
     font-weight: 700;
     font-size: 16px;
+    text-transform: capitalize;
 }
 
 .product-quantity-selector-container {
@@ -264,7 +271,7 @@ section#product-reviews {
     bottom: 0;
     left: 0;
     border-radius: 10px;
-    width: 85%;
+    width: 0%;
     background-color: var(--primary-color);
 }
 
@@ -309,6 +316,7 @@ section#product-reviews {
 .user-review-container .user-review-username {
     font-weight: 700;
     font-size: 16px;
+    text-transform: capitalize;
 }
 
 .verified-purchase-badge {
@@ -387,23 +395,6 @@ section#product-reviews {
     .product-description {
         font-size: 12px;
     }
-
-    #product-reviews .top {
-        width: 100%;
-    }
-
-    .product-review-container {
-        display: flex;
-        align-items: center;
-    }
-
-    .product-review-container .no-of-stars {
-        white-space: nowrap;
-    }
-
-    .review-percentage-container {
-        width: 100%;
-    }
 }
 
 @media(max-width:550px) {
@@ -432,6 +423,7 @@ section#product-reviews {
     .product-image-container {
         width: 100%;
         height: 100px;
+        max-width: 100px;
     }
 
     .product-assurances-container {
@@ -440,6 +432,23 @@ section#product-reviews {
     }
 
     .product-assurance {
+        width: 100%;
+    }
+
+    #product-reviews .top {
+        width: 100%;
+    }
+
+    .product-review-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .product-review-container .no-of-stars {
+        white-space: nowrap;
+    }
+
+    .review-percentage-container {
         width: 100%;
     }
 }
