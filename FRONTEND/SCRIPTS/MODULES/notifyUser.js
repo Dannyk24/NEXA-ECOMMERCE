@@ -12,6 +12,19 @@ export function notfiy(type, message) {
     const toastMessage = notifyContainer.querySelector(".toast-message");
     toastMessage.textContent = message;
 
+    const toastIconContainer = notifyContainer.querySelector(".toast-icon");
+    const toastIcon = toastIconContainer.querySelector("i");
+    let toastIconClass;
+    toastIcon.classList.remove("fa-check"); //Remove default success icon
+    if (type === "success") {
+        toastIconClass = "fa-check";
+    } else if (type === "danger") {
+        toastIconClass = "fa-bug";
+    } else if (type === "warning") {
+        toastIconClass = "fa-exclamation";
+    }
+    toastIcon.classList.add(toastIconClass);
+
     if (timeoutId) {
         /*Debounce the toast before making it visible to avoid weird behaviour*/
         clearTimeout(timeoutId);
