@@ -241,17 +241,25 @@ const modalSubmitButton = document.querySelector(".modal-submit-button");
 const starsInputElem = reviewModal.querySelector(".stars-count-input");
 const reviewTextInputElem = reviewModal.querySelector(".review-text-input");
 
-reviewCta.addEventListener("click", () => {
+function openReviewModal() {
     reviewModal.classList.add("primary-modal-active");
     overlay.classList.add("overlay-active");
+    blockUserScrolling();
+}
+function closeReviewModal() {
+    closeOverlay();
+    reviewModal.classList.remove("primary-modal-active");
+    restoreUserScrolling();
+}
+
+reviewCta.addEventListener("click", () => {
+    openReviewModal();
 });
 overlay.addEventListener("click", () => {
-    closeOverlay();
-    reviewModal.classList.remove("primary-modal-active");
+    closeReviewModal();
 });
 modalCloseButton.addEventListener("click", () => {
-    closeOverlay();
-    reviewModal.classList.remove("primary-modal-active");
+    closeReviewModal();
 });
 modalSubmitButton.addEventListener("click", (e) => {
     const reviewStars = formatString(starsInputElem.value);
@@ -279,9 +287,8 @@ modalSubmitButton.addEventListener("click", (e) => {
     };
     activeProductReviews.push(newReview);
     saveProductReviews();
+    closeReviewModal();
     notfiy("success", "Review Added");
-    reviewModal.classList.remove("primary-modal-active");
-    closeOverlay();
     renderUserReviewsBreakdown();
     renderUserReviews();
 });
