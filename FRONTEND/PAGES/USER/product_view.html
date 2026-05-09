@@ -73,6 +73,33 @@
         </main>
     </div>
 
+    <form class="primary-modal" id="write-a-review-modal">
+        <div class="modal-close-button"><i class="fas fa-x"></i></div>
+        <div class="modal-header">write a review</div>
+        <div class="modal-input-field-container">
+            <label for="reivew-stars">stars</label>
+            <input type="number" placeholder="Min 1 Max 5" required class="stars-count-input">
+        </div>
+        <div class="modal-input-field-container">
+            <label for="reivew-stars">review</label>
+            <textarea name="user-review" placeholder="Write your review here" required minlength="10" maxlength="200"
+                class="review-text-input"></textarea>
+        </div>
+        <button type="submit" class="modal-submit-button cta alternate-cta"
+            data-modal="write-a-review-modal">submit</button>
+    </form>
+    <!--TOAST-->
+    <div class="toast-container">
+        <div class="toast-background"></div>
+        <div class="toast-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <div class="toast-data">
+            <div class="toast-header"></div>
+            <div class="toast-message"></div>
+        </div>
+    </div>
+
     <script src="../../SCRIPTS/MODULES/authenticated_header.js" type="module"></script>
     <script src="../../SCRIPTS/USER/product_view.js" type="module"></script>
 </body>

@@ -1,12 +1,24 @@
 import { getActiveViewingProduct } from "../../../BACKEND/DATA/productsMethods.js";
 import { productsImages } from "../../../BACKEND/DATA/productsImages.js";
 import { products } from "../../../BACKEND/DATA/products.js";
-import { productsReviews } from "../../../BACKEND/DATA/productsReviews.js";
+import {
+    productsReviews,
+    saveProductReviews
+} from "../../../BACKEND/DATA/productsReviews.js";
 import {
     getProductStockCondition,
     getStockConditionColourClass
 } from "../../../BACKEND/DATA/productsMethods.js";
-import { calculatePercentage } from "../UTILS/format.js";
+import {
+    openOverlay,
+    closeOverlay,
+    blockUserScrolling,
+    restoreUserScrolling
+} from "../MODULES/overlay.js";
+import { calculatePercentage, capitalize } from "../UTILS/format.js";
+import { formatString } from "../UTILS/format.js";
+import { notfiy } from "../MODULES/notifyUser.js";
+import { activeUser } from "../../../BACKEND/DATA/user.js";
 
 const activeViewingProductContainer = document.querySelector(
     ".active-viewing-product-container"
@@ -172,10 +184,13 @@ function renderUserReviewsBreakdown() {
         ); //Convert to array to access the find() method
         const reviewsLength = reviewsArray.length;
         const totalReviewsLength = activeProductReviews.length;
-        const reviewPercentage = calculatePercentage(
-            reviewsLength,
-            totalReviewsLength
-        );
+        let reviewPercentage = Math.round(
+            calculatePercentage(reviewsLength, totalReviewsLength)
+        ); //Round up percentage to avoid values like 66.6667676
+        if (!reviewPercentage) {
+            reviewPercentage = 0;
+        } //Check if review percentage is NAN when there are no user reviews
+
         productReviewsContiainer.innerHTML += generateUserReviewsBreakdownHtml(
             index,
             reviewPercentage
@@ -197,6 +212,7 @@ function renderUserReviews() {
     const userReviewsContainer = document.querySelector(
         ".user-reviews-container"
     );
+    userReviewsContainer.innerHTML = "";
     if (activeProductReviews.length === 0) {
         userReviewsContainer.textContent = "No reviews avaible at this time";
         return;
@@ -215,6 +231,59 @@ productImagesContainer.addEventListener("click", (e) => {
     const image = imageContainer.querySelector("img");
     const imageIndex = image.dataset.index;
     setActiveImage(activeProductImages[imageIndex]); //Use index data attribute to set the active image by its position in the activeProductImages array
+});
+
+const overlay = document.querySelector(".overlay");
+const reviewCta = document.querySelector(".write-a-review-cta");
+const reviewModal = document.querySelector("#write-a-review-modal");
+const modalCloseButton = document.querySelector(".modal-close-button");
+const modalSubmitButton = document.querySelector(".modal-submit-button");
+const starsInputElem = reviewModal.querySelector(".stars-count-input");
+const reviewTextInputElem = reviewModal.querySelector(".review-text-input");
+
+reviewCta.addEventListener("click", () => {
+    reviewModal.classList.add("primary-modal-active");
+    overlay.classList.add("overlay-active");
+});
+overlay.addEventListener("click", () => {
+    closeOverlay();
+    reviewModal.classList.remove("primary-modal-active");
+});
+modalCloseButton.addEventListener("click", () => {
+    closeOverlay();
+    reviewModal.classList.remove("primary-modal-active");
+});
+modalSubmitButton.addEventListener("click", (e) => {
+    const reviewStars = formatString(starsInputElem.value);
+    const reviewText = formatString(reviewTextInputElem.value);
+    if (!reviewModal.checkValidity()) {
+        return;
+    }
+    e.preventDefault();
+    if (Number(reviewStars) <= 0 || Number(reviewStars) >= 6) {
+        notfiy("warning", "Invalid stars count");
+        return;
+    }
+    if (reviewText.length < 10) {
+        notfiy("warning", "Review too short");
+        return;
+    }
+
+    const stars = Number(reviewStars);
+    const name = capitalize(activeUser.username);
+    const text = reviewText;
+    const newReview = {
+        stars,
+        name,
+        text
+    };
+    activeProductReviews.push(newReview);
+    saveProductReviews();
+    notfiy("success", "Review Added");
+    reviewModal.classList.remove("primary-modal-active");
+    closeOverlay();
+    renderUserReviewsBreakdown();
+    renderUserReviews();
 });
 
 renderProductImages();
