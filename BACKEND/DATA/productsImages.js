@@ -70,10 +70,7 @@ export const productsImages = [
     },
     {
         id: 14,
-        images: [
-            "FRONTEND/ASSETS/IMAGES/PRODUCT-IMAGES/usb-microphone-1.webp",
-            "FRONTEND/ASSETS/IMAGES/PRODUCT-IMAGES/usb-microphone-2.webp"
-        ]
+        images: ["FRONTEND/ASSETS/IMAGES/PRODUCT-IMAGES/usb-microphone-1.webp"]
     },
     {
         id: 15,
