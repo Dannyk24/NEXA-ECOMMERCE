@@ -117,6 +117,14 @@ function renderRecommendedProducts() {
 const stationeryProductsContainer = document.querySelector(
     "#daily-edit-products-grid"
 );
+stationeryProductsContainer.addEventListener("click", (e) => {
+    if (e.target.closest(".product-container")) {
+        const productContainer = e.target.closest(".product-container");
+        const productId = Number(productContainer.dataset.id); //Typecast as number to enforce strict equality
+        const product = products.find((product) => product.id === productId);
+        viewProduct(product);
+    }
+});
 
 function renderStationeryProducts() {
     const stationeryProducts = products.filter(
@@ -138,6 +146,14 @@ function renderStationeryProducts() {
 }
 
 const techProductsContainer = document.querySelector("#my-tech-products-grid");
+techProductsContainer.addEventListener("click", (e) => {
+    if (e.target.closest(".product-container")) {
+        const productContainer = e.target.closest(".product-container");
+        const productId = Number(productContainer.dataset.id); //Typecast as number to enforce strict equality
+        const product = products.find((product) => product.id === productId);
+        viewProduct(product);
+    }
+});
 function renderTechProducts() {
     const techProducts = products.filter(
         (product) => product.category === "tech"
