@@ -4,6 +4,7 @@ import {
     blockUserScrolling,
     restoreUserScrolling
 } from "./overlay.js";
+import { activeUserCart } from "../../../BACKEND/DATA/carts.js";
 /*Mobile sidebar toggle*/
 
 /*=====HELPERS=====*/
@@ -27,3 +28,10 @@ sidebarToggle.addEventListener("click", () => {
 overlay.addEventListener("click", () => {
     closeMobileNav();
 });
+
+export function updateHeaderCartCount() {
+    const cartCountElem = document.querySelector(".number-badge-display");
+    cartCountElem.textContent = activeUserCart.length;
+}
+
+updateHeaderCartCount();

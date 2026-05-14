@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXA | MY CART</title>
+    <link rel="shortcut icon" href="../../ASSETS/IMAGES/favicon-white.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/style.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/header.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/authenticated_header.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/toasts.css">
+    <link rel="stylesheet" href="../../ASSETS/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../CSS/CUSTOM/USER/cart.css">
+</head>
+
+<body>
+    <header>
+        <div class="overlay"></div>
+        <div class="menu-toggle-mobile"><i class="fas fa-bars"></i></div>
+        <div class="top-light"></div>
+        <div class="header-left">
+            <div class="logo"><a href="#"><img src="../../ASSETS/IMAGES/nexa-logo.svg" alt=""></a>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="search-bar-container">
+                <a class="search-icon-container" href="#">
+                    <i class="fas fa-search"></i>
+                </a>
+                <input type="search" placeholder="Search products...." id="header-search-bar">
+            </div>
+            <a class="header-icon" href="../../PAGES/USER/wishlist.html" title="Wishlist">
+                <i class="fas fa-shopping-bag"></i>
+            </a>
+            <a class="header-icon" href="../../PAGES/USER/cart.html" title="My Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <div class="number-badge-display">0</div>
+            </a>
+            <a class="header-icon" href="../../PAGES/USER/profile.html" title="Profile">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+        <div class="authenticated-mobile-nav">
+            <div class="top">
+                <a class="authenticated-nav-item" href="../USER/homepage.html">
+                    <i class="fas fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a class="authenticated-nav-item" href="../USER/wishlist.html">
+                    <i class="fas fa-heart"></i>
+                    <span>Wishlist</span>
+                </a>
+                <a class="authenticated-nav-item" href="../USER/cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                </a>
+                <a class="authenticated-nav-item" href="../USER/profile.html">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </div>
+            <div class="bottom">
+                <button class="log-out-button">Log out</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <main>
+            <div class="cart-summary-container">
+                <div class="cart-items-container">
+                    <!--renderCartitems()-->
+                </div>
+                <div class="order-summary-container">
+                    <p class="order-summary-header">order summary</p>
+                    <div class="summaries-container">
+                        <!--renderOrderSummary()-->
+                    </div>
+                    <div class="cta primary-cta checkout-button">Checkout <i class="fas fa-arrow-right"></i></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!--TOAST-->
+    <div class="toast-container">
+        <div class="toast-background"></div>
+        <div class="toast-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <div class="toast-data">
+            <div class="toast-header"></div>
+            <div class="toast-message"></div>
+        </div>
+    </div>
+
+    <script src="../../SCRIPTS/MODULES/authenticated_header.js" type="module"></script>
+    <script src="../../SCRIPTS/USER/cart.js" type="module"></script>
+</body>
+
+</html>

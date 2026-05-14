@@ -61,3 +61,7 @@ export function viewProduct(product) {
     setActiveViewingProduct(product);
     navigateTo("../../PAGES/USER/product_view.html", 0);
 }
+export function getProduct(id) {
+    const product = products.find((product) => product.id === id);
+    return product;
+}
