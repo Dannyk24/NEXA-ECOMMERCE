@@ -19,6 +19,13 @@ import { calculatePercentage, capitalize } from "../UTILS/format.js";
 import { formatString } from "../UTILS/format.js";
 import { notfiy } from "../MODULES/notifyUser.js";
 import { activeUser } from "../../../BACKEND/DATA/user.js";
+import {
+    checkMatchingCartItem,
+    addToCart,
+    activeUserCart,
+    userCarts
+} from "../../../BACKEND/DATA/carts.js";
+import { updateHeaderCartCount } from "../MODULES/authenticated_header.js";
 
 const activeViewingProductContainer = document.querySelector(
     ".active-viewing-product-container"
@@ -51,9 +58,9 @@ activeViewingProductContainer.innerHTML = `
             <div class="no-of-product-reviews"><span class="no-of-product-reviews-number">0</span> reviews</div>
             <div class="product-stock-condition"></div>
             <div class="product-quantity-selector-container">
-                <i class="fas fa-minus"></i>
+                <i class="fas fa-minus reduce-quantity"></i>
                 <span class="product-quantity">1</span>
-                <i class="fas fa-plus"></i>
+                <i class="fas fa-plus increase-quantity"></i>
             </div>
             <div class="cta-container">
                 <div class="cta primary-cta add-to-cart-button">
@@ -95,7 +102,15 @@ activeViewingProductContainer.innerHTML = `
 `;
 const productImagesContainer = document.querySelector(
     ".products-images-container"
-); //Get all html elements are populating page with layout template first
+); //Get all html elements after populating page with layout template first
+
+const backBtn = document.querySelector(".back-button");
+backBtn.addEventListener("click", (e) => {
+    if (history.length > 0) {
+        e.preventDefault();
+        history.back();
+    }
+}); //Check if theres a previous page in te browser history, if there is, go back to it, if there isnt, the default action is triggered which takes the user back to the homepage
 
 /*====HELPERS=====*/
 function setActiveImage(image) {
@@ -251,6 +266,10 @@ function closeReviewModal() {
     reviewModal.classList.remove("primary-modal-active");
     restoreUserScrolling();
 }
+function addNewReview(newReview) {
+    activeProductReviews.push(newReview);
+    saveProductReviews();
+}
 
 reviewCta.addEventListener("click", () => {
     openReviewModal();
@@ -285,12 +304,61 @@ modalSubmitButton.addEventListener("click", (e) => {
         name,
         text
     };
-    activeProductReviews.push(newReview);
-    saveProductReviews();
+    addNewReview(newReview);
     closeReviewModal();
     notfiy("success", "Review Added");
+    renderProductDetails();
     renderUserReviewsBreakdown();
     renderUserReviews();
+});
+
+const productQuantityElem = document.querySelector(".product-quantity");
+const quantitySelectorContainer = document.querySelector(
+    ".product-quantity-selector-container"
+);
+let productQuantity = 1; //Product quantity should be 1 be default
+quantitySelectorContainer.addEventListener("click", (e) => {
+    if (e.target.closest(".reduce-quantity")) {
+        if (productQuantity > 1) {
+            productQuantity -= 1;
+            productQuantityElem.textContent = productQuantity;
+        }
+    } else if (e.target.closest(".increase-quantity")) {
+        productQuantity += 1;
+        productQuantityElem.textContent = productQuantity;
+    }
+});
+
+const addToCartBtn = document.querySelector(".add-to-cart-button");
+addToCartBtn.addEventListener("click", () => {
+    if (activeProduct.stockAmount <= 0) {
+        //Check if product is out of stock
+        notfiy("warning", "Product is out of stock");
+        return;
+    }
+    if (productQuantity > activeProduct.stockAmount) {
+        //Check if product quantity to be added to the cart exceed stockAmount
+        notfiy("warning", "Not enough stock");
+        return;
+    }
+    const matchingProduct = checkMatchingCartItem(activeProduct.id);
+    if (matchingProduct) {
+        //If product already exists in cart, increase quantity by selected quantity
+        const newQuantity = matchingProduct.quantity + productQuantity;
+
+        if (newQuantity > activeProduct.stockAmount) {
+            //Check if product quantity would exceed stock amount after quantity increase
+            notfiy("warning", "Not enough stock");
+            return;
+        }
+        addToCart(activeProduct, productQuantity); //Because addToCart() handles duplicate products logic
+        notfiy("success", "Quantity updated");
+        return;
+    }
+
+    addToCart(activeProduct, productQuantity);
+    updateHeaderCartCount();
+    notfiy("success", "Product added to cart");
 });
 
 renderProductImages();
