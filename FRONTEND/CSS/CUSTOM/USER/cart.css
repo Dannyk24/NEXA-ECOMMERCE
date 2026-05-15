@@ -211,6 +211,29 @@
     font-weight: 700;
 }
 
+.add-to-wishlist-button,
+.remove-from-cart-button {
+    width: 100%;
+    justify-content: center;
+}
+
+.modal-subheader {
+    line-height: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media(max-width:1024px) {
     .cart-summary-container {
         flex-direction: column-reverse;

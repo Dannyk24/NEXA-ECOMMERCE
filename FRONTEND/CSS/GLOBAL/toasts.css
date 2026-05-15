@@ -86,3 +86,7 @@
         background-color: var(--warning-color);
     }
 }
+
+.toast-container {
+    z-index: 200;
+}

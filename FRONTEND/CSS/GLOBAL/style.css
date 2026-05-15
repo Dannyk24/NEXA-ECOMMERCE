@@ -116,7 +116,6 @@ main {
 
 .primary-cta i {
     font-size: 13px;
-    margin-top: 3px;
 }
 
 .secondary-cta {
@@ -164,7 +163,7 @@ main {
 
 .overlay-active {
     pointer-events: all;
-    opacity: 0.6;
+    opacity: 0.8;
     background-color: black;
 }
 
