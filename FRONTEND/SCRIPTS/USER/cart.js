@@ -6,6 +6,7 @@ import {
     getStockConditionColourClass,
     viewProduct
 } from "../../../BACKEND/DATA/productsMethods.js";
+import { openModal, closeModal } from "../MODULES/modals.js";
 
 const cartItemsContainer = document.querySelector(".cart-items-container");
 const orderSummaryContainer = document.querySelector(".summaries-container");
@@ -90,7 +91,7 @@ function renderOrderSummary() {
 
 cartItemsContainer.addEventListener("click", (e) => {
     const productElem = e.target.closest(".cart-item-container");
-    if (!productElem) {
+    if (!productElem || e.target.closest(".remove-from-cart")) {
         return;
     }
     const productId = Number(productElem.dataset.id); //Convert to type number because getProduct() uses strict equality to compare product id's;
@@ -98,5 +99,31 @@ cartItemsContainer.addEventListener("click", (e) => {
     viewProduct(product);
 });
 
-renderCartitems();
-renderOrderSummary();
+function renderCartSummary() {
+    renderCartitems();
+    renderOrderSummary();
+}
+
+renderCartSummary();
+
+cartItemsContainer.addEventListener("click", (e) => {
+    if (!e.target.closest(".remove-from-cart")) {
+        return;
+    }
+    const confirmationModal = document.querySelector("#confirmation-modal");
+    const deleteCartItemButton = e.target;
+    const cartItemElem = deleteCartItemButton.closest(".cart-item-container");
+    const itemId = cartItemElem.dataset.id;
+    confirmationModal.dataset.id = itemId;
+    openModal("confirmation-modal");
+});
+
+const modalCloseButton = document.querySelector(".modal-close-button");
+modalCloseButton.addEventListener("click", () => {
+    closeModal("confirmation-modal");
+});
+
+const overlay = document.querySelector(".overlay");
+overlay.addEventListener("click", () => {
+    closeModal("confirmation-modal");
+});

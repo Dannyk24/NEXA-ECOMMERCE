@@ -9,12 +9,7 @@ import {
     getProductStockCondition,
     getStockConditionColourClass
 } from "../../../BACKEND/DATA/productsMethods.js";
-import {
-    openOverlay,
-    closeOverlay,
-    blockUserScrolling,
-    restoreUserScrolling
-} from "../MODULES/overlay.js";
+import { openModal, closeModal } from "../MODULES/modals.js";
 import { calculatePercentage, capitalize } from "../UTILS/format.js";
 import { formatString } from "../UTILS/format.js";
 import { notfiy } from "../MODULES/notifyUser.js";
@@ -256,29 +251,20 @@ const modalSubmitButton = document.querySelector(".modal-submit-button");
 const starsInputElem = reviewModal.querySelector(".stars-count-input");
 const reviewTextInputElem = reviewModal.querySelector(".review-text-input");
 
-function openReviewModal() {
-    reviewModal.classList.add("primary-modal-active");
-    overlay.classList.add("overlay-active");
-    blockUserScrolling();
-}
-function closeReviewModal() {
-    closeOverlay();
-    reviewModal.classList.remove("primary-modal-active");
-    restoreUserScrolling();
-}
 function addNewReview(newReview) {
     activeProductReviews.push(newReview);
     saveProductReviews();
 }
 
 reviewCta.addEventListener("click", () => {
-    openReviewModal();
+    const modalId = reviewCta.dataset.modal;
+    openModal(modalId);
 });
 overlay.addEventListener("click", () => {
-    closeReviewModal();
+    closeModal("write-a-review-modal");
 });
 modalCloseButton.addEventListener("click", () => {
-    closeReviewModal();
+    closeModal("write-a-review-modal");
 });
 modalSubmitButton.addEventListener("click", (e) => {
     const reviewStars = formatString(starsInputElem.value);
@@ -305,7 +291,7 @@ modalSubmitButton.addEventListener("click", (e) => {
         text
     };
     addNewReview(newReview);
-    closeReviewModal();
+    closeModal("write-a-review-modal");
     notfiy("success", "Review Added");
     renderProductDetails();
     renderUserReviewsBreakdown();
