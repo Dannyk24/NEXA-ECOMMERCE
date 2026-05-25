@@ -1,0 +1,33 @@
+/*Additional styles for user wishlist products grid*/
+#wishlist-products-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.product-container {
+    cursor: pointer;
+}
+
+.product-cta-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.remove-from-wishlist-btn {
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width:1024px) {
+    #wishlist-products-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width:550px) {
+    #wishlist-products-grid {
+        grid-template-columns: 1fr;
+    }
+}

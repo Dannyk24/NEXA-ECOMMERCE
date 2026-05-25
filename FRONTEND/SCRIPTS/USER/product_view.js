@@ -21,6 +21,10 @@ import {
     userCarts
 } from "../../../BACKEND/DATA/carts.js";
 import { updateHeaderCartCount } from "../MODULES/authenticated_header.js";
+import {
+    addToWishlist,
+    checkMatchingWishlistItem
+} from "../../../BACKEND/DATA/wishlists.js";
 
 const activeViewingProductContainer = document.querySelector(
     ".active-viewing-product-container"
@@ -345,6 +349,10 @@ addToCartBtn.addEventListener("click", () => {
     addToCart(activeProduct, productQuantity);
     updateHeaderCartCount();
     notfiy("success", "Product added to cart");
+});
+const addToWishlistBtn = document.querySelector(".add-to-wishlist-button");
+addToWishlistBtn.addEventListener("click", () => {
+    addToWishlist(activeProduct);
 });
 
 renderProductImages();
