@@ -84,30 +84,9 @@
     white-space: nowrap;
 }
 
-.product-quantity-selector-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background-color: var(--surface-color);
-    border-radius: 10px;
-    width: fit-content;
-}
-
-.product-quantity-selector-container i {
-    padding: 9px 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--general-transition);
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: var(--primary-color);
-    transition: var(--general-transition);
-    font-size: 12px;
-}
-
-.product-quantity-selector-container i:hover {
-    background-color: var(--secondary-color);
+.product-quantity {
+    font-size: 14px;
+    color: var(--secondary-text-color);
 }
 
 .product-stock-condition {
