@@ -1,4 +1,9 @@
-import { activeUserCart } from "../../../BACKEND/DATA/carts.js";
+import { activeUserCart, saveUserCarts } from "../../../BACKEND/DATA/carts.js";
+import {
+    activeUserWishlist,
+    saveUserWishlists,
+    addToWishlist
+} from "../../../BACKEND/DATA/wishlists.js";
 import {
     getProduct,
     getProductImage,
@@ -6,7 +11,9 @@ import {
     getStockConditionColourClass,
     viewProduct
 } from "../../../BACKEND/DATA/productsMethods.js";
+import { updateHeaderCartCount } from "../MODULES/authenticated_header.js";
 import { openModal, closeModal } from "../MODULES/modals.js";
+import { notfiy } from "../MODULES/notifyUser.js";
 
 const cartItemsContainer = document.querySelector(".cart-items-container");
 const orderSummaryContainer = document.querySelector(".summaries-container");
@@ -25,12 +32,8 @@ function generateCartItemHtml(cartItem) {
                 <div class="product-details">
                     <span class="product-edition">${product.edition} edition</span>
                     <p class="product-name">${product.name}</p>
+                    <p class = "product-quantity">Quantity: ${cartItem.quantity}</p>
                     <p class="product-stock-condition ${stockConditonColourClass}">${stockCondition}</p>
-                    <div class="product-quantity-selector-container">
-                        <i class="fas fa-minus reduce-quantity"></i>
-                        <span class="product-quantity">${cartItem.quantity}</span>
-                        <i class="fas fa-plus increase-quantity"></i>
-                    </div>
                 </div>
             </div>
             <div class="right">
@@ -106,11 +109,13 @@ function renderCartSummary() {
 
 renderCartSummary();
 
+const productQuantityElem = document.querySelector(".product-quantity");
+const confirmationModal = document.querySelector("#confirmation-modal");
+
 cartItemsContainer.addEventListener("click", (e) => {
     if (!e.target.closest(".remove-from-cart")) {
         return;
     }
-    const confirmationModal = document.querySelector("#confirmation-modal");
     const deleteCartItemButton = e.target;
     const cartItemElem = deleteCartItemButton.closest(".cart-item-container");
     const itemId = cartItemElem.dataset.id;
@@ -126,4 +131,31 @@ modalCloseButton.addEventListener("click", () => {
 const overlay = document.querySelector(".overlay");
 overlay.addEventListener("click", () => {
     closeModal("confirmation-modal");
+});
+
+confirmationModal.addEventListener("click", (e) => {
+    e.preventDefault();
+    const productId = confirmationModal.dataset.id;
+    const productIndex = activeUserCart.findIndex(
+        (cartItem) => cartItem.id === Number(productId)
+    );
+    if (e.target.closest(".remove-from-cart-button")) {
+        activeUserCart.splice(productIndex, 1);
+        saveUserCarts();
+        renderCartSummary();
+        updateHeaderCartCount();
+        notfiy("success", "Product removed from cart");
+        closeModal("confirmation-modal");
+    }
+    if (e.target.closest(".add-to-wishlist-button")) {
+        const cartItemArray = activeUserCart.splice(productIndex, 1);
+        const cartItem = cartItemArray[0]; //index 0 because splice() returns an array
+        saveUserCarts();
+        renderCartSummary();
+        updateHeaderCartCount();
+        addToWishlist(cartItem);
+        saveUserWishlists();
+        notfiy("success", "Product added to wishlist");
+        closeModal("confirmation-modal");
+    }
 });
