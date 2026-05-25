@@ -27,7 +27,7 @@ function createCartObject() {
     userCarts.push(cartObject);
     saveUserCarts();
 }
-function saveUserCarts() {
+export function saveUserCarts() {
     localStorage.setItem("user-carts", JSON.stringify(userCarts));
 }
 
