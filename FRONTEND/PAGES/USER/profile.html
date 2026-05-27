@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXA | USER PROFILE</title>
+    <link rel="shortcut icon" href="../../ASSETS/IMAGES/favicon-white.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/style.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/header.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/authenticated_header.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/toasts.css">
+    <link rel="stylesheet" href="../../ASSETS/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../CSS/CUSTOM/USER/profile.css">
+</head>
+
+<body>
+    <header>
+        <div class="overlay"></div>
+        <div class="menu-toggle-mobile"><i class="fas fa-bars"></i></div>
+        <div class="top-light"></div>
+        <div class="header-left">
+            <div class="logo"><a href="../../PAGES/USER/homepage.html"><img src="../../ASSETS/IMAGES/nexa-logo.svg"
+                        alt=""></a>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="search-bar-container">
+                <a class="search-icon-container" href="#">
+                    <i class="fas fa-search"></i>
+                </a>
+                <input type="search" placeholder="Search products...." id="header-search-bar">
+            </div>
+            <a class="header-icon" href="../../PAGES/USER/wishlist.html" title="Wishlist">
+                <i class="fas fa-shopping-bag"></i>
+            </a>
+            <a class="header-icon" href="../../PAGES/USER/cart.html" title="My Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <div class="number-badge-display">0</div>
+            </a>
+            <a class="header-icon" href="../../PAGES/USER/profile.html" title="Profile">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+        <div class="authenticated-mobile-nav">
+            <div class="top">
+                <a class="authenticated-nav-item" href="../USER/homepage.html">
+                    <i class="fas fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a class="authenticated-nav-item" href="../USER/wishlist.html">
+                    <i class="fas fa-heart"></i>
+                    <span>Wishlist</span>
+                </a>
+                <a class="authenticated-nav-item" href="../USER/cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                </a>
+                <a class="authenticated-nav-item" href="../USER/profile.html">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </div>
+            <div class="bottom">
+                <button class="log-out-button">Log out</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <main>
+            <div class="profile-cards-container">
+                <div class="left main-profile-card">
+                    <div class="top">
+                        <div class="profile-picture">d</div>
+                        <div class="user-info-container">
+                            <span class="username">alex hunter</span>
+                            <span class="user-email">alexhunter@gmail.com</span>
+                            <div class="account-status">base user</div>
+                        </div>
+                        <div class="cta primary-cta edit-profile-cta">edit profile</div>
+                    </div>
+                    <div class="bottom">
+                        <div class="user-account-info-container">
+                            <label for="account-language">language</label>
+                            <span>english(UK)</span>
+                        </div>
+                        <div class="user-account-info-container">
+                            <label for="account-language">phone number</label>
+                            <span>null</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="total-orders-card profile-sub-card">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="total-orders">14</span>
+                        <p>total orders</p>
+                    </div>
+                    <div class="reward-points-card profile-sub-card">
+                        <i class="fas fa-tags"></i>
+                        <span class="total-reward-points">0</span>
+                        <p>reward points</p>
+                    </div>
+                </div>
+            </div>
+            <section id="recent-orders-section">
+                <div class="section-header">recent orders</div>
+                <div class="section-subheader">View your recently purchased items</div>
+                <div class="cta primary-cta view-all-orders-cta">view all orders</div>
+                <div class="recent-orders-container">
+                    <div class="recent-order-container">
+                        <div class="left">
+                            <div class="product-image">
+                                <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/earbuds-1.webp" alt="">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-id">#18</div>
+                                <div class="product-name">airpods wireless earbuds</div>
+                                <div class="product-delivery-date">Delivered on <span>oct 31,2026</span></div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="product-amount-container">
+                                <label for="total">total</label>
+                                <div class="product-price">$189.00</div>
+                            </div>
+                            <div class="order-status shipped-order-status">shipped</div>
+                        </div>
+                    </div>
+                    <div class="recent-order-container">
+                        <div class="left">
+                            <div class="product-image">
+                                <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/earbuds-1.webp" alt="">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-id">#18</div>
+                                <div class="product-name">airpods wireless earbuds</div>
+                                <div class="product-delivery-date">Delivered on <span>oct 31,2026</span></div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="product-amount-container">
+                                <label for="total">total</label>
+                                <div class="product-price">$189.00</div>
+                            </div>
+                            <div class="order-status shipped-order-status">shipped</div>
+                        </div>
+                    </div>
+                    <div class="recent-order-container">
+                        <div class="left">
+                            <div class="product-image">
+                                <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/earbuds-1.webp" alt="">
+                            </div>
+                            <div class="product-info">
+                                <div class="product-id">#18</div>
+                                <div class="product-name">airpods wireless earbuds</div>
+                                <div class="product-delivery-date">Delivered on <span>oct 31,2026</span></div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="product-amount-container">
+                                <label for="total">total</label>
+                                <div class="product-price">$189.00</div>
+                            </div>
+                            <div class="order-status shipped-order-status">shipped</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="user-data-cards-section">
+                <div class="section-header">Address</div>
+                <div class="section-subheader">Manage your default shipping adress</div>
+                <div class="user-data-cards-container">
+                    <div class="default-address-card">
+                        <div class="card-title">
+                            <i class="fas fa-location-dot"></i>
+                            <span>default shipping</span>
+                        </div>
+                        <div class="account-name">alex hunter</div>
+                        <p class="default-shipping-address">
+                            221B baker street, Maryleone london NW1 6XE united kingdom
+                        </p>
+                        <div class="cta primary-cta update-address-cta">
+                            update address
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+
+
+
+
+    <!--TOAST-->
+    <div class="toast-container">
+        <div class="toast-background"></div>
+        <div class="toast-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <div class="toast-data">
+            <div class="toast-header"></div>
+            <div class="toast-message"></div>
+        </div>
+    </div>
+
+    <script src="../../SCRIPTS/MODULES/authenticated_header.js" type="module"></script>
+    <script src="../../SCRIPTS/USER/profile.js" type="module"></script>
+
+</body>
+
+</html>
