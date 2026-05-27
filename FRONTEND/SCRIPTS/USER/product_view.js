@@ -92,7 +92,7 @@ activeViewingProductContainer.innerHTML = `
             <p class="product-reviews-section-header">customer reviews</p>
             <div class="product-reviews-container">
             </div>
-            <div class="cta alternate-cta write-a-review-cta">write a review</div>
+            <div class="cta alternate-cta write-a-review-cta" data-modal= "write-a-review-modal">write a review</div>
         </div>
         <div class="bottom user-reviews-container">
             
