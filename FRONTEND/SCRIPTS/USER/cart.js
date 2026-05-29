@@ -13,7 +13,7 @@ import {
 } from "../../../BACKEND/DATA/productsMethods.js";
 import { updateHeaderCartCount } from "../MODULES/authenticated_header.js";
 import { openModal, closeModal } from "../MODULES/modals.js";
-import { notfiy } from "../MODULES/notifyUser.js";
+import { notify } from "../MODULES/notifyUser.js";
 
 const cartItemsContainer = document.querySelector(".cart-items-container");
 const orderSummaryContainer = document.querySelector(".summaries-container");
@@ -144,7 +144,7 @@ confirmationModal.addEventListener("click", (e) => {
         saveUserCarts();
         renderCartSummary();
         updateHeaderCartCount();
-        notfiy("success", "Product removed from cart");
+        notify("success", "Product removed from cart");
         closeModal("confirmation-modal");
     }
     if (e.target.closest(".add-to-wishlist-button")) {
@@ -155,7 +155,17 @@ confirmationModal.addEventListener("click", (e) => {
         updateHeaderCartCount();
         addToWishlist(cartItem);
         saveUserWishlists();
-        notfiy("success", "Product added to wishlist");
+        notify("success", "Product added to wishlist");
         closeModal("confirmation-modal");
+    }
+});
+
+const checkoutButton = document.querySelector(".checkout-button");
+
+checkoutButton.addEventListener("click", (e) => {
+    if (activeUserCart.length === 0) {
+        e.preventDefault();
+        notify("warning", "User cart empty");
+        return;
     }
 });

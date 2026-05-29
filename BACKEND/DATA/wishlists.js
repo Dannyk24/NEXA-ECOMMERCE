@@ -1,4 +1,4 @@
-import { notfiy } from "../../FRONTEND/SCRIPTS/MODULES/notifyUser.js";
+import { notify } from "../../FRONTEND/SCRIPTS/MODULES/notifyUser.js";
 import { activeUser } from "./user.js";
 
 export const userWishlists = getUserWishlists(); //Stores wishlists for all users
@@ -39,14 +39,14 @@ export function addToWishlist(product) {
     //addToWishlist() also handles matching product check logic
     const matchingProduct = checkMatchingWishlistItem(product.id);
     if (matchingProduct) {
-        notfiy("error", "product already in wishlist");
+        notify("error", "product already in wishlist");
         return;
     } else {
         const newWishlistItem = {
             id: product.id
         };
         activeUserWishlist.push(newWishlistItem);
-        notfiy("success", "product added to wishlist");
+        notify("success", "product added to wishlist");
     }
     saveUserWishlists();
 }

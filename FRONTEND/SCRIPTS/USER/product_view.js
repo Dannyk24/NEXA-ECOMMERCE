@@ -12,7 +12,7 @@ import {
 import { openModal, closeModal } from "../MODULES/modals.js";
 import { calculatePercentage, capitalize } from "../UTILS/format.js";
 import { formatString } from "../UTILS/format.js";
-import { notfiy } from "../MODULES/notifyUser.js";
+import { notify } from "../MODULES/notifyUser.js";
 import { activeUser } from "../../../BACKEND/DATA/user.js";
 import {
     checkMatchingCartItem,
@@ -278,11 +278,11 @@ modalSubmitButton.addEventListener("click", (e) => {
     }
     e.preventDefault();
     if (Number(reviewStars) <= 0 || Number(reviewStars) >= 6) {
-        notfiy("warning", "Invalid stars count");
+        notify("warning", "Invalid stars count");
         return;
     }
     if (reviewText.length < 10) {
-        notfiy("warning", "Review too short");
+        notify("warning", "Review too short");
         return;
     }
 
@@ -296,7 +296,7 @@ modalSubmitButton.addEventListener("click", (e) => {
     };
     addNewReview(newReview);
     closeModal("write-a-review-modal");
-    notfiy("success", "Review Added");
+    notify("success", "Review Added");
     renderProductDetails();
     renderUserReviewsBreakdown();
     renderUserReviews();
@@ -323,12 +323,12 @@ const addToCartBtn = document.querySelector(".add-to-cart-button");
 addToCartBtn.addEventListener("click", () => {
     if (activeProduct.stockAmount <= 0) {
         //Check if product is out of stock
-        notfiy("warning", "Product is out of stock");
+        notify("warning", "Product is out of stock");
         return;
     }
     if (productQuantity > activeProduct.stockAmount) {
         //Check if product quantity to be added to the cart exceed stockAmount
-        notfiy("warning", "Not enough stock");
+        notify("warning", "Not enough stock");
         return;
     }
     const matchingProduct = checkMatchingCartItem(activeProduct.id);
@@ -338,17 +338,17 @@ addToCartBtn.addEventListener("click", () => {
 
         if (newQuantity > activeProduct.stockAmount) {
             //Check if product quantity would exceed stock amount after quantity increase
-            notfiy("warning", "Not enough stock");
+            notify("warning", "Not enough stock");
             return;
         }
         addToCart(activeProduct, productQuantity); //Because addToCart() handles duplicate products logic
-        notfiy("success", "Quantity updated");
+        notify("success", "Quantity updated");
         return;
     }
 
     addToCart(activeProduct, productQuantity);
     updateHeaderCartCount();
-    notfiy("success", "Product added to cart");
+    notify("success", "Product added to cart");
 });
 const addToWishlistBtn = document.querySelector(".add-to-wishlist-button");
 addToWishlistBtn.addEventListener("click", () => {

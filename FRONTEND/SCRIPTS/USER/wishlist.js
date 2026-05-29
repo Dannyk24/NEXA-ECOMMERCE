@@ -11,7 +11,7 @@ import {
     viewProduct
 } from "../../../BACKEND/DATA/productsMethods.js";
 import { addToCart } from "../../../BACKEND/DATA/carts.js";
-import { notfiy } from "../MODULES/notifyUser.js";
+import { notify } from "../MODULES/notifyUser.js";
 
 const productsGrid = document.querySelector("#wishlist-products-grid");
 
@@ -68,7 +68,7 @@ productsGrid.addEventListener("click", (e) => {
         addToCart(product, 1);
         saveUserWishlists();
         renderWishlistProducts();
-        notfiy("success", "Product moved to cart");
+        notify("success", "Product moved to cart");
         return;
     }
     if (e.target.closest(".remove-from-wishlist-btn")) {
@@ -78,7 +78,7 @@ productsGrid.addEventListener("click", (e) => {
         activeUserWishlist.splice(itemIndex, 1);
         saveUserWishlists();
         renderWishlistProducts();
-        notfiy("success", "Product removed from wishlist");
+        notify("success", "Product removed from wishlist");
         return;
     }
     if (e.target.closest(".product-container")) {

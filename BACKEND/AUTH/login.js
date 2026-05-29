@@ -1,5 +1,5 @@
 import { navigateTo } from "../../FRONTEND/SCRIPTS/MODULES/navigation.js";
-import { notfiy } from "../../FRONTEND/SCRIPTS/MODULES/notifyUser.js";
+import { notify } from "../../FRONTEND/SCRIPTS/MODULES/notifyUser.js";
 import { formatString } from "../../FRONTEND/SCRIPTS/UTILS/format.js";
 import {
     users,
@@ -40,8 +40,14 @@ function authenticateUser(e) {
         return;
     }
     clearErrorDisplay();
-    notfiy("success", "User Authenticated");
-    setActiveUser(matchingUser.id, matchingUser.username, matchingUser.role);
+    notify("success", "User Authenticated");
+    setActiveUser(
+        matchingUser.id,
+        matchingUser.username,
+        matchingUser.role,
+        matchingUser.email,
+        matchingUser.phoneNumber
+    );
     saveActiveUser();
     if (activeUser.role === "admin") {
         navigateTo("../ADMIN/admin-dashboard.html", 2500);

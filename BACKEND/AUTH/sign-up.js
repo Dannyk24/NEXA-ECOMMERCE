@@ -1,4 +1,4 @@
-import { notfiy } from "../../FRONTEND/SCRIPTS/MODULES/notifyUser.js";
+import { notify } from "../../FRONTEND/SCRIPTS/MODULES/notifyUser.js";
 import {
     checkStringLength,
     validatePasswords,
@@ -105,7 +105,7 @@ signUpButton.addEventListener("click", (e) => {
         return;
     }
 
-    notfiy("success", "Account Created");
+    notify("success", "Account Created");
     const userId = generateUserId();
     const username = formatString(usernameElem.value);
     const email = formatString(emailElem.value);

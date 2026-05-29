@@ -1,7 +1,7 @@
 import { capitalize } from "../UTILS/format.js";
 
 let timeoutId;
-export function notfiy(type, message) {
+export function notify(type, message) {
     const notifyContainer = document.querySelector(".toast-container");
     notifyContainer.classList.add(`${type}-toast`); //Add dynamic toast type
     notifyContainer.classList.add("toast-active"); //Make toast visible
