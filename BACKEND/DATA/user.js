@@ -1,7 +1,9 @@
 export let activeUser = getActiveUser() || {
     id: null,
     username: null,
-    role: null
+    role: null,
+    email: null,
+    phoneNumber: null
 }; //Stores the current active user for authorization and giving each user individual carts and other features
 
 export let users = getUsers() || [
@@ -10,14 +12,16 @@ export let users = getUsers() || [
         username: "danieluser",
         email: "teckydan@gmail.com",
         password: "123456",
-        role: "user"
+        role: "user",
+        phoneNumber: null
     },
     {
         id: 2,
         username: "danieladmin",
         email: "olajiredaniel9002@gmail.com",
         password: "123456",
-        role: "admin"
+        role: "admin",
+        phoneNumber: null
     }
 ];
 
@@ -27,10 +31,12 @@ export function saveUsers() {
 function getUsers() {
     return JSON.parse(localStorage.getItem("users"));
 }
-export function setActiveUser(id, username, role) {
+export function setActiveUser(id, username, role, email, phoneNumber) {
     activeUser.id = id;
     activeUser.username = username;
     activeUser.role = role;
+    activeUser.email = email;
+    activeUser.phoneNumber = phoneNumber;
 }
 export function saveActiveUser() {
     sessionStorage.setItem("active-user", JSON.stringify(activeUser));
@@ -45,4 +51,9 @@ export function checkActiveUser() {
     } else {
         return true;
     }
+}
+
+export function getUser(id) {
+    const user = users.find((user) => user.id === id);
+    return user;
 }
