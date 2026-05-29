@@ -27,4 +27,13 @@ export function checkNewDay() {
     localStorage.setItem("last-date-object", JSON.stringify(currentDateObject));
     return newDay;
 }
+
+export function getCurrentDate() {
+    const now = new Date();
+    const day = now.getDate();
+    const month = now.getMonth() + 1;
+    const year = now.getFullYear();
+    const date = `${day}/${month}/${year}`;
+    return date;
+}
 //checkNewDay() checks if the currnet day is a new day compared to when last the user logged in, if it is, it returns true. if it isnt it returns false
