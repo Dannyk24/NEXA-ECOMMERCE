@@ -2,7 +2,7 @@
     position: fixed;
     justify-self: center;
     align-self: center;
-    top: 100px;
+    top: 20px;
     z-index: 100;
     display: flex;
     flex-direction: column;
@@ -56,7 +56,8 @@
 }
 
 .modal-input-field-container input,
-.modal-input-field-container textarea {
+.modal-input-field-container textarea,
+.modal-input-field-container select {
     background: none;
     border: none;
     width: 100%;
@@ -86,6 +87,7 @@
 @media(max-width:550px) {
     .primary-modal {
         width: 80%;
+        top: 150px;
     }
 
     .modal-header {
