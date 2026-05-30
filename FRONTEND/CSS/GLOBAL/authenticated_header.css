@@ -23,7 +23,7 @@
 .authenticated-mobile-nav {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100dvh;
     justify-content: space-between;
     position: fixed;
     left: 0;
@@ -84,9 +84,9 @@
     background: none;
     padding: 10px;
     text-align: center;
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-color) !important;
     border-radius: 10px;
-    color: var(--primary-text-color);
+    color: var(--primary-text-color) !important;
     font-weight: 900;
     font-size: 16px;
 }
