@@ -201,6 +201,12 @@
 }
 
 
+.refresh-notice {
+    font-size: 13px;
+    color: var(--secondary-text-color);
+    line-height: 30px;
+}
+
 
 
 

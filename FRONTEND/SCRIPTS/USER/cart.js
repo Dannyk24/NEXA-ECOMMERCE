@@ -89,6 +89,7 @@ function renderOrderSummary() {
             <span class="summary-title">total:</span>
             <span class="summary-value total-amount-value">$${cartTotal}</span>
         </div>
+        <p class="refresh-notice">Refresh the page if the order summary does not update after mutating the cart</p>
     `;
 }
 
@@ -142,20 +143,20 @@ confirmationModal.addEventListener("click", (e) => {
     if (e.target.closest(".remove-from-cart-button")) {
         activeUserCart.splice(productIndex, 1);
         saveUserCarts();
-        renderCartSummary();
         updateHeaderCartCount();
         notify("success", "Product removed from cart");
+        renderCartSummary();
         closeModal("confirmation-modal");
     }
     if (e.target.closest(".add-to-wishlist-button")) {
         const cartItemArray = activeUserCart.splice(productIndex, 1);
         const cartItem = cartItemArray[0]; //index 0 because splice() returns an array
         saveUserCarts();
-        renderCartSummary();
         updateHeaderCartCount();
         addToWishlist(cartItem);
         saveUserWishlists();
         notify("success", "Product added to wishlist");
+        renderCartSummary();
         closeModal("confirmation-modal");
     }
 });
