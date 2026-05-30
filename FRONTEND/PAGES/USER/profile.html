@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../CSS/GLOBAL/toasts.css">
     <link rel="stylesheet" href="../../ASSETS/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../../CSS/CUSTOM/USER/profile.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/modals.css">
 </head>
 
 <body>
@@ -72,13 +73,13 @@
             <div class="profile-cards-container">
                 <div class="left main-profile-card">
                     <div class="top">
-                        <div class="profile-picture">d</div>
+                        <div class="profile-picture"></div>
                         <div class="user-info-container">
-                            <span class="username">alex hunter</span>
-                            <span class="user-email">alexhunter@gmail.com</span>
+                            <span class="username"></span>
+                            <span class="user-email"></span>
                             <div class="account-status">base user</div>
                         </div>
-                        <div class="cta primary-cta edit-profile-cta">edit profile</div>
+                        <div class="cta primary-cta edit-profile-cta" data-modal="user-info-modal">edit profile</div>
                     </div>
                     <div class="bottom">
                         <div class="user-account-info-container">
@@ -86,8 +87,8 @@
                             <span>english(UK)</span>
                         </div>
                         <div class="user-account-info-container">
-                            <label for="account-language">phone number</label>
-                            <span>null</span>
+                            <label for="phone-number">phone number</label>
+                            <span class="user-phone-number">null</span>
                         </div>
                     </div>
                 </div>
@@ -181,7 +182,7 @@
                         <p class="default-shipping-address">
                             221B baker street, Maryleone london NW1 6XE united kingdom
                         </p>
-                        <div class="cta primary-cta update-address-cta">
+                        <div class="cta primary-cta update-address-cta" data-modal="update-address-modal">
                             update address
                         </div>
                     </div>
@@ -189,6 +190,56 @@
             </section>
         </main>
     </div>
+
+    <form class="primary-modal" id="user-info-modal">
+        <div class="user-info-form-modal-close-button modal-close-button"><i class="fas fa-x"></i></div>
+        <div class="modal-header">User Info</div>
+        <div class="modal-input-field-container">
+            <label for="username">username</label>
+            <input type="text" required class="username-input" minlength="6" maxlength="9">
+        </div>
+        <div class="modal-input-field-container">
+            <label for="email">email</label>
+            <input type="email" required class="email-input">
+        </div>
+        <div class="modal-input-field-container">
+            <label for="phone">phone number</label>
+            <input type="number" class="phone-number-input">
+        </div>
+        <button type="submit" class="modal-submit-button cta alternate-cta user-info-form-submit-button">update</button>
+    </form>
+
+    <form class="primary-modal" id="update-address-modal">
+        <div class="update-adress-form-modal-close-button modal-close-button"><i class="fas fa-x"></i></div>
+        <div class="modal-header">Update Address</div>
+        <div class="modal-input-field-container">
+            <label for="address">street address</label>
+            <input required class="street-input" placeholder="Enter street address here" minlength="12"></input>
+        </div>
+        <div class="modal-input-field-container">
+            <label for="city">city</label>
+            <input required class="city-input" placeholder="City" minlength="3">
+        </div></input>
+        </div>
+        <div class="modal-input-field-container">
+            <label for="postal-code">Zip/Postal Code</label>
+            <input required class="postal-code-input" placeholder="Postal-code" minlength="5">
+        </div></input>
+        </div>
+        <div class="modal-input-field-container">
+            <label for="country">country</label>
+            <select name="country" id="country-input">
+                <option value="united-states">United States</option>
+                <option value="nigeria" selected>Nigeria</option>
+                <option value="south-africa">South Africa</option>
+                <option value="ghana">Ghana</option>
+                <option value="united-kingdom">United Kingdom</option>
+                <option value="canada">Canada</option>
+            </select>
+        </div>
+        <button type="submit"
+            class="modal-submit-button cta alternate-cta update-address-form-submit-button">update</button>
+    </form>
 
 
 
@@ -209,6 +260,7 @@
 
     <script src="../../SCRIPTS/MODULES/authenticated_header.js" type="module"></script>
     <script src="../../SCRIPTS/USER/profile.js" type="module"></script>
+    <script src="../../SCRIPTS/MODULES/modals.js" type="module"></script>
 
 </body>
 

@@ -36,7 +36,7 @@
 .user-info-container {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 14px;
 }
 
 .username {
@@ -262,12 +262,14 @@
     flex-direction: column;
     gap: 30px;
     width: fit-content;
+    min-width: 300px;
 }
 
 .card-title {
     display: flex;
     align-items: center;
     gap: 8px;
+    color: var(--primary-color);
 }
 
 .card-title i {
