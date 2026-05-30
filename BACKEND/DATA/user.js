@@ -3,7 +3,8 @@ export let activeUser = getActiveUser() || {
     username: null,
     role: null,
     email: null,
-    phoneNumber: null
+    phoneNumber: null,
+    address: {}
 }; //Stores the current active user for authorization and giving each user individual carts and other features
 
 export let users = getUsers() || [
@@ -13,7 +14,8 @@ export let users = getUsers() || [
         email: "teckydan@gmail.com",
         password: "123456",
         role: "user",
-        phoneNumber: null
+        phoneNumber: null,
+        address: {}
     },
     {
         id: 2,
@@ -21,7 +23,8 @@ export let users = getUsers() || [
         email: "olajiredaniel9002@gmail.com",
         password: "123456",
         role: "admin",
-        phoneNumber: null
+        phoneNumber: null,
+        address: {}
     }
 ];
 
@@ -31,12 +34,13 @@ export function saveUsers() {
 function getUsers() {
     return JSON.parse(localStorage.getItem("users"));
 }
-export function setActiveUser(id, username, role, email, phoneNumber) {
+export function setActiveUser(id, username, role, email, phoneNumber, address) {
     activeUser.id = id;
     activeUser.username = username;
     activeUser.role = role;
     activeUser.email = email;
     activeUser.phoneNumber = phoneNumber;
+    activeUser.address = address;
 }
 export function saveActiveUser() {
     sessionStorage.setItem("active-user", JSON.stringify(activeUser));

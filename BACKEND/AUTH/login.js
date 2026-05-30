@@ -46,7 +46,8 @@ function authenticateUser(e) {
         matchingUser.username,
         matchingUser.role,
         matchingUser.email,
-        matchingUser.phoneNumber
+        matchingUser.phoneNumber,
+        matchingUser.address
     );
     saveActiveUser();
     if (activeUser.role === "admin") {
