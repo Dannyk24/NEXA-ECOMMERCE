@@ -31,6 +31,7 @@ export function notify(type, message) {
     }
     timeoutId = setTimeout(() => {
         notifyContainer.classList.remove("toast-active");
+        notifyContainer.classList.remove(toastIconClass);
         notifyContainer.classList.remove(`${type}-toast`);
     }, 4000);
 }
