@@ -70,47 +70,52 @@
         <main>
             <div class="checkout-left">
                 <div class="checkout-progress-container">
-                    <div class="checkout-progress-stage active-checkout-progress-stage">
+                    <div class="checkout-progress-stage active-checkout-progress-stage"
+                        data-form="shipping-address-form">
                         <div class="number-container">
                             1
                         </div>
                         <span>shipping</span>
                     </div>
                     <div class="line"></div>
-                    <div class="checkout-progress-stage">
+                    <div class="checkout-progress-stage" data-form="payment-form">
                         <div class="number-container">
                             2
                         </div>
                         <span>payment</span>
                     </div>
                     <div class="line"></div>
-                    <div class="checkout-progress-stage">
+                    <div class="checkout-progress-stage" data-form="review-form">
                         <div class="number-container">
                             3
                         </div>
                         <span>review</span>
                     </div>
                 </div>
-                <form class="checkout-form active-checkout-form" id="shipping-address-form">
+
+                <form class="checkout-form  active-checkout-form" id="shipping-address-form">
                     <div class="form-title">shipping address</div>
                     <div class="form-sub-title">Please enter the delivery address for your order</div>
                     <div class="checkout-form-inputs-container">
                         <div class="checkout-form-input-field-group">
                             <label for="full-name">full name</label>
-                            <input type="text" placeholder="Jonathan Doe" required>
+                            <input type="text" placeholder="Jonathan Doe" required class="address-name-input"
+                                minlength="3">
+                            <p class="order-receiver-notice">Name of the person receiving the order</p>
                         </div>
                         <div class="checkout-form-input-field-group">
                             <label for="street-address">street address</label>
-                            <input type="text" placeholder="123 gallery Street, Apt 48" required>
+                            <input type="text" placeholder="123 gallery Street, Apt 48" required
+                                class="address-street-input">
                         </div>
                         <div class="double-input-field-group-container">
                             <div class="checkout-form-input-field-group">
                                 <label for="city">city</label>
-                                <input type="text" placeholder="Metropolis" required>
+                                <input type="text" placeholder="Metropolis" required class="address-city-input">
                             </div>
                             <div class="checkout-form-input-field-group">
                                 <label for="postal-code">Zip/Postal Code</label>
-                                <input type="text" placeholder="e.g 10101" required>
+                                <input type="text" placeholder="e.g 10101" required class="address-postal-code-input">
                             </div>
                         </div>
                         <div class="checkout-form-input-field-group">
@@ -125,50 +130,73 @@
                             </select>
                         </div>
                     </div>
-                    <div class="cta primary-cta checkout-form-submit-button">Continue to Payment</div>
+                    <button type="submit"
+                        class="cta primary-cta checkout-form-submit-button shipping-address-form-submit-button">
+                        Continue to Payment</button>
                 </form>
+
+                <form class="checkout-form" id="payment-form">
+                    <div class="form-title">Payment</div>
+                    <div class="form-sub-title">Please enter the card details for your delivery</div>
+                    <div class="checkout-form-inputs-container">
+                        <div class="checkout-form-input-field-group">
+                            <label for="card-number">card number</label>
+                            <input type="number" placeholder="4949489393029...." required class="card-number-input"
+                                inputmode="numeric">
+                        </div>
+                        <div class="double-input-field-group-container">
+                            <div class="checkout-form-input-field-group">
+                                <label for="expire-date">expiry date</label>
+                                <input type="text" placeholder="12/26" required class="expiry-date-input"
+                                    inputmode="numeric">
+                            </div>
+                            <div class="checkout-form-input-field-group">
+                                <label for="cvv">cvv</label>
+                                <input type="number" placeholder="e.g 123" required class="cvv-input"
+                                    inputmode="numeric">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit"
+                        class="cta primary-cta checkout-form-submit-button payment-form-submit-button">Continue to
+                        Review</button>
+                </form>
+
+                <form class="checkout-form" id="review-form">
+                    <div class="form-title">order review</div>
+                    <div class="form-sub-title">Review your order details before confirmation</div>
+                    <div class="checkout-form-inputs-container">
+                        <p class="receiver-name-container">
+                            To be delivered to: <span class="order-receiver-name">daniel olajire</span>
+                        </p>
+                        <p class="receiver-address-container">
+                            Address: <span class="order-receiver-address">House 32 ikeja street jedo estate abuja 901301
+                                nigeria</span>
+                        </p>
+                    </div>
+                    <div class="cta primary-cta checkout-form-submit-button review-form-submit-button">
+                        Confirm order
+                    </div>
+                </form>
+
+
+
+
+
+
+
+
+
             </div>
             <div class="checkout-right">
                 <p>Order Summary</p>
                 <div class="order-summary">
                     <div class="summaries-container">
-                        <div class="order-summary-price-field-container">
-                            <div class="price-title">subtotal:</div>
-                            <div class="price-value">$600.00</div>
-                        </div>
-                        <div class="order-summary-price-field-container">
-                            <div class="price-title">shipping:</div>
-                            <div class="price-value">free</div>
-                        </div>
-                        <div class="order-summary-price-field-container">
-                            <div class="price-title">tax:</div>
-                            <div class="price-value">$0</div>
-                        </div>
-                        <div class="order-summary-price-field-container">
-                            <div class="price-title">total:</div>
-                            <div class="price-value order-total">$600.00</div>
-                        </div>
+
                     </div>
+                    <p class="products-list-header">Products List</p>
                     <div class="products-list">
-                        <p>Products List</p>
-                        <div class="order-summary-product-container">
-                            <div class="product-image">
-                                <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/earbuds-1.webp" alt="">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-name">Nexa custom earbuds</div>
-                                <div class="product-price">$198.00</div>
-                            </div>
-                        </div>
-                        <div class="order-summary-product-container">
-                            <div class="product-image">
-                                <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/earbuds-1.webp" alt="">
-                            </div>
-                            <div class="product-info">
-                                <div class="product-name">Nexa custom earbuds</div>
-                                <div class="product-price">$198.00</div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -198,6 +226,7 @@
         </div>
     </div>
 
+    <script type="module" src="../../SCRIPTS/MODULES/main.js"></script>
     <script src="../../SCRIPTS/MODULES/authenticated_header.js" type="module"></script>
     <script src="../../SCRIPTS/USER/checkout.js" type="module"></script>
 

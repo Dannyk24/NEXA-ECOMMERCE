@@ -1,4 +1,6 @@
 import { activeUser } from "./user.js";
+import { getProduct } from "./productsMethods.js";
+import { notify } from "../../FRONTEND/SCRIPTS/MODULES/notifyUser.js";
 
 export const userCarts = getUserCarts(); //Stores carts for all users
 
@@ -52,4 +54,19 @@ export function checkMatchingCartItem(productid) {
         (product) => product.id === productid
     );
     return matchingProduct;
+}
+
+export function calculateCartTotal(cart) {
+    let total = 0;
+    cart.forEach((cartItem) => {
+        const product = getProduct(cartItem.id);
+        const productTotal = cartItem.quantity * product.price;
+        total += productTotal;
+    });
+    return total;
+}
+
+export function clearActiveUsersCart() {
+    activeUserCart.splice(0, activeUserCart.length); //Removes all elements from the array
+    saveUserCarts();
 }

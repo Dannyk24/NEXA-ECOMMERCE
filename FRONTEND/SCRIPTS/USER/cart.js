@@ -1,4 +1,8 @@
-import { activeUserCart, saveUserCarts } from "../../../BACKEND/DATA/carts.js";
+import {
+    activeUserCart,
+    calculateCartTotal,
+    saveUserCarts
+} from "../../../BACKEND/DATA/carts.js";
 import {
     activeUserWishlist,
     saveUserWishlists,
@@ -58,16 +62,7 @@ function renderCartitems() {
     });
 }
 
-function calculateCartItemsTotal() {
-    let total = 0;
-    activeUserCart.forEach((cartItem) => {
-        const product = getProduct(cartItem.id);
-        total += product.price;
-    });
-    return total;
-}
-
-const cartTotal = calculateCartItemsTotal();
+const cartTotal = calculateCartTotal(activeUserCart);
 
 function renderOrderSummary() {
     orderSummaryContainer.innerHTML = "";

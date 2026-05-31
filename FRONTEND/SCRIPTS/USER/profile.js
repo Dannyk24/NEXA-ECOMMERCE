@@ -14,6 +14,13 @@ import {
     checkMatchingUsername
 } from "../../../BACKEND/AUTH/MODULES/validate.js";
 import { notify } from "../MODULES/notifyUser.js";
+import { activeUserOrders } from "../../../BACKEND/DATA/orders.js";
+import {
+    getProduct,
+    getProductImage
+} from "../../../BACKEND/DATA/productsMethods.js";
+import { products } from "../../../BACKEND/DATA/products.js";
+import dayjs from "https://cdn.jsdelivr.net/npm/dayjs@1.11.13/+esm";
 
 const editProfileButton = document.querySelector(".edit-profile-cta");
 const modal = editProfileButton.dataset.modal;
@@ -132,6 +139,81 @@ const updateAddressFormModalCloseButton = document.querySelector(
 updateAddressFormModalCloseButton.addEventListener("click", () => {
     closeModal("update-address-modal");
 });
+
+const recentOrdersContainer = document.querySelector(
+    ".recent-orders-container"
+);
+function renderRecentOrders() {
+    recentOrdersContainer.innerHTML = "";
+    for (let i = 0; i < 3; i++) {
+        const sortedOrders = activeUserOrders.slice().reverse();
+        const order = sortedOrders[i];
+        if (i === 0 && !order) {
+            //Check if user has no orders
+            recentOrdersContainer.textContent = "You have no orders";
+            break;
+        }
+        if (!order) {
+            break;
+        }
+        for (let index = 0; index < order.products.length; index++) {
+            const orderItem = order.products[index];
+            if (!orderItem) {
+                break;
+            }
+            const product = getProduct(orderItem.id);
+            const productImage = getProductImage(product);
+            const deliveryDate = dayjs(order.deliveryDate).format(
+                "MMM D, YYYY"
+            );
+            const orderItemTotal = (product.price * orderItem.quantity).toFixed(
+                2
+            );
+            recentOrdersContainer.innerHTML += `
+                <div class="recent-order-container" data-order-id="${order.id}">
+                    <div class="left">
+                        <div class="product-image">
+                            <img src="../../../${productImage}" alt="">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-id">Order ID: #${order.id}</div>
+                            <div class="product-name">${product.name}</div>
+                            <div class="product-delivery-date">Delivered on <span>${deliveryDate}</span></div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="product-amount-container">
+                            <label for="total">total</label>
+                            <div class="product-price">$${orderItemTotal}</div>
+                        </div>
+                        <div class="order-status ${order.status}-order-status">${order.status}</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+}
+
+renderRecentOrders();
+
+function getRecentOrdersProducts(numberOfProducts) {
+    let recentOrdersProducts = [];
+    for (let i = 0; i < numberOfProducts; i++) {
+        const order = activeUserOrders[i];
+        if (!order) {
+            break;
+        }
+        const orderProducts = order.products;
+        for (let i = 0; i < 3; i++) {
+            const product = orderProducts[i];
+            if (!product) {
+                break;
+            }
+            recentOrdersProducts.push(product);
+        }
+    }
+    return recentOrdersProducts;
+}
 
 function populateUpdateAdressForm() {
     const streetInput = document.querySelector(".street-input");
