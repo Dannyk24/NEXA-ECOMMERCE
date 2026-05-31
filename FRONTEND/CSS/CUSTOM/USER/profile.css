@@ -142,6 +142,7 @@
     flex-direction: column;
     gap: 30px;
     margin-top: 20px;
+    width: 100%;
 }
 
 .recent-order-container {
@@ -153,9 +154,10 @@
     background-color: var(--secondary-background);
     border-radius: 20px;
     border: 1px solid rgb(40, 39, 39);
-    gap: 240px;
     cursor: pointer;
     transition: var(--general-transition);
+    max-width: 780px;
+    width: 100%;
 }
 
 .recent-order-container:hover {
@@ -197,10 +199,10 @@
     font-size: 15px;
     text-transform: capitalize;
     font-weight: 700;
-    max-width: 250px;
+    width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    line-height: 30px;
 }
 
 .product-delivery-date {
@@ -240,9 +242,24 @@
     border-radius: 20px;
 }
 
+.pending-order-status {
+    background-color: var(--surface-color);
+    color: var(--primary-color);
+}
+
 .shipped-order-status {
     background-color: var(--secondary-color);
     color: var(--primary-text-color);
+}
+
+.delivered-order-status {
+    background-color: var(--success-color);
+    color: var(--primary-text-color);
+}
+
+.cancelled-order-status {
+    background-color: var(--surface-color);
+    color: var(--secondary-text-color);
 }
 
 #user-data-cards-section {
