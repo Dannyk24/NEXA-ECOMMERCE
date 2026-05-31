@@ -15,9 +15,7 @@ import {
 } from "../../../BACKEND/DATA/productsMethods.js";
 import { navigateTo, scrollSectionIntoView } from "../MODULES/navigation.js";
 
-if (!checkActiveUser()) {
-    document.body.innerHTML = "YOU MUST BE AUTHENTICATED TO VIEW THIS PAGE"; //Check if user is authenticated
-}
+//Update the users orders once they log back in
 
 /*Welcome Back Section*/
 /*=====HELPERS=====*/
