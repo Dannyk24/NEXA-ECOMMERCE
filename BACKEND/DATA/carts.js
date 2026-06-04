@@ -22,6 +22,9 @@ function getActiveUserCart() {
     return cartObject.cart;
 }
 function createCartObject() {
+    if (!activeUser.id) {
+        return;
+    }
     const cartObject = {
         id: activeUser.id,
         cart: []

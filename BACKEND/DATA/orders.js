@@ -3,6 +3,7 @@ import { getCurrentDate } from "../../FRONTEND/SCRIPTS/UTILS/date.js";
 import { notify } from "../../FRONTEND/SCRIPTS/MODULES/notifyUser.js";
 import { calculateCartTotal } from "./carts.js";
 import dayjs from "https://cdn.jsdelivr.net/npm/dayjs@1.11.13/+esm";
+import { navigateTo } from "../../FRONTEND/SCRIPTS/MODULES/navigation.js";
 
 export const userOrders = getUserOrders(); //Stores orders for all users
 
@@ -26,6 +27,9 @@ function getActiveUserOrders() {
     return orderObject.orders;
 }
 function createOrderObject() {
+    if (!activeUser.id) {
+        return;
+    }
     const orderObject = {
         id: activeUser.id,
         orders: []
@@ -47,7 +51,7 @@ function generateOrderId(cart) {
 
 function checkDuplicateOrders(newOrder) {
     const matchingOrder = activeUserOrders.find(
-        (order) => order.id === newOrder.id
+        (order) => order.id === newOrder.id && order.status !== "cancelled"
     );
     return matchingOrder;
 }
@@ -58,6 +62,11 @@ export function createOrder(cart, name, address) {
     const shippedDate = orderDate.add(6, "hour");
     const deliveryDate = orderDate.add(24, "hour");
     const orderId = generateOrderId(cart);
+    cart.forEach((cartItem) => {
+        //Attach the order id to each product
+        cartItem.orderId = orderId;
+    });
+
     const newOrder = {
         id: orderId,
         total: total,
@@ -85,13 +94,43 @@ export function updateOrders() {
             return;
         }
         const now = dayjs();
+        const orderDate = dayjs(order.orderDate);
         const shippedDate = dayjs(order.shippedDate);
         const deliveryDate = dayjs(order.deliveryDate);
-        if (now >= shippedDate && now < deliveryDate) {
+        if (now > orderDate.add(10, "minute") && now < shippedDate) {
+            order.status = "confirmed";
+        } else if (now >= shippedDate && now < deliveryDate) {
             order.status = "shipped";
         } else if (now >= deliveryDate) {
             order.status = "delivered";
         }
     });
     saveUserOrders();
+}
+
+export function getOrder(id) {
+    const order = activeUserOrders.find((orderObject) => orderObject.id === id);
+    return order;
+}
+
+export function cancelOrder(id) {
+    const order = activeUserOrders.find((orderObject) => orderObject.id === id);
+    if (!order) {
+        notify("danger", "Invalid order");
+        return;
+    }
+    order.status = "cancelled";
+    saveUserOrders();
+    return true;
+}
+
+export function setActiveViewingOrder(order) {
+    localStorage.setItem("active-viewing-order", JSON.stringify(order));
+}
+export function getActiveViewingOrder() {
+    return JSON.parse(localStorage.getItem("active-viewing-order"));
+}
+export function viewOrder(order) {
+    setActiveViewingOrder(order);
+    navigateTo("../../PAGES/USER/order_view.html", 0);
 }

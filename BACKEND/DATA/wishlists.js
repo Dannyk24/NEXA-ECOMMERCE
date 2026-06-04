@@ -23,6 +23,9 @@ function getActiveUserWishlist() {
     return wishlistObject.wishlist;
 }
 function createWishlistObject() {
+    if (!activeUser.id) {
+        return;
+    }
     const wishlistObject = {
         id: activeUser.id,
         wishlist: []
@@ -39,14 +42,14 @@ export function addToWishlist(product) {
     //addToWishlist() also handles matching product check logic
     const matchingProduct = checkMatchingWishlistItem(product.id);
     if (matchingProduct) {
-        notify("error", "product already in wishlist");
+        notify("error", "Product already in wishlist");
         return;
     } else {
         const newWishlistItem = {
             id: product.id
         };
         activeUserWishlist.push(newWishlistItem);
-        notify("success", "product added to wishlist");
+        notify("success", "Product added to wishlist");
     }
     saveUserWishlists();
 }
