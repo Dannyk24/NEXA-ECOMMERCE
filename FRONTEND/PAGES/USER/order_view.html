@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXA | VIEW ORDER</title>
+    <link rel="shortcut icon" href="../../ASSETS/IMAGES/favicon-white.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/style.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/header.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/authenticated_header.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/toasts.css">
+    <link rel="stylesheet" href="../../ASSETS/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../CSS/CUSTOM/USER/order_view.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/modals.css">
+    <link rel="stylesheet" href="../../CSS/GLOBAL/back_button.css">
+</head>
+
+<body>
+    <header>
+        <div class="overlay"></div>
+        <div class="menu-toggle-mobile"><i class="fas fa-bars"></i></div>
+        <div class="top-light"></div>
+        <div class="header-left">
+            <div class="logo"><a href="../../PAGES/USER/homepage.html"><img src="../../ASSETS/IMAGES/nexa-logo.svg"
+                        alt=""></a>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="search-bar-container">
+                <a class="search-icon-container" href="#">
+                    <i class="fas fa-search"></i>
+                </a>
+                <input type="search" placeholder="Search products...." id="header-search-bar">
+            </div>
+            <a class="header-icon" href="../../PAGES/USER/wishlist.html" title="Wishlist">
+                <i class="fas fa-shopping-bag"></i>
+            </a>
+            <a class="header-icon" href="../../PAGES/USER/cart.html" title="My Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <div class="number-badge-display">0</div>
+            </a>
+            <a class="header-icon" href="../../PAGES/USER/profile.html" title="Profile">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+        <div class="authenticated-mobile-nav">
+            <div class="top">
+                <a class="authenticated-nav-item" href="../USER/homepage.html">
+                    <i class="fas fa-house"></i>
+                    <span>Home</span>
+                </a>
+                <a class="authenticated-nav-item" href="../USER/wishlist.html">
+                    <i class="fas fa-heart"></i>
+                    <span>Wishlist</span>
+                </a>
+                <a class="authenticated-nav-item" href="../USER/cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                </a>
+                <a class="authenticated-nav-item" href="../USER/profile.html">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </div>
+            <div class="bottom">
+                <button class="log-out-button">Log out</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <a class="back-button" href="../../PAGES/USER/homepage.html"><i class="fas fa-arrow-left"></i></a>
+        <main>
+            <div class="left">
+                <div class="section-header">Order ID: <span class="order-id">1290</span></div>
+                <div class="order-cta-container">
+                    <div class="order-status shipped-order-status">Shipped</div>
+                    <div class="order-cancel-button">cancel order</div>
+                    <div class="cta secondary-cta buy-again-cta">buy again</div>
+                </div>
+                <div class="order-tracking-container">
+                    <div class="order-state-info-container">
+                        <div class="left">
+                            <i class="fas fa-clock order-pending-icon"></i>
+                            <div class="decorative-line"></div>
+                        </div>
+                        <div class="right">
+                            <p>Pending</p>
+                            <span>order awaiting confirmation</span>
+                        </div>
+                    </div>
+                    <div class="order-state-info-container">
+                        <div class="left">
+                            <i class="fas fa-check-circle order-confirmed-icon"></i>
+                            <div class="decorative-line"></div>
+                        </div>
+                        <div class="right">
+                            <p>Confirmed</p>
+                            <span>order confirmed</span>
+                        </div>
+                    </div>
+                    <div class="order-state-info-container">
+                        <div class="left">
+                            <i class="fas fa-truck-fast order-shipped-icon"></i>
+                            <div class="decorative-line"></div>
+                        </div>
+                        <div class="right">
+                            <p>Shipped</p>
+                            <span>order shipped to warehouse</span>
+                            <div class="order-date">Jun 1,2026</div>
+                        </div>
+                    </div>
+                    <div class="order-state-info-container">
+                        <div class="left">
+                            <i class="fas fa-house order-delivered-icon"></i>
+                            <div class="decorative-line"></div>
+                        </div>
+                        <div class="right">
+                            <p>Delivered</p>
+                            <span>order successfully delivered</span>
+                            <div class="order-date">Jun 2,2026</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-details-container">
+                    <div class="order-details-field-container">
+                        <div class="field-header">contact information</div>
+                        <p class="field-info">teckydan@gmail.com</p>
+                    </div>
+                    <div class="order-details-field-container">
+                        <div class="field-header">order address</div>
+                        <p class="field-info">olajire daniel</p>
+                        <p class="field-info">house 32 ikeja street, jedo mass housing estate lugbe abuja nigeria</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="order-products-list">
+                    <div class="order-product-container">
+                        <div class="product-image-container">
+                            <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/earbuds-1.webp" alt="">
+                            <div class="product-quantity-badge">1</div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-name">Jumper wire set female</p>
+                            <span class="product-price">$193.00</span>
+                        </div>
+                    </div>
+                    <div class="order-product-container">
+                        <div class="product-image-container">
+                            <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/earbuds-1.webp" alt="">
+                            <div class="product-quantity-badge">1</div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-name">Jumper wire set female</p>
+                            <span class="product-price">$193.00</span>
+                        </div>
+                    </div>
+                    <div class="order-product-container">
+                        <div class="product-image-container">
+                            <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/earbuds-1.webp" alt="">
+                            <div class="product-quantity-badge">1</div>
+                        </div>
+                        <div class="product-info">
+                            <p class="product-name">Jumper wire set female</p>
+                            <span class="product-price">$193.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+
+
+
+    <script type="module" src="../../SCRIPTS/MODULES/main.js"></script>
+    <script src="../../SCRIPTS/MODULES/authenticated_header.js" type="module"></script>
+    <script type="module" src="../../SCRIPTS/USER/order_view.js"></script>
+    <script src="../../SCRIPTS/MODULES/back_button.js"></script>
+</body>
+
+</html>
