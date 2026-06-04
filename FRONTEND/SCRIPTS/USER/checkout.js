@@ -137,7 +137,7 @@ reviewFormSubmitButton.addEventListener("click", () => {
     }
     clearActiveUsersCart();
     notify("success", "Order Submitted");
-    navigateTo("./cart.html", 2000);
+    navigateTo("./profile.html", 2000);
 });
 
 const cardNumberInput = document.querySelector(".card-number-input");
@@ -158,7 +158,7 @@ function validatePaymentForm() {
         return;
     }
 
-    if (expiryDate.length < 5 || expiryDate.length > 7) {
+    if (expiryDate.length < 4 || expiryDate.length > 7) {
         notify("warning", "invalid expiry date");
         return;
     }
