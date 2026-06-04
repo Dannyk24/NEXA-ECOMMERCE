@@ -234,34 +234,6 @@
     font-weight: 700;
 }
 
-.order-status {
-    padding: 8px 16px;
-    text-transform: capitalize;
-    font-size: 13px;
-    font-weight: 700;
-    border-radius: 20px;
-}
-
-.pending-order-status {
-    background-color: var(--surface-color);
-    color: var(--primary-color);
-}
-
-.shipped-order-status {
-    background-color: var(--secondary-color);
-    color: var(--primary-text-color);
-}
-
-.delivered-order-status {
-    background-color: var(--success-color);
-    color: var(--primary-text-color);
-}
-
-.cancelled-order-status {
-    background-color: var(--surface-color);
-    color: var(--secondary-text-color);
-}
-
 #user-data-cards-section {
     margin-top: 50px;
 }
