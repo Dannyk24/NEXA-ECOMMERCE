@@ -14,12 +14,13 @@ import {
     checkMatchingUsername
 } from "../../../BACKEND/AUTH/MODULES/validate.js";
 import { notify } from "../MODULES/notifyUser.js";
-import { activeUserOrders } from "../../../BACKEND/DATA/orders.js";
+import { activeUserOrders, viewOrder } from "../../../BACKEND/DATA/orders.js";
 import {
     getProduct,
     getProductImage
 } from "../../../BACKEND/DATA/productsMethods.js";
 import { products } from "../../../BACKEND/DATA/products.js";
+import { getOrder } from "../../../BACKEND/DATA/orders.js";
 import dayjs from "https://cdn.jsdelivr.net/npm/dayjs@1.11.13/+esm";
 
 const editProfileButton = document.querySelector(".edit-profile-cta");
@@ -61,11 +62,23 @@ function renderUserprofile() {
     const username = document.querySelector(".username");
     const email = document.querySelector(".user-email");
     const phoneNumber = document.querySelector(".user-phone-number");
+    const totalOrders = document.querySelector(".total-orders");
+    const rewardPoints = document.querySelector(".total-reward-points");
 
     profileAvatar.textContent = activeUser.username[0]; //Use first letter
     username.textContent = activeUser.username;
     email.textContent = activeUser.email;
     phoneNumber.textContent = activeUser.phoneNumber || "null";
+
+    const activeOrders = activeUserOrders.filter(
+        (order) => order.status !== "cancelled"
+    );
+    totalOrders.textContent = activeOrders.length;
+
+    const deliveredOrders = activeUserOrders.filter(
+        (order) => order.status === "delivered"
+    );
+    rewardPoints.textContent = deliveredOrders.length * 10;
 }
 
 const userProfileForm = document.querySelector("#user-info-modal");
@@ -143,40 +156,32 @@ updateAddressFormModalCloseButton.addEventListener("click", () => {
 const recentOrdersContainer = document.querySelector(
     ".recent-orders-container"
 );
+
 function renderRecentOrders() {
     recentOrdersContainer.innerHTML = "";
+    const recentOrderProducts = getRecentOrdersProducts();
+    if (recentOrderProducts.length === 0) {
+        recentOrdersContainer.textContent = "You have no recent Orders";
+        return;
+    }
     for (let i = 0; i < 3; i++) {
-        const sortedOrders = activeUserOrders.slice().reverse();
-        const order = sortedOrders[i];
-        if (i === 0 && !order) {
-            //Check if user has no orders
-            recentOrdersContainer.textContent = "You have no orders";
+        const orderItem = recentOrderProducts[i];
+        if (!orderItem) {
             break;
         }
-        if (!order) {
-            break;
-        }
-        for (let index = 0; index < order.products.length; index++) {
-            const orderItem = order.products[index];
-            if (!orderItem) {
-                break;
-            }
-            const product = getProduct(orderItem.id);
-            const productImage = getProductImage(product);
-            const deliveryDate = dayjs(order.deliveryDate).format(
-                "MMM D, YYYY"
-            );
-            const orderItemTotal = (product.price * orderItem.quantity).toFixed(
-                2
-            );
-            recentOrdersContainer.innerHTML += `
+        const order = getOrder(orderItem.orderId);
+        const product = getProduct(orderItem.id);
+        const productImage = getProductImage(product);
+        const deliveryDate = dayjs(order.deliveryDate).format("MMM D, YYYY");
+        const orderItemTotal = (product.price * orderItem.quantity).toFixed(2);
+        recentOrdersContainer.innerHTML += `
                 <div class="recent-order-container" data-order-id="${order.id}">
                     <div class="left">
                         <div class="product-image">
                             <img src="../../../${productImage}" alt="">
                         </div>
                         <div class="product-info">
-                            <div class="product-id">Order ID: #${order.id}</div>
+                            <div class="product-id">Order ID: ${order.id}</div>
                             <div class="product-name">${product.name}</div>
                             <div class="product-delivery-date">Delivered on <span>${deliveryDate}</span></div>
                         </div>
@@ -190,28 +195,43 @@ function renderRecentOrders() {
                     </div>
                 </div>
             `;
-        }
     }
 }
 
 renderRecentOrders();
 
+recentOrdersContainer.addEventListener("click", (e) => {
+    if (!e.target.closest(".recent-order-container")) {
+        return;
+    }
+    const recentOrderContainer = e.target.closest(".recent-order-container");
+    const orderId = recentOrderContainer.dataset.orderId;
+    const order = getOrder(orderId);
+    viewOrder(order);
+});
+
 function getRecentOrdersProducts(numberOfProducts) {
     let recentOrdersProducts = [];
-    for (let i = 0; i < numberOfProducts; i++) {
-        const order = activeUserOrders[i];
+    const sortedRecentOrderProducts = activeUserOrders.slice().reverse();
+
+    for (let i = 0; i < 3; i++) {
+        const order = sortedRecentOrderProducts[i];
         if (!order) {
             break;
         }
-        const orderProducts = order.products;
-        for (let i = 0; i < 3; i++) {
-            const product = orderProducts[i];
+        if (recentOrdersProducts.length >= 3) {
+            break;
+        }
+        for (let index = 0; index < 3; index++) {
+            const orderProducts = order.products.slice().reverse();
+            const product = orderProducts[index];
             if (!product) {
                 break;
             }
             recentOrdersProducts.push(product);
         }
     }
+
     return recentOrdersProducts;
 }
 

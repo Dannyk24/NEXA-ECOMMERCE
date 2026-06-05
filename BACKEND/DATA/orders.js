@@ -4,6 +4,7 @@ import { notify } from "../../FRONTEND/SCRIPTS/MODULES/notifyUser.js";
 import { calculateCartTotal } from "./carts.js";
 import dayjs from "https://cdn.jsdelivr.net/npm/dayjs@1.11.13/+esm";
 import { navigateTo } from "../../FRONTEND/SCRIPTS/MODULES/navigation.js";
+import { generateRandomIndex } from "../../FRONTEND/SCRIPTS/UTILS/generate.js";
 
 export const userOrders = getUserOrders(); //Stores orders for all users
 
@@ -42,16 +43,28 @@ export function saveUserOrders() {
 }
 
 function generateOrderId(cart) {
-    let orderId = 0;
+    let orderId;
+    let orderIdString = "";
+    let orderIdNumber = 0;
     cart.forEach((cartItem) => {
-        orderId += cartItem.id;
+        orderIdNumber += cartItem.id;
     });
+    let duplicateOrder;
+    do {
+        orderIdString = "";
+        const letters = ["a", "b", "c", "d", "e", "f", "g"];
+        for (let i = 0; i < 4; i++) {
+            orderIdString += letters[generateRandomIndex(letters)];
+        }
+        orderId = orderIdNumber + orderIdString;
+        duplicateOrder = activeUserOrders.find((order) => order.id === orderId);
+    } while (duplicateOrder);
     return orderId;
 }
 
 function checkDuplicateOrders(newOrder) {
     const matchingOrder = activeUserOrders.find(
-        (order) => order.id === newOrder.id && order.status !== "cancelled"
+        (order) => order.id === newOrder.id
     );
     return matchingOrder;
 }
@@ -114,9 +127,12 @@ export function getOrder(id) {
 }
 
 export function cancelOrder(id) {
-    const order = activeUserOrders.find((orderObject) => orderObject.id === id);
+    const order = activeUserOrders.find(
+        (orderObject) =>
+            orderObject.id === id && orderObject.status !== "cancelled"
+    );
     if (!order) {
-        notify("danger", "Invalid order");
+        notify("danger", "Order cancel failed");
         return;
     }
     order.status = "cancelled";

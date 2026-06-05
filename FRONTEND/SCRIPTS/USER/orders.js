@@ -116,7 +116,8 @@ ordersContainer.addEventListener("click", (e) => {
         confirmationModal.dataset.id = orderId;
     } else if (e.target.closest(".order-container")) {
         const orderContainer = e.target.closest(".order-container");
-        const order = getOrder(Number(orderContainer.dataset.id));
+        const orderId = orderContainer.dataset.id;
+        const order = getOrder(orderId);
         viewOrder(order);
     }
 });
@@ -125,10 +126,10 @@ const overlay = document.querySelector(".overlay");
 overlay.addEventListener("click", () => {
     closeModal("confirmation-modal");
 });
-const confrimationModalCloseButton = confirmationModal.querySelector(
+const confirmationModalCloseButton = confirmationModal.querySelector(
     ".modal-close-button"
 );
-confrimationModalCloseButton.addEventListener("click", () => {
+confirmationModalCloseButton.addEventListener("click", () => {
     closeModal("confirmation-modal");
 });
 
@@ -143,7 +144,7 @@ const cancelOrderConfirmationButton = document.querySelector(
 
 cancelOrderConfirmationButton.addEventListener("click", (e) => {
     e.preventDefault();
-    const orderId = Number(confirmationModal.dataset.id);
+    const orderId = confirmationModal.dataset.id;
     const orderContainer = document.querySelector(`[data-id = "${orderId}"]`);
     if (!cancelOrder(orderId)) {
         return;
