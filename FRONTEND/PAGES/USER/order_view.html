@@ -72,7 +72,7 @@
     <div class="wrapper">
         <a class="back-button" href="../../PAGES/USER/homepage.html"><i class="fas fa-arrow-left"></i></a>
         <main>
-            <div class="left">
+            <div class="left order-view-left">
                 <div class="section-header">Order ID: <span class="order-id">1290</span></div>
                 <div class="order-cta-container">
                     <div class="order-status shipped-order-status">Shipped</div>
@@ -80,7 +80,7 @@
                     <div class="cta secondary-cta buy-again-cta">buy again</div>
                 </div>
                 <div class="order-tracking-container">
-                    <div class="order-state-info-container">
+                    <div class="order-state-info-container" id="pending-state-container">
                         <div class="left">
                             <i class="fas fa-clock order-pending-icon"></i>
                             <div class="decorative-line"></div>
@@ -90,7 +90,7 @@
                             <span>order awaiting confirmation</span>
                         </div>
                     </div>
-                    <div class="order-state-info-container">
+                    <div class="order-state-info-container" id="confirmed-state-container">
                         <div class="left">
                             <i class="fas fa-check-circle order-confirmed-icon"></i>
                             <div class="decorative-line"></div>
@@ -100,7 +100,7 @@
                             <span>order confirmed</span>
                         </div>
                     </div>
-                    <div class="order-state-info-container">
+                    <div class="order-state-info-container" id="shipped-state-container">
                         <div class="left">
                             <i class="fas fa-truck-fast order-shipped-icon"></i>
                             <div class="decorative-line"></div>
@@ -111,7 +111,7 @@
                             <div class="order-date">Jun 1,2026</div>
                         </div>
                     </div>
-                    <div class="order-state-info-container">
+                    <div class="order-state-info-container" id="delivered-state-container">
                         <div class="left">
                             <i class="fas fa-house order-delivered-icon"></i>
                             <div class="decorative-line"></div>
@@ -137,39 +137,30 @@
             </div>
             <div class="right">
                 <div class="order-products-list">
-                    <div class="order-product-container">
-                        <div class="product-image-container">
-                            <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/earbuds-1.webp" alt="">
-                            <div class="product-quantity-badge">1</div>
-                        </div>
-                        <div class="product-info">
-                            <p class="product-name">Jumper wire set female</p>
-                            <span class="product-price">$193.00</span>
-                        </div>
-                    </div>
-                    <div class="order-product-container">
-                        <div class="product-image-container">
-                            <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/earbuds-1.webp" alt="">
-                            <div class="product-quantity-badge">1</div>
-                        </div>
-                        <div class="product-info">
-                            <p class="product-name">Jumper wire set female</p>
-                            <span class="product-price">$193.00</span>
-                        </div>
-                    </div>
-                    <div class="order-product-container">
-                        <div class="product-image-container">
-                            <img src="../../ASSETS/IMAGES/PRODUCT-IMAGES/earbuds-1.webp" alt="">
-                            <div class="product-quantity-badge">1</div>
-                        </div>
-                        <div class="product-info">
-                            <p class="product-name">Jumper wire set female</p>
-                            <span class="product-price">$193.00</span>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </main>
+    </div>
+
+    <form class="primary-modal" id="confirmation-modal">
+        <div class="modal-close-button"><i class="fas fa-x"></i></div>
+        <div class="modal-header">Confirmation</div>
+        <p class="modal-subheader">Are you sure you want to cancel this order?</p>
+
+        <button class="cta primary-cta cancel-order-confirmation-button"> <i class="fas fa-trash"></i>Confirm</button>
+    </form>
+
+    <!--TOAST-->
+    <div class="toast-container">
+        <div class="toast-background"></div>
+        <div class="toast-icon">
+            <i class="fas fa-check"></i>
+        </div>
+        <div class="toast-data">
+            <div class="toast-header"></div>
+            <div class="toast-message"></div>
+        </div>
     </div>
 
 

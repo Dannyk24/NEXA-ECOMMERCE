@@ -6,6 +6,10 @@ main {
     gap: 50px;
 }
 
+.section-header {
+    text-transform: uppercase;
+}
+
 .order-cta-container {
     display: flex;
     gap: 20px;
@@ -27,6 +31,56 @@ main {
     margin-top: 40px;
 }
 
+
+
+.pending-order-tracking-container {
+    #pending-state-container {
+        display: flex;
+    }
+}
+
+.confirmed-order-tracking-container {
+    #pending-state-container {
+        display: flex;
+    }
+
+    #confirmed-state-container {
+        display: flex;
+    }
+}
+
+.shipped-order-tracking-container {
+    #pending-state-container {
+        display: flex;
+    }
+
+    #confirmed-state-container {
+        display: flex;
+    }
+
+    #shipped-state-container {
+        display: flex;
+    }
+}
+
+.delivered-order-tracking-container {
+    #pending-state-container {
+        display: flex;
+    }
+
+    #confirmed-state-container {
+        display: flex;
+    }
+
+    #shipped-state-container {
+        display: flex;
+    }
+
+    #delivered-state-container {
+        display: flex;
+    }
+}
+
 .order-state-icons {
     display: flex;
     flex-direction: column;
@@ -45,6 +99,7 @@ main {
     display: flex;
     align-items: top;
     gap: 10px;
+    display: none;
 }
 
 .order-state-info-container .left {
@@ -170,6 +225,33 @@ main {
     color: var(--secondary-text-color);
     font-weight: 700;
 }
+
+.cancel-order-confirmation-button {
+    width: 100%;
+    justify-content: center;
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media(max-width:1024px) {
     main {
