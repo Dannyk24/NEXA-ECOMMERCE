@@ -42,7 +42,7 @@ export function addToWishlist(product) {
     //addToWishlist() also handles matching product check logic
     const matchingProduct = checkMatchingWishlistItem(product.id);
     if (matchingProduct) {
-        notify("error", "Product already in wishlist");
+        notify("warning", "Product already in wishlist");
         return;
     } else {
         const newWishlistItem = {
