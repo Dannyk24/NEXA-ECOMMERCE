@@ -10,15 +10,21 @@ import { getProduct } from "../../../BACKEND/DATA/productsMethods.js";
 import { getProductImage } from "../../../BACKEND/DATA/productsMethods.js";
 import { openModal, closeModal } from "../MODULES/modals.js";
 import { notify } from "../MODULES/notifyUser.js";
+import { debounce } from "../UTILS/performace.js";
+import { formatString } from "../UTILS/format.js";
 
 const ordersContainer = document.querySelector(".orders-list");
-function renderOrders() {
+function renderOrders(ordersArray) {
     ordersContainer.innerHTML = "";
     if (activeUserOrders.length === 0) {
         ordersContainer.textContent = "You have no orders";
         return;
     }
-    const sortedOrders = activeUserOrders.slice().reverse();
+    if (ordersArray.length === 0) {
+        ordersContainer.textContent = "No matching orders found for this query";
+        return;
+    }
+    const sortedOrders = ordersArray.slice().reverse();
     sortedOrders.forEach((order) => {
         const orderDate = dayjs(order.orderDate).format("MMM D, YYYY");
         const deliveryDate = dayjs(order.deliveryDate).format("MMM D, YYYY");
@@ -104,7 +110,7 @@ function renderOrderProductsImage(order) {
     });
 }
 
-renderOrders();
+renderOrders(activeUserOrders);
 
 const confirmationModal = document.querySelector("#confirmation-modal");
 ordersContainer.addEventListener("click", (e) => {
@@ -153,3 +159,22 @@ cancelOrderConfirmationButton.addEventListener("click", (e) => {
     closeModal("confirmation-modal");
     notify("success", "Order cancelled");
 });
+
+const ordersSearchInput = document.querySelector("#orders-search");
+ordersSearchInput.addEventListener("input", () => {
+    const query = formatString(ordersSearchInput.value);
+    const debounceFunction = debounce(renderOrders, 500);
+    const searchResult = filterOrders(query);
+    const searchFunction = debounceFunction(searchResult);
+});
+
+function filterOrders(query) {
+    const result = [];
+    activeUserOrders.forEach((orderObject) => {
+        if (orderObject.id.includes(query)) {
+            result.push(orderObject);
+        }
+    });
+
+    return result;
+}

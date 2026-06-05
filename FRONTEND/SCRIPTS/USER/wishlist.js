@@ -20,6 +20,7 @@ function renderWishlistProducts() {
         productsGrid.textContent = "You have no wishlist items";
         return;
     }
+    productsGrid.innerHTML = "";
     activeUserWishlist.forEach((wishlistItem) => {
         const product = getProduct(wishlistItem.id);
         const productImage = getProductImage(product);
