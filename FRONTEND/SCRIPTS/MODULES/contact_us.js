@@ -1,4 +1,4 @@
-import { addNewTicket } from "../../../BACKEND/DATA/messages.js";
+import { addNewTicket } from "../../../BACKEND/DATA/tickets.js";
 import { activeUser } from "../../../BACKEND/DATA/user.js";
 import dayjs from "https://cdn.jsdelivr.net/npm/dayjs@1.11.13/+esm";
 import { notify } from "./notifyUser.js";
@@ -36,7 +36,8 @@ formSubmitButton.addEventListener("click", (e) => {
         email: ticketEmail,
         category: ticketCategory,
         message: ticketMessage,
-        date: ticketDate
+        date: ticketDate,
+        status: "pending"
     };
 
     addNewTicket(newTicket);

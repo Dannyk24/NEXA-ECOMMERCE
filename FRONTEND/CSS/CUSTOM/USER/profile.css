@@ -241,9 +241,12 @@
 
 .user-data-cards-container {
     margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.default-address-card {
+.user-data-card {
     padding: 20px;
     background-color: var(--secondary-background);
     border-radius: 20px;
@@ -289,6 +292,25 @@
     font-size: 14px;
 }
 
+.log-out-button {
+    width: 140px;
+    border-style: none;
+    background: none;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--secondary-color) !important;
+    border-radius: 10px;
+    color: var(--primary-text-color) !important;
+    font-weight: 900;
+    font-size: 16px;
+    margin-top: 60px;
+    cursor: pointer;
+    transition: var(--general-transition);
+}
+
+.log-out-button:hover {
+    opacity: 0.8;
+}
 
 
 
@@ -377,5 +399,9 @@
         position: absolute;
         right: 20px;
         bottom: 20px;
+    }
+
+    .user-data-card {
+        min-width: 0;
     }
 }

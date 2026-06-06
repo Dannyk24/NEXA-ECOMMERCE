@@ -12,6 +12,7 @@ import {
 } from "../../../BACKEND/DATA/search.js";
 import { navigateTo } from "./navigation.js";
 import { notify } from "./notifyUser.js";
+import { logOutUser } from "../../../BACKEND/DATA/user.js";
 /*Mobile sidebar toggle*/
 
 /*=====HELPERS=====*/
@@ -65,4 +66,11 @@ searchInput.addEventListener("search", () => {
     }
     saveSearchQuery(query);
     navigateTo("../../PAGES/USER/search_results.html", 0);
+});
+
+const logOutButtons = document.querySelectorAll(".log-out-button");
+logOutButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        logOutUser();
+    });
 });

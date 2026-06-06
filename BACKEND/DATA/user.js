@@ -1,3 +1,6 @@
+import { navigateTo } from "../../FRONTEND/SCRIPTS/MODULES/navigation.js";
+import { notify } from "../../FRONTEND/SCRIPTS/MODULES/notifyUser.js";
+
 export let activeUser = getActiveUser() || {
     id: null,
     username: null,
@@ -60,4 +63,10 @@ export function checkActiveUser() {
 export function getUser(id) {
     const user = users.find((user) => user.id === id);
     return user;
+}
+
+export function logOutUser() {
+    sessionStorage.removeItem("active-user");
+    notify("success", "user logged out");
+    navigateTo("../../../index.html", 1000);
 }
