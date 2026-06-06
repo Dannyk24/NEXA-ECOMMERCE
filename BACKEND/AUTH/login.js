@@ -51,9 +51,9 @@ function authenticateUser(e) {
     );
     saveActiveUser();
     if (activeUser.role === "admin") {
-        navigateTo("../ADMIN/admin-dashboard.html", 2000);
+        navigateTo("../ADMIN/admin-dashboard.html", 1000);
     } else {
-        navigateTo("homepage.html", 2000);
+        navigateTo("homepage.html", 1000);
     }
 }
 document.body.addEventListener("click", (e) => {
