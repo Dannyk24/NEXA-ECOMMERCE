@@ -1,0 +1,13 @@
+.product-cta-container {
+    display: flex;
+    gap: 20px;
+}
+
+#search-results-products-grid {
+    margin-top: 30px;
+}
+
+.search-results-length {
+    font-size: 16px;
+    font-weight: 700;
+}

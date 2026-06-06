@@ -176,20 +176,20 @@
                     </div>
                 </div>
                 <div class="right-section">
-                    <form action="#">
+                    <form action="#" id="contact-us-form">
                         <div class="form-top">
                             <div class="contact-form-input-field-container">
                                 <label for="name">name</label>
-                                <input type="text" placeholder="John Doe" required>
+                                <input type="text" placeholder="John Doe" required class="ticket-name">
                             </div>
                             <div class="contact-form-input-field-container">
                                 <label for="email">email</label>
-                                <input type="email" placeholder="john@example.com" required>
+                                <input type="email" placeholder="john@example.com" required class="ticket-email">
                             </div>
                         </div>
                         <div class="contact-form-input-field-container">
                             <label for="subject">subject</label>
-                            <select name="subjet" id="">
+                            <select name="subjet" class="ticket-category">
                                 <option value="general-inquiry" selected>General inquiry</option>
                                 <option value="order-related-issues">Order related issues</option>
                                 <option value="issues-logging-in">Issues logging in</option>
@@ -200,7 +200,8 @@
                         </div>
                         <div class="contact-form-input-field-container">
                             <label for="message">message</label>
-                            <textarea name="message" id="" placeholder="What can we do for you today?"></textarea>
+                            <textarea name="message" placeholder="What can we do for you today?" required
+                                class="ticket-message" minlength="12"></textarea>
                         </div>
                         <button type="submit" class="primary-cta cta send-message-btn">send message <i
                                 class="fas fa-paper-plane"></i></button>
@@ -309,6 +310,7 @@
     <script src="../../SCRIPTS/USER/homepage.js" type="module"></script>
     <script src="../../SCRIPTS/MODULES/faqs.js"></script>
     <script src="../../SCRIPTS/MODULES/authenticated_header.js" type="module"></script>
+    <script src="../../SCRIPTS/MODULES/contact_us.js" type="module"></script>
 
 </body>
 
