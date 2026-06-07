@@ -43,7 +43,7 @@ This project was built to practice frontend development using HTML, CSS, and Jav
 ---
 
 ## SITE IS LIVE AT
-https://dannyk24.github.io/
+https://dannyk24.github.io/NEXA-ECOMMERCE/
 
 ## 🎯 Purpose
 
